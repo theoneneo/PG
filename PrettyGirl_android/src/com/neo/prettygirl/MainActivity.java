@@ -1,6 +1,11 @@
 package com.neo.prettygirl;
 
+import java.io.File;
+import java.io.InputStream;
+
 import com.neo.prettygirl.fragment.PGMainFragment;
+
+import com.tool.Encryption;
 import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -11,8 +16,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+
 public class MainActivity extends FragmentActivity {
-	private static final String[] CONTENT = new String[] { "百度", "我的"};
+	private static final String[] CONTENT = new String[] { "鐧惧害", "鎴戠殑"};
 
 	private MainAdapter adapter;
 	private PGMainFragment notificListFragment;
@@ -23,6 +29,14 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
+//        InputStream fis = getClass().getResourceAsStream("/assets/test/test.jpg");
+//        File load = new File("/mnt/sdcard/test.png");
+//        try {
+//			Encryption.encrAssetsFile(fis, load, 1);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     }
     
     private void initUI(){
