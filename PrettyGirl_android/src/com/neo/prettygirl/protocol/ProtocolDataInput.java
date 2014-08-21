@@ -8,19 +8,18 @@ import org.json.JSONTokener;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
+import com.neo.tools.Utf8Code;
 
 import android.text.TextUtils;
 
 public class ProtocolDataInput {
 
-	public static boolean parseMainImageListDataToJson(String input)
+	public static boolean parseMainImageListDataToJson(JSONObject obj)
 			throws JSONException {
-		if (input == null || TextUtils.isEmpty(input)) {
+		if (obj == null) {
 			return false;
 		}
 		try {
-			JSONTokener jsonParser = new JSONTokener(input);
-			JSONObject obj = (JSONObject) jsonParser.nextValue();
 			JSONArray arrays = obj.getJSONArray("data");
 			for (int i = 0; i < arrays.length(); i++) {
 				JSONObject item = (JSONObject) arrays.opt(i);
@@ -40,14 +39,12 @@ public class ProtocolDataInput {
 		return false;
 	}
 
-	public static boolean parseAllImageListDataToJson(String input)
+	public static boolean parseAllImageListDataToJson(JSONObject obj)
 			throws JSONException {
-		if (input == null || TextUtils.isEmpty(input)) {
+		if (obj == null) {
 			return false;
 		}
 		try {
-			JSONTokener jsonParser = new JSONTokener(input);
-			JSONObject obj = (JSONObject) jsonParser.nextValue();
 			JSONArray arrays = obj.getJSONArray("data");
 			for (int i = 0; i < arrays.length(); i++) {
 				JSONObject item = (JSONObject) arrays.opt(i);
@@ -55,7 +52,7 @@ public class ProtocolDataInput {
 				data.res_id = item.optString("res_id");
 				data.parent_res_id = item.optString("parent_res_id");
 				data.link = item.optString("link");
-				data.text = item.optString("text");
+				data.text = Utf8Code.utf8Decode(item.optString("text"));
 				data.coin = item.optString("coin");
 				ImageDataManager.getInstance().addGroupImage(data);
 			}

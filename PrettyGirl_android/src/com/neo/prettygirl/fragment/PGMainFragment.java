@@ -10,6 +10,7 @@ import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageMemoryCache.OnImageCallbackListener;
 
 import com.neo.prettygirl.R;
+import com.neo.prettygirl.controller.ImageDataManager;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -56,7 +57,6 @@ public class PGMainFragment extends BaseFragment {
 		LayoutInflater mInflater = LayoutInflater.from(getActivity());
 		View v = mInflater.inflate(R.layout.fragment_grid, null);
 
-		initImageUrlList();
 		IMAGE_CACHE.initData(getActivity(), TAG_CACHE);
 		IMAGE_CACHE.setContext(getActivity());
 		IMAGE_CACHE.setCacheFolder(DEFAULT_CACHE_FOLDER);
@@ -107,11 +107,10 @@ public class PGMainFragment extends BaseFragment {
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-
-			// holder.row_image.setImageResource(R.drawable.ic_launcher);
-
 			// get image
-			IMAGE_CACHE.get(imageUrlList.get(position), holder.row_image);
+			IMAGE_CACHE.get(
+					ImageDataManager.getInstance().mainGroupImage.imageData
+							.get(position).link, holder.row_image);
 
 			return convertView;
 		}
@@ -119,7 +118,8 @@ public class PGMainFragment extends BaseFragment {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return 9;
+			return ImageDataManager.getInstance().mainGroupImage.imageData
+					.size();
 		}
 
 		@Override
@@ -138,30 +138,6 @@ public class PGMainFragment extends BaseFragment {
 	static class ViewHolder {
 		ImageView row_image;
 		TextView row_text;
-	}
-
-	private List<String> imageUrlList;
-
-	private void initImageUrlList() {
-		imageUrlList = new ArrayList<String>();
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7409/9148527822_36fa37d7ca_z.jpg");
-		imageUrlList
-				.add("http://farm4.staticflickr.com/3755/9148527824_6c156185ea.jpg");
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7318/9148527808_e804baef0b.jpg");
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7318/9146300275_5fe995d123.jpg");
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7288/9146300469_bd3420c75b_z.jpg");
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7351/9148527976_8a4e75ae87.jpg");
-		imageUrlList
-				.add("http://farm3.staticflickr.com/2888/9148527996_f05118d7de_o.jpg");
-		imageUrlList
-				.add("http://farm3.staticflickr.com/2863/9148527892_31f9377351_o.jpg");
-		imageUrlList
-				.add("http://farm8.staticflickr.com/7310/9148528008_8e8f51997a.jpg");
 	}
 
 	static {

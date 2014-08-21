@@ -17,10 +17,4 @@ public class DataBase {
 	public static final String CREATE_TABLE = "CREATE TABLE buy_data(_id INTEGER PRIMARY KEY AUTOINCREMENT"
 	    + ", res_id TEXT, parent_res_id TEXT, link TEXT, text TEXT, coin TEXT, buy INTEGER);";
     }
-    
-	public String res_id;
-	public String parent_res_id;
-	public String link;
-	public String text;
-	public String coin;
 }

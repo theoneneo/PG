@@ -22,8 +22,10 @@ import de.greenrobot.event.EventBus;
 public class NetServiceManager extends BaseManager {
 	private static NetServiceManager mInstance;
 
-	private static final String NET_GET_MAIN_IMAGE_LIST = "";
-	private static final String NET_GET_ALL_IMAGE_LIST = "";
+	private static final String NET_SERVER = "http://infocomm.duapp.com/";
+	private static final String NET_GET_MAIN_IMAGE_LIST = NET_SERVER
+			+ "getmainimage.py";
+	private static final String NET_GET_ALL_IMAGE_LIST = NET_SERVER + "getallimage.py";
 
 	private NetServiceManager(Application app) {
 		super(app);
@@ -63,31 +65,33 @@ public class NetServiceManager extends BaseManager {
 		try {
 			JSONObject obj = ProtocolDataOutput
 					.getMainImageListDataToJson(page);
-			mQueue.add(new JsonObjectRequest(Method.POST, NET_GET_MAIN_IMAGE_LIST,
-					obj, new Listener() {
+			mQueue.add(new JsonObjectRequest(Method.POST,
+					NET_GET_MAIN_IMAGE_LIST, obj, new Listener() {
 
 						@Override
 						public void onResponse(Object arg0) {
 							// TODO Auto-generated method stub
 							try {
+								boolean isSuccess = ProtocolDataInput
+										.parseMainImageListDataToJson((JSONObject)arg0);
 								EventBus.getDefault()
 										.post(new BroadCastEvent(
 												BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA,
-												ProtocolDataInput
-														.parseMainImageListDataToJson((String) arg0)));
+												isSuccess));
 							} catch (JSONException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 						}
-					}, new ErrorListener(){
+					}, new ErrorListener() {
 						@Override
 						public void onErrorResponse(VolleyError arg0) {
 							// TODO Auto-generated method stub
 							EventBus.getDefault()
-							.post(new BroadCastEvent(
-									BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA, false));
-						}			
+									.post(new BroadCastEvent(
+											BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA,
+											false));
+						}
 					}));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -95,38 +99,40 @@ public class NetServiceManager extends BaseManager {
 		}
 		mQueue.start();
 	}
-	
+
 	public void getAllImageListData(String res_id, int page) {
 		RequestQueue mQueue = Volley
 				.newRequestQueue(PGApplication.getContext());
 		try {
-			JSONObject obj = ProtocolDataOutput
-					.getAllImageListDataToJson(res_id, page);
-			mQueue.add(new JsonObjectRequest(Method.POST, NET_GET_ALL_IMAGE_LIST,
-					obj, new Listener() {
+			JSONObject obj = ProtocolDataOutput.getAllImageListDataToJson(
+					res_id, page);
+			mQueue.add(new JsonObjectRequest(Method.POST,
+					NET_GET_ALL_IMAGE_LIST, obj, new Listener() {
 
 						@Override
 						public void onResponse(Object arg0) {
 							// TODO Auto-generated method stub
 							try {
+								boolean isSuccess = ProtocolDataInput
+										.parseAllImageListDataToJson((JSONObject)arg0);
 								EventBus.getDefault()
 										.post(new BroadCastEvent(
 												BroadCastEvent.GET_ALL_IMAGE_LIST_DATA,
-												ProtocolDataInput
-														.parseAllImageListDataToJson((String) arg0)));
+												isSuccess));
 							} catch (JSONException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 						}
-					}, new ErrorListener(){
+					}, new ErrorListener() {
 						@Override
 						public void onErrorResponse(VolleyError arg0) {
 							// TODO Auto-generated method stub
 							EventBus.getDefault()
-							.post(new BroadCastEvent(
-									BroadCastEvent.GET_ALL_IMAGE_LIST_DATA, false));
-						}			
+									.post(new BroadCastEvent(
+											BroadCastEvent.GET_ALL_IMAGE_LIST_DATA,
+											false));
+						}
 					}));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -134,5 +140,4 @@ public class NetServiceManager extends BaseManager {
 		}
 		mQueue.start();
 	}
-
 }

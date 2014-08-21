@@ -1,5 +1,6 @@
 package com.neo.prettygirl;
 
+import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
 import com.neo.prettygirl.fragment.PGMainFragment;
 
@@ -40,6 +41,7 @@ public class MainActivity extends FragmentActivity {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
 			if ((Boolean) event.getObject()) {
+				mainListFragment.updateAdapter();
 			}
 			break;		
 		case BroadCastEvent.GET_ALL_IMAGE_LIST_DATA:

@@ -28,6 +28,9 @@
             android:name=".MainActivity"
             android:theme="@style/StyledIndicators" >
         </activity>
+        <provider
+            android:name="com.neo.prettygirl.db.DBContentProvider"
+            android:authorities="com.neo.prettygirl.db.provider" />        
     </application>
 
 </manifest>
