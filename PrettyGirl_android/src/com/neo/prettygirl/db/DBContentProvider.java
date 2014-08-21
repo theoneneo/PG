@@ -43,7 +43,11 @@ public class DBContentProvider extends ContentProvider {
 
 		buyDataMap = new HashMap<String, String>();
 		buyDataMap.put(BUY_DATA_DB._ID, BUY_DATA_DB._ID);
-		buyDataMap.put(BUY_DATA_DB.DATA_ID, BUY_DATA_DB.DATA_ID);
+		buyDataMap.put(BUY_DATA_DB.RES_ID, BUY_DATA_DB.RES_ID);
+		buyDataMap.put(BUY_DATA_DB.PARENT_RES_ID, BUY_DATA_DB.PARENT_RES_ID);
+		buyDataMap.put(BUY_DATA_DB.LINK, BUY_DATA_DB.LINK);
+		buyDataMap.put(BUY_DATA_DB.TEXT, BUY_DATA_DB.TEXT);
+		buyDataMap.put(BUY_DATA_DB.COIN, BUY_DATA_DB.COIN);
 		buyDataMap.put(BUY_DATA_DB.BUY, BUY_DATA_DB.BUY);
 	}
 

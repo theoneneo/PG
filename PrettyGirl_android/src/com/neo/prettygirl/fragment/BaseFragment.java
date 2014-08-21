@@ -21,7 +21,6 @@ public abstract class BaseFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mContext = getActivity().getApplicationContext();
-
 		Bundle args = getArguments();
 	}
 

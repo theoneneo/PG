@@ -7,10 +7,20 @@ public class DataBase {
     public static final class BUY_DATA_DB implements BaseColumns {
 	public static final Uri CONTENT_URI = Uri.parse("content://com.neo.prettygirl.db.provider/buy_data");
 	public static final String _ID = "_id";
-	public static final String DATA_ID = "data_id";
+	public static final String RES_ID = "res_id";
+	public static final String PARENT_RES_ID = "parent_res_id";
+	public static final String LINK = "link";
+	public static final String TEXT = "text";
+	public static final String COIN = "coin";
 	public static final String BUY = "buy";
 
 	public static final String CREATE_TABLE = "CREATE TABLE buy_data(_id INTEGER PRIMARY KEY AUTOINCREMENT"
-	    + ", data_id TEXT, buy INTEGER);";
+	    + ", res_id TEXT, parent_res_id TEXT, link TEXT, text TEXT, coin TEXT, buy INTEGER);";
     }
+    
+	public String res_id;
+	public String parent_res_id;
+	public String link;
+	public String text;
+	public String coin;
 }

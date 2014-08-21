@@ -20,8 +20,6 @@ public abstract class BaseListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mContext = getActivity().getApplicationContext();
-
-		Bundle args = getArguments();
 	}
 
 	@Override

@@ -11,9 +11,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
 	private static String FLAG = "flag";
 	protected Context mContext;
 
-	/**
-	 * 获取Fragment的标记字符串,每个Fragment都是唯一的�? 暂时不用�?
-	 */
 	public String getFlagStr() {
 		return FLAG;
 	}
@@ -21,11 +18,10 @@ public abstract class BaseDialogFragment extends DialogFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// 透明
+		// 閫忔槑
 		setStyle(DialogFragment.STYLE_NORMAL,
 				R.style.dialogfragment_transparent_bg);
 		mContext = getActivity().getApplicationContext();
-
 		Bundle args = getArguments();
 	}
 

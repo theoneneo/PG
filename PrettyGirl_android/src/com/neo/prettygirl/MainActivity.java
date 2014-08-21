@@ -1,13 +1,12 @@
 package com.neo.prettygirl;
 
-import java.io.File;
-import java.io.InputStream;
-
+import com.neo.prettygirl.event.BroadCastEvent;
 import com.neo.prettygirl.fragment.PGMainFragment;
 
-import com.tool.Encryption;
 import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
+
+import de.greenrobot.event.EventBus;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,23 +20,36 @@ public class MainActivity extends FragmentActivity {
 	private static final String[] CONTENT = new String[] { "百度", "我的"};
 
 	private MainAdapter adapter;
-	private PGMainFragment notificListFragment;
+	private PGMainFragment mainListFragment;
 	private PGMainFragment messageListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		EventBus.getDefault().register(this, BroadCastEvent.class);
         setContentView(R.layout.activity_main);
         initUI();
-//        InputStream fis = getClass().getResourceAsStream("/assets/test/test.jpg");
-//        File load = new File("/mnt/sdcard/test.png");
-//        try {
-//			Encryption.encrAssetsFile(fis, load, 1);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
     }
+    
+    protected void onDestroy() {
+		EventBus.getDefault().unregister(this);
+		super.onDestroy();
+	}
+    
+	public void onEventMainThread(BroadCastEvent event) {
+		switch (event.getType()) {
+		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
+			if ((Boolean) event.getObject()) {
+			}
+			break;		
+		case BroadCastEvent.GET_ALL_IMAGE_LIST_DATA:
+			if ((Boolean) event.getObject()) {
+			}
+			break;
+		default:
+			break;
+		}
+	}
     
     private void initUI(){
 		adapter = new MainAdapter(getSupportFragmentManager());
@@ -55,15 +67,15 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int position) {
 			if (position == 0) {
-				if (notificListFragment == null)
-					notificListFragment = new PGMainFragment();
-				return notificListFragment;
+				if (mainListFragment == null)
+					mainListFragment = new PGMainFragment();
+				return mainListFragment;
 			} else if (position == 1) {
 				if (messageListFragment == null)
 					messageListFragment = new PGMainFragment();
 				return messageListFragment;
 			}
-			return notificListFragment;
+			return mainListFragment;
 		}
 
 		@Override
