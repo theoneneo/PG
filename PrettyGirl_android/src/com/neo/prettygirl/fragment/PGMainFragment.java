@@ -1,18 +1,25 @@
 package com.neo.prettygirl.fragment;
 
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
+import me.maxwin.view.XListView;
+import me.maxwin.view.XListView.IXListViewListener;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.AsyncTask.Status;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -24,15 +31,17 @@ import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 
+import com.dodowaterfall.widget.ScaleImageView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
+import com.huewu.pla.sample.PullToRefreshSampleActivity.StaggeredAdapter;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.data.ImageResDataStruct;
 
-public class PGMainFragment extends BaseFragment {
-	private PLA_AdapterView<ListAdapter> mAdapterView = null;
-	private ImageDataAdapter mAdapter = null;
+public class PGMainFragment extends BaseFragment implements IXListViewListener{
+    private XListView mAdapterView = null;
+    private StaggeredAdapter mAdapter = null;
 
 	public static final String TAG_CACHE = "image_sdcard_cache";
 	/** cache folder path which be used when saving images **/
@@ -66,23 +75,24 @@ public class PGMainFragment extends BaseFragment {
 	}
 
 	private void initView(View v) {
-		mAdapterView = (PLA_AdapterView<ListAdapter>) v.findViewById(R.id.list);
-		mAdapter = new ImageDataAdapter(getActivity(), R.layout.item_grid);
-		mAdapterView.setAdapter(mAdapter);
+        mAdapterView = (XListView) v.findViewById(R.id.list);
+        mAdapterView.setPullLoadEnable(true);
+        mAdapterView.setXListViewListener(this);
+        mAdapter = new StaggeredAdapter(getActivity());
+        mAdapterView.setAdapter(mAdapter);
 	}
-
-	private class ImageDataAdapter extends ArrayAdapter<ImageResDataStruct> {
+	
+    public class StaggeredAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
 
-		public ImageDataAdapter(Context context, int layoutRes) {
-			super(context, layoutRes);
+		public StaggeredAdapter(Context context) {
 			mContext = context;
 			inflater = LayoutInflater.from(mContext);
 		}
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolder holder;
 			if (convertView == null) {
 				convertView = (View) inflater.inflate(R.layout.item_grid,
@@ -104,7 +114,7 @@ public class PGMainFragment extends BaseFragment {
 							.get(position).text);
 
 			return convertView;
-		}
+        }
 
 		@Override
 		public int getCount() {
@@ -114,7 +124,7 @@ public class PGMainFragment extends BaseFragment {
 		}
 
 		@Override
-		public ImageResDataStruct getItem(int position) {
+		public Object getItem(int position) {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -124,7 +134,62 @@ public class PGMainFragment extends BaseFragment {
 			// TODO Auto-generated method stub
 			return 0;
 		}
-	}
+    }
+
+//	private class ImageDataAdapter extends ArrayAdapter<ImageResDataStruct> {
+//		private LayoutInflater inflater;
+//		private Context mContext;
+//
+//		public ImageDataAdapter(Context context, int layoutRes) {
+//			super(context, layoutRes);
+//			mContext = context;
+//			inflater = LayoutInflater.from(mContext);
+//		}
+//
+//		@Override
+//		public View getView(int position, View convertView, ViewGroup parent) {
+//			ViewHolder holder;
+//			if (convertView == null) {
+//				convertView = (View) inflater.inflate(R.layout.item_grid,
+//						parent, false);
+//				holder = new ViewHolder();
+//				holder.row_image = (ImageView) convertView
+//						.findViewById(R.id.row_image);
+//				holder.row_text = (TextView) convertView
+//						.findViewById(R.id.row_text);
+//				convertView.setTag(holder);
+//			} else {
+//				holder = (ViewHolder) convertView.getTag();
+//			}
+//
+//			IMAGE_SD_CACHE.get(
+//					ImageDataManager.getInstance().mainGroupImage.imageData
+//							.get(position).link, holder.row_image);
+//			holder.row_text.setText(ImageDataManager.getInstance().mainGroupImage.imageData
+//							.get(position).text);
+//
+//			return convertView;
+//		}
+//
+//		@Override
+//		public int getCount() {
+//			// TODO Auto-generated method stub
+//			return ImageDataManager.getInstance().mainGroupImage.imageData
+//					.size();
+//		}
+//
+//		@Override
+//		public ImageResDataStruct getItem(int position) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//
+//		@Override
+//		public long getItemId(int position) {
+//			// TODO Auto-generated method stub
+//			return 0;
+//		}
+//	}
 
 	class ViewHolder {
 		ImageView row_image;
@@ -261,4 +326,15 @@ public class PGMainFragment extends BaseFragment {
 		return inAlphaAnimation;
 	}
 
+	@Override
+	public void onRefresh() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onLoadMore() {
+		// TODO Auto-generated method stub
+		
+	}
 }

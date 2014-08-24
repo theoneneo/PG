@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.huewu.pla.lib.MultiColumnPullToRefreshListView
-        xmlns:pla="http://schemas.android.com/apk/res-auto"
+    <me.maxwin.view.XListView
         android:id="@+id/list"
+        android:scrollbars="vertical"
+        android:fastScrollEnabled="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        pla:plaColumnNumber="2"
-        pla:plaLandscapeColumnNumber="3" />
+        android:layout_height="match_parent" />
 
 </merge>
