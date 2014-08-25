@@ -29,9 +29,9 @@ import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
 
-public class PGMainFragment extends BaseFragment implements IXListViewListener {
+public class PGMyFragment extends BaseFragment{
 	private XListView mAdapterView = null;
-	private MainImageAdapter mAdapter = null;
+	private MyImageAdapter mAdapter = null;
 	private int page = 0;
 	private static int IMAGE_MAX_WIDTH = 480;
 	private static int IMAGE_MAX_HEIGHT = 960;
@@ -74,23 +74,21 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 
 	private void initView(View v) {
 		mAdapterView = (XListView) v.findViewById(R.id.list);
-		mAdapterView.setPullRefreshEnable(true);
+		mAdapterView.setPullRefreshEnable(false);
 		mAdapterView.setPullLoadEnable(false);
-		mAdapterView.setXListViewListener(this);
-		mAdapter = new MainImageAdapter(getActivity());
+		mAdapter = new MyImageAdapter(getActivity());
 		mAdapterView.setAdapter(mAdapter);
 	}
 	
 	public void updateMainAdapter() {
 		mAdapter.notifyDataSetChanged();
-		mAdapterView.stopRefresh();
 	}
 
-	private class MainImageAdapter extends BaseAdapter {
+	private class MyImageAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
 
-		public MainImageAdapter(Context context) {
+		public MyImageAdapter(Context context) {
 			mContext = context;
 			inflater = LayoutInflater.from(mContext);
 		}
@@ -113,10 +111,10 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 
 			int len = getCount();
 			IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().mainGroupImage.imageData
+					ImageDataManager.getInstance().myGroupImage.imageData
 							.get(len - position - 1).link, holder.row_image);
 			holder.row_text
-					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
+					.setText(ImageDataManager.getInstance().myGroupImage.imageData
 							.get(len - position - 1).text);
 
 			return convertView;
@@ -125,7 +123,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return ImageDataManager.getInstance().mainGroupImage.imageData
+			return ImageDataManager.getInstance().myGroupImage.imageData
 					.size();
 		}
 
@@ -265,17 +263,5 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		AlphaAnimation inAlphaAnimation = new AlphaAnimation(0, 1);
 		inAlphaAnimation.setDuration(durationMillis);
 		return inAlphaAnimation;
-	}
-
-	@Override
-	public void onRefresh() {
-		// TODO Auto-generated method stub
-		NetServiceManager.getInstance().getMainImageListData(++page);
-	}
-
-	@Override
-	public void onLoadMore() {
-		// TODO Auto-generated method stub
-
 	}
 }
