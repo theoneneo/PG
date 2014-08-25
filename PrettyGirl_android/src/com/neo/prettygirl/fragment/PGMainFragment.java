@@ -5,6 +5,7 @@ import java.io.File;
 import me.maxwin.view.XListView;
 import me.maxwin.view.XListView.IXListViewListener;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -18,16 +19,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.trinea.android.common.entity.FailedReason;
 import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 
+import com.huewu.pla.lib.internal.PLA_AdapterView;
+import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
+import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
+import com.neo.prettygirl.db.DBTools;
 
 public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	private XListView mAdapterView = null;
@@ -65,9 +71,9 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		initView(v);
 		return v;
 	}
-	
+
 	@Override
-	public void onDestroyView(){
+	public void onDestroyView() {
 		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		super.onDestroyView();
 	}
@@ -79,8 +85,39 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		mAdapterView.setXListViewListener(this);
 		mAdapter = new MainImageAdapter(getActivity());
 		mAdapterView.setAdapter(mAdapter);
+		mAdapterView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(PLA_AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				buyImageData(position);
+			}
+		});
 	}
-	
+
+	private void buyImageData(int position) {
+		int len = mAdapter.getCount();
+		String res_id = ImageDataManager.getInstance().mainGroupImage.imageData
+				.get(len - position).res_id;
+		
+		if(DBTools.getInstance().isBuyRes(res_id)){
+			DBTools.getInstance().closeDB();
+			go2ImageDataActivity(res_id);
+		}else{
+			String coin = DBTools.getInstance().coinRes(res_id);
+			if(coin != null){
+				if(!coin.equals("0")){
+					popBuyWindow(res_id, coin);
+				}else{
+					go2ImageDataActivity(res_id);
+				}
+			}else{
+				Toast.makeText(getActivity(), "未找到", Toast.LENGTH_SHORT).show();
+			}
+			DBTools.getInstance().closeDB();
+		}
+	}
+
 	public void updateMainAdapter() {
 		mAdapter.notifyDataSetChanged();
 		mAdapterView.stopRefresh();
@@ -117,7 +154,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 							.get(len - position - 1).link, holder.row_image);
 			holder.row_text
 					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(len - position - 1).text);
+							.get(len - position - 1).coin);
 
 			return convertView;
 		}
@@ -277,5 +314,15 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	public void onLoadMore() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private void go2ImageDataActivity(String res_id){
+		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
+		intent.putExtra("res_id", res_id);
+		startActivity(intent);
+	}
+	
+	private void popBuyWindow(String res_id, String coin){
+		
 	}
 }

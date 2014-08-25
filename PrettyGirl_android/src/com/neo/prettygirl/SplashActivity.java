@@ -4,10 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.neo.prettygirl.controller.ImageDataManager;
-import com.neo.prettygirl.controller.NetServiceManager;
-import com.neo.prettygirl.event.BroadCastEvent;
-
-import de.greenrobot.event.EventBus;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,7 +26,7 @@ public class SplashActivity extends Activity {
 	private void initUI() {
 		ImageDataManager.getInstance();
 		timer = new Timer();
-		timer.schedule(new SplashTask(), 3 * 1000);
+		timer.schedule(new SplashTask(), 2 * 1000);
 	}
 
 	private void go2MainActivity() {

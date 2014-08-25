@@ -1,6 +1,7 @@
 package com.neo.prettygirl.db;
 
 import com.neo.prettygirl.PGApplication;
+import com.neo.prettygirl.data.ImageResDataStruct;
 import com.neo.prettygirl.db.DataBase.BUY_DATA_DB;
 
 import android.content.ContentValues;
@@ -15,7 +16,7 @@ public class DBTools {
 		mContext = context;
 	}
 
-	public static DBTools instance() {
+	public static DBTools getInstance() {
 		synchronized (DBTools.class) {
 			if (mInstance == null) {
 				mInstance = new DBTools(PGApplication.getContext());
@@ -65,8 +66,9 @@ public class DBTools {
 		return cursor;
 	}
 
-	public Cursor getAllImageData() {
-		String selection = BUY_DATA_DB.PARENT_RES_ID + "!='" + -1 + "'";
+	public Cursor getAllResIdImageData(String parent_res_id) {
+		String selection = BUY_DATA_DB.PARENT_RES_ID + "='" + parent_res_id
+				+ "'";
 		Cursor cursor = null;
 		try {
 			cursor = mContext.getContentResolver().query(
@@ -81,6 +83,48 @@ public class DBTools {
 			e.printStackTrace();
 		}
 		return cursor;
+	}
+
+	public boolean isBuyRes(String res_id) {
+		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "
+				+ BUY_DATA_DB.BUY + "='" + 1 + "'";
+		Cursor cursor = null;
+		try {
+			cursor = mContext.getContentResolver().query(
+					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
+			if (cursor != null) {
+				cursor.moveToFirst();
+				if (cursor.getCount() != 0)
+					return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public String coinRes(String res_id) {
+		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "
+				+ BUY_DATA_DB.BUY + "='" + 0 + "'";
+		Cursor cursor = null;
+		try {
+			cursor = mContext.getContentResolver().query(
+					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
+			if (cursor != null) {
+				cursor.moveToFirst();
+				if (cursor.getCount() == 0)
+					return null;
+				return DBTools.getUnvalidFormRs(cursor.getString(cursor
+						.getColumnIndex("coin")));
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void insertImageData(String res_id, String parent_res_id,
