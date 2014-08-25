@@ -1,9 +1,5 @@
 package com.neo.prettygirl.controller;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import android.app.Application;
 import android.database.Cursor;
 
@@ -12,13 +8,14 @@ import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
 import com.neo.prettygirl.db.DBTools;
 
-import de.greenrobot.event.EventBus;
 
 public class ImageDataManager extends BaseManager {
 	private static ImageDataManager mInstance;
 	public GroupImageResDataStruct mainGroupImage = new GroupImageResDataStruct();
 	public GroupImageResDataStruct myGroupImage = new GroupImageResDataStruct();
-	public ArrayList<GroupImageResDataStruct> groupImage = new ArrayList<GroupImageResDataStruct>();
+	public GroupImageResDataStruct curGroupImage = new GroupImageResDataStruct();
+	
+//	public ArrayList<GroupImageResDataStruct> groupImage = new ArrayList<GroupImageResDataStruct>();
 
 	private ImageDataManager(Application app) {
 		super(app);
@@ -70,22 +67,26 @@ public class ImageDataManager extends BaseManager {
 		myGroupImage.imageData.add(data);
 		DBTools.getInstance().updateBuyData(data.res_id);
 	}
-
-	public void addGroupImage(ImageResDataStruct data) {
-		for (int m = 0; m < ImageDataManager.getInstance().groupImage.size(); m++) {
-			GroupImageResDataStruct groupData = ImageDataManager.getInstance().groupImage
-					.get(m);
-			if (groupData.parent_res_id.equals(data.parent_res_id)) {
-				for (int i = 0; i < groupData.imageData.size(); i++) {
-					if (groupData.imageData.get(i).res_id.equals(data.res_id))
-						return;
-				}
-				groupData.imageData.add(data);
-				DBTools.getInstance().insertImageData(data.res_id,
-						data.parent_res_id, data.link, data.text, data.coin);
-			}
-		}
+	
+	public void addCurGroupImage(ImageResDataStruct data){
+		curGroupImage.imageData.add(data);
 	}
+
+//	public void addGroupImage(ImageResDataStruct data) {
+//		for (int m = 0; m < ImageDataManager.getInstance().groupImage.size(); m++) {
+//			GroupImageResDataStruct groupData = ImageDataManager.getInstance().groupImage
+//					.get(m);
+//			if (groupData.parent_res_id.equals(data.parent_res_id)) {
+//				for (int i = 0; i < groupData.imageData.size(); i++) {
+//					if (groupData.imageData.get(i).res_id.equals(data.res_id))
+//						return;
+//				}
+//				groupData.imageData.add(data);
+//				DBTools.getInstance().insertImageData(data.res_id,
+//						data.parent_res_id, data.link, data.text, data.coin);
+//			}
+//		}
+//	}
 
 	private void getDBImageData() {
 		Thread thread = new Thread() {

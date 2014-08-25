@@ -17,12 +17,13 @@ import com.viewpagerindicator.TabPageIndicator;
 import de.greenrobot.event.EventBus;
 
 public class ImageDataActivity extends FragmentActivity {
+	private String res_id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
-		setContentView(R.layout.activity_main);	
+		setContentView(R.layout.activity_data);	
 		initUI();
 		initData();
 	}
@@ -46,6 +47,7 @@ public class ImageDataActivity extends FragmentActivity {
 	}
 
 	private void initData() {
-//		NetServiceManager.getInstance().getResImageListData(0);// 第一页
+		res_id = getIntent().getExtras().getString("res_id");
+		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
 	}
 }

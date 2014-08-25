@@ -17,11 +17,10 @@ public class ProtocolDataOutput {
 		return null;
 	}
 	
-	public static JSONObject getAllImageListDataToJson(String res_id, int page) throws JSONException {
+	public static JSONObject getAllImageListDataToJson(String res_id) throws JSONException {
 		try {
 			JSONObject output = new JSONObject();
 			output.put("res_id", res_id);
-			output.put("page", page);
 			return output;
 		} catch (JSONException ex) {
 			throw new RuntimeException(ex);

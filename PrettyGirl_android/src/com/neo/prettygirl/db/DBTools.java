@@ -84,6 +84,24 @@ public class DBTools {
 		}
 		return cursor;
 	}
+	
+//	public Cursor getAllImageData(){
+//		String selection = BUY_DATA_DB.PARENT_RES_ID + "!='" + -1 + "'";
+//		Cursor cursor = null;
+//		try {
+//			cursor = mContext.getContentResolver().query(
+//					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
+//			if (cursor != null) {
+//				cursor.moveToFirst();
+//				return cursor;
+//			} else {
+//				return null;
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return cursor;
+//	}
 
 	public boolean isBuyRes(String res_id) {
 		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "

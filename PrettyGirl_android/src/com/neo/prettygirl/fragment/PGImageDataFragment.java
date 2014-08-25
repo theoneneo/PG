@@ -3,6 +3,7 @@ package com.neo.prettygirl.fragment;
 import java.io.File;
 
 import me.maxwin.view.XListView;
+import me.maxwin.view.XListView.IXListViewListener;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,9 +17,9 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.trinea.android.common.entity.FailedReason;
 import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
@@ -31,12 +32,12 @@ import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
+import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.db.DBTools;
 
-public class PGMyFragment extends BaseFragment {
+public class PGImageDataFragment extends BaseFragment{
 	private XListView mAdapterView = null;
-	private MyImageAdapter mAdapter = null;
-	private int page = 0;
+	private ImageAdapter mAdapter = null;
 	private static int IMAGE_MAX_WIDTH = 480;
 	private static int IMAGE_MAX_HEIGHT = 800;
 
@@ -80,7 +81,7 @@ public class PGMyFragment extends BaseFragment {
 		mAdapterView = (XListView) v.findViewById(R.id.list);
 		mAdapterView.setPullRefreshEnable(false);
 		mAdapterView.setPullLoadEnable(false);
-		mAdapter = new MyImageAdapter(getActivity());
+		mAdapter = new ImageAdapter(getActivity());
 		mAdapterView.setAdapter(mAdapter);
 		mAdapterView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -96,18 +97,35 @@ public class PGMyFragment extends BaseFragment {
 		int len = mAdapter.getCount();
 		String res_id = ImageDataManager.getInstance().mainGroupImage.imageData
 				.get(len - position).res_id;
-		go2ImageDataActivity(res_id);
+		
+		if(DBTools.getInstance().isBuyRes(res_id)){
+			DBTools.getInstance().closeDB();
+			go2ImageDataActivity(res_id);
+		}else{
+			String coin = DBTools.getInstance().coinRes(res_id);
+			if(coin != null){
+				if(!coin.equals("0")){
+					popBuyWindow(res_id, coin);
+				}else{
+					go2ImageDataActivity(res_id);
+				}
+			}else{
+				Toast.makeText(getActivity(), "未找到", Toast.LENGTH_SHORT).show();
+			}
+			DBTools.getInstance().closeDB();
+		}
 	}
 
 	public void updateMainAdapter() {
 		mAdapter.notifyDataSetChanged();
+		mAdapterView.stopRefresh();
 	}
 
-	private class MyImageAdapter extends BaseAdapter {
+	private class ImageAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
 
-		public MyImageAdapter(Context context) {
+		public ImageAdapter(Context context) {
 			mContext = context;
 			inflater = LayoutInflater.from(mContext);
 		}
@@ -130,10 +148,10 @@ public class PGMyFragment extends BaseFragment {
 
 			int len = getCount();
 			IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().myGroupImage.imageData
+					ImageDataManager.getInstance().mainGroupImage.imageData
 							.get(len - position - 1).link, holder.row_image);
 			holder.row_text
-					.setText(ImageDataManager.getInstance().myGroupImage.imageData
+					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
 							.get(len - position - 1).coin);
 
 			return convertView;
@@ -142,7 +160,8 @@ public class PGMyFragment extends BaseFragment {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return ImageDataManager.getInstance().myGroupImage.imageData.size();
+			return ImageDataManager.getInstance().mainGroupImage.imageData
+					.size();
 		}
 
 		@Override
@@ -287,5 +306,9 @@ public class PGMyFragment extends BaseFragment {
 		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
 		intent.putExtra("res_id", res_id);
 		startActivity(intent);
+	}
+	
+	private void popBuyWindow(String res_id, String coin){
+		
 	}
 }

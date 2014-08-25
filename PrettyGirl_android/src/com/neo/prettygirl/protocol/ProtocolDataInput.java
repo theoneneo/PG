@@ -3,13 +3,10 @@ package com.neo.prettygirl.protocol;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import com.neo.prettygirl.controller.ImageDataManager;
-import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
-
-import android.text.TextUtils;
+import com.neo.prettygirl.tools.Utf8Code;
 
 public class ProtocolDataInput {
 
@@ -44,6 +41,7 @@ public class ProtocolDataInput {
 			return false;
 		}
 		try {
+			ImageDataManager.getInstance().curGroupImage.imageData.clear();
 			JSONArray arrays = obj.getJSONArray("data");
 			for (int i = 0; i < arrays.length(); i++) {
 				JSONObject item = (JSONObject) arrays.opt(i);
@@ -51,9 +49,9 @@ public class ProtocolDataInput {
 				data.res_id = item.optString("res_id");
 				data.parent_res_id = item.optString("parent_res_id");
 				data.link = item.optString("link");
-//				data.text = Utf8Code.utf8Decode(item.optString("text"));
+				data.text = Utf8Code.utf8Decode(item.optString("text"));
 				data.coin = item.optString("coin");
-				ImageDataManager.getInstance().addGroupImage(data);
+				ImageDataManager.getInstance().addCurGroupImage(data);
 			}
 			return true;
 		} catch (JSONException ex) {

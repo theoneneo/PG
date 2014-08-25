@@ -100,12 +100,12 @@ public class NetServiceManager extends BaseManager {
 		mQueue.start();
 	}
 
-	public void getResImageListData(String res_id, int page) {
+	public void getResImageListData(String res_id) {
 		RequestQueue mQueue = Volley
 				.newRequestQueue(PGApplication.getContext());
 		try {
 			JSONObject obj = ProtocolDataOutput.getAllImageListDataToJson(
-					res_id, page);
+					res_id);
 			mQueue.add(new JsonObjectRequest(Method.POST,
 					NET_GET_ALL_IMAGE_LIST, obj, new Listener() {
 
