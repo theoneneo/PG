@@ -15,34 +15,33 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-
 public class MainActivity extends FragmentActivity {
-	private static final String[] CONTENT = new String[] { "百度", "我的"};
+	private static final String[] CONTENT = new String[] { "百度", "我的" };
 
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
 	private PGMainFragment messageListFragment;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
-        setContentView(R.layout.activity_main);
-        initUI();
-    }
-    
-    protected void onDestroy() {
+		setContentView(R.layout.activity_main);
+		initUI();
+	}
+
+	protected void onDestroy() {
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
 	}
-    
+
 	public void onEventMainThread(BroadCastEvent event) {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
 			if ((Boolean) event.getObject()) {
-//				mainListFragment.updateAdapter();
+				// mainListFragment.updateAdapter();
 			}
-			break;		
+			break;
 		case BroadCastEvent.GET_ALL_IMAGE_LIST_DATA:
 			if ((Boolean) event.getObject()) {
 			}
@@ -51,15 +50,15 @@ public class MainActivity extends FragmentActivity {
 			break;
 		}
 	}
-    
-    private void initUI(){
+
+	private void initUI() {
 		adapter = new MainAdapter(getSupportFragmentManager());
 		ViewPager pager = (ViewPager) findViewById(R.id.pager);
 		pager.setAdapter(adapter);
 		TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
 		indicator.setViewPager(pager);
-    }
-    
+	}
+
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 		public MainAdapter(FragmentManager fm) {
 			super(fm);

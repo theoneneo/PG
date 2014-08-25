@@ -1,8 +1,6 @@
 package com.neo.prettygirl.fragment;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
 
 import me.maxwin.view.XListView;
 import me.maxwin.view.XListView.IXListViewListener;
@@ -12,16 +10,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.AsyncTask.Status;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 
@@ -31,25 +26,22 @@ import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 
-import com.dodowaterfall.widget.ScaleImageView;
-import com.huewu.pla.lib.internal.PLA_AdapterView;
-import com.huewu.pla.sample.PullToRefreshSampleActivity.StaggeredAdapter;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
-import com.neo.prettygirl.data.ImageResDataStruct;
 
-public class PGMainFragment extends BaseFragment implements IXListViewListener{
-    private XListView mAdapterView = null;
-    private StaggeredAdapter mAdapter = null;
+public class PGMainFragment extends BaseFragment implements IXListViewListener {
+	private XListView mAdapterView = null;
+	private StaggeredAdapter mAdapter = null;
+	private static int IMAGE_MAX_WIDTH = 480;
+	private static int IMAGE_MAX_HEIGHT = 960;
 
 	public static final String TAG_CACHE = "image_sdcard_cache";
 	/** cache folder path which be used when saving images **/
 	public static final String DEFAULT_CACHE_FOLDER = new StringBuilder()
 			.append(Environment.getExternalStorageDirectory().getAbsolutePath())
-			.append(File.separator).append("Trinea").append(File.separator)
-			.append("AndroidDemo").append(File.separator)
-			.append("ImageSDCardCache").toString();
+			.append(File.separator).append("Welfare").append(File.separator)
+			.append("main_image_cache").toString();
 	public static final ImageSDCardCache IMAGE_SD_CACHE = new ImageSDCardCache();
 
 	@Override
@@ -75,14 +67,14 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 	}
 
 	private void initView(View v) {
-        mAdapterView = (XListView) v.findViewById(R.id.list);
-        mAdapterView.setPullLoadEnable(true);
-        mAdapterView.setXListViewListener(this);
-        mAdapter = new StaggeredAdapter(getActivity());
-        mAdapterView.setAdapter(mAdapter);
+		mAdapterView = (XListView) v.findViewById(R.id.list);
+		mAdapterView.setPullLoadEnable(true);
+		mAdapterView.setXListViewListener(this);
+		mAdapter = new StaggeredAdapter(getActivity());
+		mAdapterView.setAdapter(mAdapter);
 	}
-	
-    public class StaggeredAdapter extends BaseAdapter {
+
+	public class StaggeredAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
 
@@ -91,8 +83,8 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 			inflater = LayoutInflater.from(mContext);
 		}
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolder holder;
 			if (convertView == null) {
 				convertView = (View) inflater.inflate(R.layout.item_grid,
@@ -110,11 +102,12 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 			IMAGE_SD_CACHE.get(
 					ImageDataManager.getInstance().mainGroupImage.imageData
 							.get(position).link, holder.row_image);
-			holder.row_text.setText(ImageDataManager.getInstance().mainGroupImage.imageData
+			holder.row_text
+					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
 							.get(position).text);
 
 			return convertView;
-        }
+		}
 
 		@Override
 		public int getCount() {
@@ -134,62 +127,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 			// TODO Auto-generated method stub
 			return 0;
 		}
-    }
-
-//	private class ImageDataAdapter extends ArrayAdapter<ImageResDataStruct> {
-//		private LayoutInflater inflater;
-//		private Context mContext;
-//
-//		public ImageDataAdapter(Context context, int layoutRes) {
-//			super(context, layoutRes);
-//			mContext = context;
-//			inflater = LayoutInflater.from(mContext);
-//		}
-//
-//		@Override
-//		public View getView(int position, View convertView, ViewGroup parent) {
-//			ViewHolder holder;
-//			if (convertView == null) {
-//				convertView = (View) inflater.inflate(R.layout.item_grid,
-//						parent, false);
-//				holder = new ViewHolder();
-//				holder.row_image = (ImageView) convertView
-//						.findViewById(R.id.row_image);
-//				holder.row_text = (TextView) convertView
-//						.findViewById(R.id.row_text);
-//				convertView.setTag(holder);
-//			} else {
-//				holder = (ViewHolder) convertView.getTag();
-//			}
-//
-//			IMAGE_SD_CACHE.get(
-//					ImageDataManager.getInstance().mainGroupImage.imageData
-//							.get(position).link, holder.row_image);
-//			holder.row_text.setText(ImageDataManager.getInstance().mainGroupImage.imageData
-//							.get(position).text);
-//
-//			return convertView;
-//		}
-//
-//		@Override
-//		public int getCount() {
-//			// TODO Auto-generated method stub
-//			return ImageDataManager.getInstance().mainGroupImage.imageData
-//					.size();
-//		}
-//
-//		@Override
-//		public ImageResDataStruct getItem(int position) {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
-//
-//		@Override
-//		public long getItemId(int position) {
-//			// TODO Auto-generated method stub
-//			return 0;
-//		}
-//	}
+	}
 
 	class ViewHolder {
 		ImageView row_image;
@@ -288,11 +226,6 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 		IMAGE_SD_CACHE.setHttpReadTimeOut(10000);
 		IMAGE_SD_CACHE.setOpenWaitingQueue(true);
 		IMAGE_SD_CACHE.setValidTime(-1);
-		/**
-		 * close connection, default is connect keep-alive to reuse connection.
-		 * if image is from different server, you can set this
-		 */
-		// IMAGE_SD_CACHE.setRequestProperty("Connection", "false");
 	}
 
 	/**
@@ -303,9 +236,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 	 */
 	private static int getImageScale(String imagePath) {
 		BitmapFactory.Options option = new BitmapFactory.Options();
-		// set inJustDecodeBounds to true, allowing the caller to query the
-		// bitmap info without having to allocate the
-		// memory for its pixels.
+
 		option.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(imagePath, option);
 
@@ -317,9 +248,6 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 		return scale;
 	}
 
-	private static int IMAGE_MAX_WIDTH = 480;
-	private static int IMAGE_MAX_HEIGHT = 960;
-
 	public static AlphaAnimation getInAlphaAnimation(long durationMillis) {
 		AlphaAnimation inAlphaAnimation = new AlphaAnimation(0, 1);
 		inAlphaAnimation.setDuration(durationMillis);
@@ -329,12 +257,12 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener{
 	@Override
 	public void onRefresh() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onLoadMore() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

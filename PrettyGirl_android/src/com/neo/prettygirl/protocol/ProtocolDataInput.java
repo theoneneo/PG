@@ -8,7 +8,6 @@ import org.json.JSONTokener;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
-import com.neo.tools.Utf8Code;
 
 import android.text.TextUtils;
 
@@ -52,7 +51,7 @@ public class ProtocolDataInput {
 				data.res_id = item.optString("res_id");
 				data.parent_res_id = item.optString("parent_res_id");
 				data.link = item.optString("link");
-				data.text = Utf8Code.utf8Decode(item.optString("text"));
+//				data.text = Utf8Code.utf8Decode(item.optString("text"));
 				data.coin = item.optString("coin");
 				ImageDataManager.getInstance().addGroupImage(data);
 			}
