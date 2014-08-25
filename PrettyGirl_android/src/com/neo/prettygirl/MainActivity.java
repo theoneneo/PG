@@ -40,7 +40,7 @@ public class MainActivity extends FragmentActivity {
 	public void onEventMainThread(BroadCastEvent event) {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
-				mainListFragment.updateMainAdapter();
+			mainListFragment.updateMainAdapter();
 			break;
 		default:
 			break;
@@ -54,9 +54,9 @@ public class MainActivity extends FragmentActivity {
 		TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
 		indicator.setViewPager(pager);
 	}
-	
-	private void initData(){
-		NetServiceManager.getInstance().getMainImageListData(0);//第一页
+
+	private void initData() {
+		NetServiceManager.getInstance().getMainImageListData(0);// 第一页
 	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
