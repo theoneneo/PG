@@ -3,6 +3,7 @@ package com.neo.prettygirl;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
 
@@ -29,7 +30,7 @@ public class SplashActivity extends Activity {
 	}
 
 	private void initUI() {
-		NetServiceManager.getInstance().getMainImageListData(0);//第一页
+		ImageDataManager.getInstance();
 		timer = new Timer();
 		timer.schedule(new SplashTask(), 3 * 1000);
 	}

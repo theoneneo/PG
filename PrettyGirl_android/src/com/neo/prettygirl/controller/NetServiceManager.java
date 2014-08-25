@@ -100,7 +100,7 @@ public class NetServiceManager extends BaseManager {
 		mQueue.start();
 	}
 
-	public void getAllImageListData(String res_id, int page) {
+	public void getResImageListData(String res_id, int page) {
 		RequestQueue mQueue = Volley
 				.newRequestQueue(PGApplication.getContext());
 		try {

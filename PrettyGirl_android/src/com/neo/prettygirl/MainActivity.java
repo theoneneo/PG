@@ -1,13 +1,5 @@
 package com.neo.prettygirl;
 
-import com.neo.prettygirl.event.BroadCastEvent;
-import com.neo.prettygirl.fragment.PGMainFragment;
-
-import com.viewpagerindicator.IconPagerAdapter;
-import com.viewpagerindicator.TabPageIndicator;
-
-import de.greenrobot.event.EventBus;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,12 +7,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.neo.prettygirl.controller.NetServiceManager;
+import com.neo.prettygirl.event.BroadCastEvent;
+import com.neo.prettygirl.fragment.PGMainFragment;
+import com.neo.prettygirl.fragment.PGMyFragment;
+import com.viewpagerindicator.IconPagerAdapter;
+import com.viewpagerindicator.TabPageIndicator;
+
+import de.greenrobot.event.EventBus;
+
 public class MainActivity extends FragmentActivity {
 	private static final String[] CONTENT = new String[] { "百度", "我的" };
 
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
-	private PGMainFragment messageListFragment;
+	private PGMyFragment myListFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends FragmentActivity {
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		setContentView(R.layout.activity_main);
 		initUI();
+		initData();
 	}
 
 	protected void onDestroy() {
@@ -39,11 +41,7 @@ public class MainActivity extends FragmentActivity {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
 			if ((Boolean) event.getObject()) {
-				// mainListFragment.updateAdapter();
-			}
-			break;
-		case BroadCastEvent.GET_ALL_IMAGE_LIST_DATA:
-			if ((Boolean) event.getObject()) {
+				mainListFragment.updateMainAdapter();
 			}
 			break;
 		default:
@@ -58,6 +56,10 @@ public class MainActivity extends FragmentActivity {
 		TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
 		indicator.setViewPager(pager);
 	}
+	
+	private void initData(){
+		NetServiceManager.getInstance().getMainImageListData(0);//第一页
+	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 		public MainAdapter(FragmentManager fm) {
@@ -67,13 +69,15 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int position) {
 			if (position == 0) {
-				if (mainListFragment == null)
+				if (mainListFragment == null) {
 					mainListFragment = new PGMainFragment();
+				}
 				return mainListFragment;
 			} else if (position == 1) {
-				if (messageListFragment == null)
-					messageListFragment = new PGMainFragment();
-				return messageListFragment;
+				if (myListFragment == null) {
+					myListFragment = new PGMyFragment();
+				}
+				return myListFragment;
 			}
 			return mainListFragment;
 		}

@@ -17,6 +17,7 @@ import de.greenrobot.event.EventBus;
 public class ImageDataManager extends BaseManager {
 	private static ImageDataManager mInstance;
 	public GroupImageResDataStruct mainGroupImage = new GroupImageResDataStruct();
+	public GroupImageResDataStruct myGroupImage = new GroupImageResDataStruct();
 	public ArrayList<GroupImageResDataStruct> groupImage = new ArrayList<GroupImageResDataStruct>();
 
 	private ImageDataManager(Application app) {
@@ -58,6 +59,17 @@ public class ImageDataManager extends BaseManager {
 				return;
 		}
 		mainGroupImage.imageData.add(data);
+		DBTools.instance().insertImageData(data.res_id, data.parent_res_id,
+				data.link, data.text, data.coin);
+	}
+	
+	public void addMyGroupImage(ImageResDataStruct data) {
+		for (int i = 0; i < myGroupImage.imageData.size(); i++) {
+			if (myGroupImage.imageData.get(i).res_id.equals(data.res_id))
+				return;
+		}
+		myGroupImage.imageData.add(data);
+		DBTools.instance().updateBuyData(data.res_id);
 	}
 
 	public void addGroupImage(ImageResDataStruct data) {
@@ -70,6 +82,8 @@ public class ImageDataManager extends BaseManager {
 						return;
 				}
 				groupData.imageData.add(data);
+				DBTools.instance().insertImageData(data.res_id,
+						data.parent_res_id, data.link, data.text, data.coin);
 			}
 		}
 	}
@@ -99,6 +113,31 @@ public class ImageDataManager extends BaseManager {
 			}
 		};
 		thread.start();
+		
+		Thread threadMy = new Thread() {
+			public void run() {
+				Cursor c = DBTools.instance().getAllMyImageData();
+				if (c == null)
+					return;
+				for (int i = 0; i < c.getCount(); i++) {
+					ImageResDataStruct data = new ImageResDataStruct();
+					data.res_id = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("res_id")));
+					data.parent_res_id = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("parent_res_id")));
+					data.link = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("link")));
+					data.text = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("text")));
+					data.coin = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("coin")));
+					myGroupImage.imageData.add(data);
+					c.moveToNext();
+				}
+				c.close();
+			}
+		};
+		threadMy.start();
 
 		Thread threadAll = new Thread() {
 			public void run() {
@@ -126,14 +165,14 @@ public class ImageDataManager extends BaseManager {
 						groupImage.get(m).imageData.add(data);
 						break;
 					}
-					
+
 					GroupImageResDataStruct struct = new GroupImageResDataStruct();
 					groupImage.add(struct);
 					ImageResDataStruct data = new ImageResDataStruct();
 					data.res_id = DBTools.getUnvalidFormRs(c.getString(c
 							.getColumnIndex("res_id")));
-					data.parent_res_id = DBTools.getUnvalidFormRs(c
-							.getString(c.getColumnIndex("parent_res_id")));
+					data.parent_res_id = DBTools.getUnvalidFormRs(c.getString(c
+							.getColumnIndex("parent_res_id")));
 					data.link = DBTools.getUnvalidFormRs(c.getString(c
 							.getColumnIndex("link")));
 					data.text = DBTools.getUnvalidFormRs(c.getString(c
@@ -141,7 +180,7 @@ public class ImageDataManager extends BaseManager {
 					data.coin = DBTools.getUnvalidFormRs(c.getString(c
 							.getColumnIndex("coin")));
 					struct.imageData.add(data);
-					
+
 					c.moveToNext();
 				}
 				c.close();
