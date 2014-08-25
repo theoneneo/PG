@@ -40,7 +40,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	private MainImageAdapter mAdapter = null;
 	private int page = 0;
 	private static int IMAGE_MAX_WIDTH = 480;
-	private static int IMAGE_MAX_HEIGHT = 960;
+	private static int IMAGE_MAX_HEIGHT = 800;
 
 	public static final String TAG_CACHE = "image_sdcard_cache";
 	/** cache folder path which be used when saving images **/
