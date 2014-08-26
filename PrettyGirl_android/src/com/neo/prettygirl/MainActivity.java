@@ -6,15 +6,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import cn.waps.AppConnect;
 
+import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
 import com.neo.prettygirl.fragment.PGMainFragment;
@@ -34,6 +33,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+//		AppConnect.getInstance(PGApplication.getContext()).showOffers(this);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
 		setContentView(R.layout.activity_main);
@@ -42,6 +42,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	protected void onDestroy() {
+		AppManager.getInstance().DestroyManager();
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
 	}

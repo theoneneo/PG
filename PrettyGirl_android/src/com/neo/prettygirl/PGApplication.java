@@ -2,12 +2,12 @@ package com.neo.prettygirl;
 
 import java.util.ArrayList;
 
-import com.neo.prettygirl.controller.AppManager;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
+
+import com.neo.prettygirl.controller.AppManager;
 
 public class PGApplication extends Application {
 	private static Application app;
@@ -16,11 +16,9 @@ public class PGApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		app = this;
-		AppManager.getInstance();
 	}
 
 	public void onTerminate() {
-		AppManager.getInstance().DestroyManager();
 		super.onTerminate();
 	}
 

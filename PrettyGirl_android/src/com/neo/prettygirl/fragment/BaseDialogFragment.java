@@ -1,10 +1,10 @@
 package com.neo.prettygirl.fragment;
 
-import com.neo.prettygirl.R;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+
+import com.neo.prettygirl.R;
 
 public abstract class BaseDialogFragment extends DialogFragment {
 

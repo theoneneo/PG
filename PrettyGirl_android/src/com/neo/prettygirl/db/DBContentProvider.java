@@ -2,8 +2,6 @@ package com.neo.prettygirl.db;
 
 import java.util.HashMap;
 
-import com.neo.prettygirl.db.DataBase.BUY_DATA_DB;
-
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -12,11 +10,13 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.net.Uri;
 import android.text.TextUtils;
+
+import com.neo.prettygirl.db.DataBase.BUY_DATA_DB;
 
 public class DBContentProvider extends ContentProvider {
 	private static DBProviderHelper dbHelper;

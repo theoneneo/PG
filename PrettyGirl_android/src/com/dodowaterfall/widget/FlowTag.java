@@ -1,10 +1,10 @@
 package com.dodowaterfall.widget;
 
-import com.dodowaterfall.Constants;
-
 import android.content.res.AssetManager;
 
-//Õâ¸öÀàÊÇÒ»¸öjava bean£¬¿ÉÒÔ²»ÓÃÕâ¸öÀà
+import com.dodowaterfall.Constants;
+
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½java beanï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class FlowTag {
 	
 	public final int what = Constants.HANDLER_WHAT;

@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class ImageActivity extends FragmentActivity {
+public class BuyDialogActivity extends FragmentActivity {
 	private String res_id;
 
 	@Override

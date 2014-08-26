@@ -30,6 +30,10 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
+import android.widget.Gallery;
+import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 /**
  * An AdapterView is a view whose children are determined by an {@link Adapter}.

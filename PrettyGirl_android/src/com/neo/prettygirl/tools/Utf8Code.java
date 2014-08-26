@@ -4,8 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
-import android.net.Uri;
-
 public class Utf8Code {
 	public static String utf8Encode(String string) {
 		String result = "";

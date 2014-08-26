@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 import cn.trinea.android.common.entity.FailedReason;
@@ -31,7 +30,6 @@ import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
-import com.neo.prettygirl.db.DBTools;
 
 public class PGMyFragment extends BaseFragment {
 	private XListView mAdapterView = null;

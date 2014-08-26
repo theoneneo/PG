@@ -1,12 +1,11 @@
 package com.neo.prettygirl.db;
 
-import com.neo.prettygirl.PGApplication;
-import com.neo.prettygirl.data.ImageResDataStruct;
-import com.neo.prettygirl.db.DataBase.BUY_DATA_DB;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
+import com.neo.prettygirl.PGApplication;
+import com.neo.prettygirl.db.DataBase.BUY_DATA_DB;
 
 public class DBTools {
 	private static DBTools mInstance;
