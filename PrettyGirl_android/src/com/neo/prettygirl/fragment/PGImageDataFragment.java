@@ -3,7 +3,6 @@ package com.neo.prettygirl.fragment;
 import java.io.File;
 
 import me.maxwin.view.XListView;
-import me.maxwin.view.XListView.IXListViewListener;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,7 +18,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
-import android.widget.Toast;
 import cn.trinea.android.common.entity.FailedReason;
 import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
@@ -28,12 +26,12 @@ import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
+import com.neo.prettygirl.ImageActivity;
 import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
-import com.neo.prettygirl.controller.NetServiceManager;
-import com.neo.prettygirl.db.DBTools;
+import com.neo.prettygirl.data.ImageResDataStruct;
 
 public class PGImageDataFragment extends BaseFragment{
 	private XListView mAdapterView = null;
@@ -278,8 +276,9 @@ public class PGImageDataFragment extends BaseFragment{
 	}
 	
 	private void go2ImageActivity(int position){
-//		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
-//		intent.putExtra("res_id", res_id);
-//		startActivity(intent);
+		ImageResDataStruct data = ImageDataManager.getInstance().curGroupImage.imageData.get(position);
+		Intent intent = new Intent(getActivity(), ImageActivity.class);
+		intent.putExtra("res_id", data.res_id);
+		startActivity(intent);
 	}
 }
