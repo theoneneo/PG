@@ -1,31 +1,26 @@
 package com.neo.prettygirl;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 
+import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
-import com.neo.prettygirl.fragment.PGMainFragment;
-import com.neo.prettygirl.fragment.PGMyFragment;
-import com.viewpagerindicator.IconPagerAdapter;
-import com.viewpagerindicator.TabPageIndicator;
+import com.neo.prettygirl.fragment.PGImageDataFragment;
 
 import de.greenrobot.event.EventBus;
 
 public class ImageDataActivity extends FragmentActivity {
-	private String res_id;
+	public static String res_id;
+	private PGImageDataFragment imageDataFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		EventBus.getDefault().register(this, BroadCastEvent.class);
-		setContentView(R.layout.activity_data);	
-		initUI();
 		initData();
+		EventBus.getDefault().register(this, BroadCastEvent.class);
+		setContentView(R.layout.activity_data);
+		initUI();
 	}
 
 	protected void onDestroy() {
@@ -36,6 +31,7 @@ public class ImageDataActivity extends FragmentActivity {
 	public void onEventMainThread(BroadCastEvent event) {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_ALL_IMAGE_LIST_DATA:
+			imageDataFragment.updateAdapter();
 			break;
 		default:
 			break;
@@ -43,11 +39,13 @@ public class ImageDataActivity extends FragmentActivity {
 	}
 
 	private void initUI() {
-
+		imageDataFragment = (PGImageDataFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.list);		
 	}
 
 	private void initData() {
 		res_id = getIntent().getExtras().getString("res_id");
+		ImageDataManager.getInstance().getDBResIdImageData(res_id);
 		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
 	}
 }

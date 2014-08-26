@@ -74,7 +74,6 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 
 	@Override
 	public void onDestroyView() {
-		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		super.onDestroyView();
 	}
 

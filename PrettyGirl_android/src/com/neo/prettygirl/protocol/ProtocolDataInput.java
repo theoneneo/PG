@@ -41,7 +41,6 @@ public class ProtocolDataInput {
 			return false;
 		}
 		try {
-			ImageDataManager.getInstance().curGroupImage.imageData.clear();
 			JSONArray arrays = obj.getJSONArray("data");
 			for (int i = 0; i < arrays.length(); i++) {
 				JSONObject item = (JSONObject) arrays.opt(i);

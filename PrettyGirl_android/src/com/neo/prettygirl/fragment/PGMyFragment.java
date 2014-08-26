@@ -58,7 +58,6 @@ public class PGMyFragment extends BaseFragment {
 
 	@Override
 	public void onDestroy() {
-		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		super.onDestroy();
 	}
 
@@ -72,7 +71,6 @@ public class PGMyFragment extends BaseFragment {
 
 	@Override
 	public void onDestroyView() {
-		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		super.onDestroyView();
 	}
 

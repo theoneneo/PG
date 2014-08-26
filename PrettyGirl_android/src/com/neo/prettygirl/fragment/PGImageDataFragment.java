@@ -43,10 +43,11 @@ public class PGImageDataFragment extends BaseFragment{
 
 	public static final String TAG_CACHE = "image_sdcard_cache";
 	/** cache folder path which be used when saving images **/
-	public static final String DEFAULT_CACHE_FOLDER = new StringBuilder()
+	public final String DEFAULT_CACHE_FOLDER = new StringBuilder()
 			.append(Environment.getExternalStorageDirectory().getAbsolutePath())
 			.append(File.separator).append("Welfare").append(File.separator)
-			.append("main_image_cache").toString();
+			.append("all_image_cache").append(File.separator)
+			.append(ImageDataActivity.res_id).toString();
 	public static final ImageSDCardCache IMAGE_SD_CACHE = new ImageSDCardCache();
 
 	@Override
@@ -73,7 +74,6 @@ public class PGImageDataFragment extends BaseFragment{
 
 	@Override
 	public void onDestroyView() {
-		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		super.onDestroyView();
 	}
 
@@ -88,39 +88,15 @@ public class PGImageDataFragment extends BaseFragment{
 			public void onItemClick(PLA_AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				buyImageData(position);
+				go2ImageActivity(position);
 			}
 		});
 	}
 
-	private void buyImageData(int position) {
-		int len = mAdapter.getCount();
-		String res_id = ImageDataManager.getInstance().mainGroupImage.imageData
-				.get(len - position).res_id;
-		
-		if(DBTools.getInstance().isBuyRes(res_id)){
-			DBTools.getInstance().closeDB();
-			go2ImageDataActivity(res_id);
-		}else{
-			String coin = DBTools.getInstance().coinRes(res_id);
-			if(coin != null){
-				if(!coin.equals("0")){
-					popBuyWindow(res_id, coin);
-				}else{
-					go2ImageDataActivity(res_id);
-				}
-			}else{
-				Toast.makeText(getActivity(), "未找到", Toast.LENGTH_SHORT).show();
-			}
-			DBTools.getInstance().closeDB();
-		}
-	}
-
-	public void updateMainAdapter() {
+	public void updateAdapter(){
 		mAdapter.notifyDataSetChanged();
-		mAdapterView.stopRefresh();
 	}
-
+	
 	private class ImageAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
@@ -146,13 +122,12 @@ public class PGImageDataFragment extends BaseFragment{
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			int len = getCount();
 			IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(len - position - 1).link, holder.row_image);
+					ImageDataManager.getInstance().curGroupImage.imageData
+							.get(position).link, holder.row_image);
 			holder.row_text
-					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(len - position - 1).coin);
+					.setText(ImageDataManager.getInstance().curGroupImage.imageData
+							.get(position).coin);
 
 			return convertView;
 		}
@@ -160,7 +135,7 @@ public class PGImageDataFragment extends BaseFragment{
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return ImageDataManager.getInstance().mainGroupImage.imageData
+			return ImageDataManager.getInstance().curGroupImage.imageData
 					.size();
 		}
 
@@ -302,13 +277,9 @@ public class PGImageDataFragment extends BaseFragment{
 		return inAlphaAnimation;
 	}
 	
-	private void go2ImageDataActivity(String res_id){
-		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
-		intent.putExtra("res_id", res_id);
-		startActivity(intent);
-	}
-	
-	private void popBuyWindow(String res_id, String coin){
-		
+	private void go2ImageActivity(int position){
+//		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
+//		intent.putExtra("res_id", res_id);
+//		startActivity(intent);
 	}
 }
