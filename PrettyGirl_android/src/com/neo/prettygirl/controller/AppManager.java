@@ -36,11 +36,14 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier{
 	@Override
 	protected void initManager() {
 		// TODO Auto-generated method stub
-		AppConnect.getInstance(PGApplication.getContext()); 
+		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148","APP_PID",PGApplication.getContext());
+//		AppConnect.getInstance(this). initUninstallAd(this);
+		AppConnect.getInstance(PGApplication.getContext()).initAdInfo();
+		AppConnect.getInstance(PGApplication.getContext()).initPopAd(PGApplication.getContext());
 		AppConnect.getInstance(PGApplication.getContext()).getPoints(this);
-//		AppConnect.getInstance(PGApplication.getContext()).showOffers(this);
-//		AppConnect.getInstance(PGApplication.getContext()).showTuanOffers(this);
 		AppConnect.getInstance(PGApplication.getContext()).setCrashReport(true);
+		AppConnect.getInstance(PGApplication.getContext()).awardPoints(1000,this);
+		
 		ImageDataManager.getInstance();
 		NetServiceManager.getInstance();
 	}
@@ -50,6 +53,7 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier{
 	public void DestroyManager() {
 		// TODO Auto-generated method stub
 		AppConnect.getInstance(PGApplication.getContext()).close();
+
 		NetServiceManager.getInstance().DestroyManager();
 		ImageDataManager.getInstance().DestroyManager();
 	}
@@ -57,7 +61,7 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier{
 	@Override
 	public void getUpdatePoints(String arg0, int arg1) {
 		// TODO Auto-generated method stub
-		
+		coin = arg1;
 	}
 
 	@Override

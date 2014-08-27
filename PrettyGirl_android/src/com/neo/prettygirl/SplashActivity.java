@@ -14,15 +14,14 @@ import cn.waps.AppConnect;
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
 	private Timer timer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AppManager.getInstance();
-		AppConnect.getInstance(PGApplication.getContext()).checkUpdate(this);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
+
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
 		setContentView(R.layout.activity_splash);

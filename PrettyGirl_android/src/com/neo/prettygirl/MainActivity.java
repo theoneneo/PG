@@ -2,13 +2,12 @@ package com.neo.prettygirl;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import cn.waps.AppConnect;
@@ -18,24 +17,25 @@ import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
 import com.neo.prettygirl.fragment.PGMainFragment;
 import com.neo.prettygirl.fragment.PGMyFragment;
+import com.neo.prettygirl.waps.SlideWall;
 import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
 
 import de.greenrobot.event.EventBus;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 	private static final String[] CONTENT = new String[] { "百度", "我的" };
 
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
 	private PGMyFragment myListFragment;
+	private View slidingDrawerView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //		AppConnect.getInstance(PGApplication.getContext()).showOffers(this);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
 		setContentView(R.layout.activity_main);
 		initUI();
 		initData();
@@ -45,6 +45,17 @@ public class MainActivity extends FragmentActivity {
 		AppManager.getInstance().DestroyManager();
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
+	}
+	
+	@Override
+	public void onBackPressed() {
+		if(SlideWall.getInstance().slideWallDrawer != null
+				&& SlideWall.getInstance().slideWallDrawer.isOpened()){				
+			// 如果抽屉式应用墙展示中，则关闭抽屉
+			SlideWall.getInstance().closeSlidingDrawer();
+			return;
+		}
+		super.onBackPressed();
 	}
 
 	public void onEventMainThread(BroadCastEvent event) {
@@ -76,6 +87,11 @@ public class MainActivity extends FragmentActivity {
 		
 		TextView titleText = (TextView)findViewById(R.id.title).findViewById(R.id.title_text);
 		titleText.setText(R.string.app_name);
+		
+    	slidingDrawerView = SlideWall.getInstance().getView(this);
+    	if(slidingDrawerView != null){
+    		addContentView(slidingDrawerView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+    	}
 	}
 
 	private void initData() {

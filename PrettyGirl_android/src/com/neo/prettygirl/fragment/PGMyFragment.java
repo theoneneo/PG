@@ -128,9 +128,7 @@ public class PGMyFragment extends BaseFragment {
 			IMAGE_SD_CACHE.get(
 					ImageDataManager.getInstance().myGroupImage.imageData
 							.get(len - position - 1).link, holder.row_image);
-			holder.row_text
-					.setText(ImageDataManager.getInstance().myGroupImage.imageData
-							.get(len - position - 1).coin);
+			holder.row_text.setVisibility(View.GONE);
 
 			return convertView;
 		}

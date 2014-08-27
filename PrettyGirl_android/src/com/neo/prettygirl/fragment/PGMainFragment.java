@@ -28,6 +28,7 @@ import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
+import com.neo.prettygirl.BuyDialogActivity;
 import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
@@ -153,7 +154,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 							.get(len - position - 1).link, holder.row_image);
 			holder.row_text
 					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(len - position - 1).coin);
+							.get(len - position - 1).text);
 
 			return convertView;
 		}
@@ -322,6 +323,8 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	}
 	
 	private void popBuyWindow(String res_id, String coin){
-		
+		Intent intent = new Intent(getActivity(), BuyDialogActivity.class);
+		intent.putExtra("res_id", res_id);
+		startActivity(intent);
 	}
 }

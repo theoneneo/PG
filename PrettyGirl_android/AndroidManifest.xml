@@ -31,17 +31,15 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/StyledIndicators" />
-        <activity android:name=".BuyDialogActivity" />
+        <activity
+            android:name=".BuyDialogActivity"
+            android:theme="@style/custom_dlg" />
         <activity android:name=".ImageDataActivity" />
         <activity android:name=".ImageActivity" />
         <!-- 万普 -->
         <activity
             android:name="cn.waps.OffersWebView"
             android:configChanges="keyboardHidden|orientation" />
-
-        <meta-data
-            android:name="WAPS_ID"
-            android:value="20dba03620b3cb908557e6b6fdb87148" />
         <!-- 万普 -->
         <!-- umeng -->
         <meta-data
