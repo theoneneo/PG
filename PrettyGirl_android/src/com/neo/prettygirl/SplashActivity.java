@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -33,6 +34,10 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	private void initUI() {
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		AppManager.width = dm.widthPixels;
+		AppManager.height = dm.heightPixels;
 		ImageDataManager.getInstance();
 		timer = new Timer();
 		timer.schedule(new SplashTask(), 2 * 1000);

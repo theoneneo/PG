@@ -86,7 +86,7 @@ public class PGImageDataFragment extends BaseFragment{
 			public void onItemClick(PLA_AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				go2ImageActivity(position);
+				go2ImageActivity(position - 1);
 			}
 		});
 	}
@@ -276,9 +276,9 @@ public class PGImageDataFragment extends BaseFragment{
 	}
 	
 	private void go2ImageActivity(int position){
-		ImageResDataStruct data = ImageDataManager.getInstance().curGroupImage.imageData.get(position);
 		Intent intent = new Intent(getActivity(), ImageActivity.class);
-		intent.putExtra("res_id", data.res_id);
+		intent.putExtra("parent_res_id", ImageDataActivity.res_id);
+		intent.putExtra("position", position);
 		startActivity(intent);
 	}
 }

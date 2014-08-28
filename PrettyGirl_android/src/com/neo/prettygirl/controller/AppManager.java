@@ -1,6 +1,7 @@
 package com.neo.prettygirl.controller;
 
 import android.app.Application;
+import android.util.DisplayMetrics;
 import cn.waps.AppConnect;
 import cn.waps.UpdatePointsNotifier;
 
@@ -10,9 +11,10 @@ import com.neo.prettygirl.PGApplication;
  * @author LiuBing
  * @version 2014-3-7 下午2:36:04
  */
-public class AppManager extends BaseManager implements UpdatePointsNotifier{
+public class AppManager extends BaseManager implements UpdatePointsNotifier {
 	private static AppManager mInstance;
 	public int coin;
+	public static int width, height;
 
 	private AppManager(Application app) {
 		super(app);
@@ -36,18 +38,21 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier{
 	@Override
 	protected void initManager() {
 		// TODO Auto-generated method stub
-		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148","APP_PID",PGApplication.getContext());
-//		AppConnect.getInstance(this). initUninstallAd(this);
+		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
+				PGApplication.getContext());
+		// AppConnect.getInstance(this). initUninstallAd(this);
 		AppConnect.getInstance(PGApplication.getContext()).initAdInfo();
-		AppConnect.getInstance(PGApplication.getContext()).initPopAd(PGApplication.getContext());
+		AppConnect.getInstance(PGApplication.getContext()).initPopAd(
+				PGApplication.getContext());
 		AppConnect.getInstance(PGApplication.getContext()).getPoints(this);
 		AppConnect.getInstance(PGApplication.getContext()).setCrashReport(true);
-		AppConnect.getInstance(PGApplication.getContext()).awardPoints(1000,this);
-		
+		AppConnect.getInstance(PGApplication.getContext()).awardPoints(1000,
+				this);
+		AppConnect.getInstance(PGApplication.getContext()).spendPoints(10000,
+				this);
 		ImageDataManager.getInstance();
 		NetServiceManager.getInstance();
 	}
-	//AppConnect.getInstance(this).spendPoints(int amount, this);
 
 	@Override
 	public void DestroyManager() {
@@ -67,6 +72,6 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier{
 	@Override
 	public void getUpdatePointsFailed(String arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

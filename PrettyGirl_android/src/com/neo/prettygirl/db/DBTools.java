@@ -84,6 +84,25 @@ public class DBTools {
 		return cursor;
 	}
 	
+	public Cursor getResIdImageData(String res_id) {
+		String selection = BUY_DATA_DB.RES_ID + "='" + res_id
+				+ "'";
+		Cursor cursor = null;
+		try {
+			cursor = mContext.getContentResolver().query(
+					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
+			if (cursor != null) {
+				cursor.moveToFirst();
+				return cursor;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cursor;
+	}
+	
 //	public Cursor getAllImageData(){
 //		String selection = BUY_DATA_DB.PARENT_RES_ID + "!='" + -1 + "'";
 //		Cursor cursor = null;
@@ -102,47 +121,24 @@ public class DBTools {
 //		return cursor;
 //	}
 
-	public boolean isBuyRes(String res_id) {
-		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "
-				+ BUY_DATA_DB.BUY + "='" + 1 + "'";
-		Cursor cursor = null;
-		try {
-			cursor = mContext.getContentResolver().query(
-					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
-			if (cursor != null) {
-				cursor.moveToFirst();
-				if (cursor.getCount() != 0)
-					return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	public String coinRes(String res_id) {
-		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "
-				+ BUY_DATA_DB.BUY + "='" + 0 + "'";
-		Cursor cursor = null;
-		try {
-			cursor = mContext.getContentResolver().query(
-					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
-			if (cursor != null) {
-				cursor.moveToFirst();
-				if (cursor.getCount() == 0)
-					return null;
-				return DBTools.getUnvalidFormRs(cursor.getString(cursor
-						.getColumnIndex("coin")));
-			} else {
-				return null;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	public Cursor isBuyRes(String res_id) {
+//		String selection = BUY_DATA_DB.RES_ID + "='" + res_id + "'" + " and "
+//				+ BUY_DATA_DB.BUY + "='" + 1 + "'";
+//		Cursor cursor = null;
+//		try {
+//			cursor = mContext.getContentResolver().query(
+//					BUY_DATA_DB.CONTENT_URI, null, selection, null, null);
+//			if (cursor != null) {
+//				cursor.moveToFirst();
+//				return cursor;
+//			} else {
+//				return null;
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return cursor;
+//	}
 
 	public void insertImageData(String res_id, String parent_res_id,
 			String link, String text, String coin) {
@@ -152,9 +148,6 @@ public class DBTools {
 		value.put("link", toValidRs(link));
 		value.put("text", toValidRs(text));
 		value.put("coin", toValidRs(coin));
-		// if (coin.equals("0"))
-		// value.put("buy", 1);
-		// else
 		value.put("buy", 0);
 		mContext.getContentResolver().insert(BUY_DATA_DB.CONTENT_URI, value);
 	}

@@ -6,6 +6,7 @@ import me.maxwin.view.XListView;
 import me.maxwin.view.XListView.IXListViewListener;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
+import com.neo.prettygirl.data.ImageResDataStruct;
 import com.neo.prettygirl.db.DBTools;
 
 public class PGMainFragment extends BaseFragment implements IXListViewListener {
@@ -99,22 +101,46 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		int len = mAdapter.getCount();
 		String res_id = ImageDataManager.getInstance().mainGroupImage.imageData
 				.get(len - position).res_id;
-		
-		if(DBTools.getInstance().isBuyRes(res_id)){
-			DBTools.getInstance().closeDB();
-			go2ImageDataActivity(res_id);
-		}else{
-			String coin = DBTools.getInstance().coinRes(res_id);
-			if(coin != null){
-				if(!coin.equals("0")){
-					popBuyWindow(res_id, coin);
-				}else{
-					go2ImageDataActivity(res_id);
+		int buy = 0;
+		Cursor c = DBTools.getInstance().getResIdImageData(res_id);
+		if (c == null)
+			return;
+		for (int i = 0; i < c.getCount(); i++) {
+			ImageResDataStruct data = new ImageResDataStruct();
+			data.res_id = DBTools.getUnvalidFormRs(c.getString(c
+					.getColumnIndex("res_id")));
+			data.parent_res_id = DBTools.getUnvalidFormRs(c.getString(c
+					.getColumnIndex("parent_res_id")));
+			data.link = DBTools.getUnvalidFormRs(c.getString(c
+					.getColumnIndex("link")));
+			data.text = DBTools.getUnvalidFormRs(c.getString(c
+					.getColumnIndex("text")));
+			data.coin = DBTools.getUnvalidFormRs(c.getString(c
+					.getColumnIndex("coin")));
+
+			buy = c.getInt(c.getColumnIndex("buy"));
+			if (buy == 1) {
+				c.close();
+				DBTools.getInstance().closeDB();
+				go2ImageDataActivity(res_id);
+			} else {
+				String coin = null;
+				coin = DBTools.getUnvalidFormRs(c.getString(c
+						.getColumnIndex("coin")));
+				if (coin != null) {
+					if (!coin.equals("0")) {
+						popBuyWindow(res_id, coin);
+					} else {
+						go2ImageDataActivity(res_id);
+					}
+				} else {
+					Toast.makeText(getActivity(), "未找到", Toast.LENGTH_SHORT)
+							.show();
 				}
-			}else{
-				Toast.makeText(getActivity(), "未找到", Toast.LENGTH_SHORT).show();
+				c.close();
+				DBTools.getInstance().closeDB();
 			}
-			DBTools.getInstance().closeDB();
+			return;
 		}
 	}
 
@@ -315,14 +341,14 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		// TODO Auto-generated method stub
 
 	}
-	
-	private void go2ImageDataActivity(String res_id){
+
+	private void go2ImageDataActivity(String res_id) {
 		Intent intent = new Intent(getActivity(), ImageDataActivity.class);
 		intent.putExtra("res_id", res_id);
 		startActivity(intent);
 	}
-	
-	private void popBuyWindow(String res_id, String coin){
+
+	private void popBuyWindow(String res_id, String coin) {
 		Intent intent = new Intent(getActivity(), BuyDialogActivity.class);
 		intent.putExtra("res_id", res_id);
 		startActivity(intent);

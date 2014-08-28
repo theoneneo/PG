@@ -34,7 +34,6 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		AppConnect.getInstance(PGApplication.getContext()).showOffers(this);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		setContentView(R.layout.activity_main);
 		initUI();
@@ -61,7 +60,8 @@ public class MainActivity extends BaseActivity {
 	public void onEventMainThread(BroadCastEvent event) {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
-			mainListFragment.updateMainAdapter();
+			if(mainListFragment != null)
+				mainListFragment.updateMainAdapter();
 			break;
 		default:
 			break;
