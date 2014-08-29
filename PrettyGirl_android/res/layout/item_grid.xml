@@ -2,19 +2,19 @@
     android:id="@+id/card_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="7dp"
-	android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/news_item_bg">
 
-    <ImageView 
+    <com.dodowaterfall.widget.ScaleImageView
         android:id="@+id/row_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="center"/>
-    
-    <TextView 
-        android:id="@+id/row_text" 
-        android:layout_gravity="center_horizontal"
+        android:src="@null" />
+
+    <TextView
+        android:id="@+id/row_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

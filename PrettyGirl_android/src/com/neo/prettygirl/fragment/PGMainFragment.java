@@ -27,6 +27,7 @@ import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 
+import com.dodowaterfall.widget.ScaleImageView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
 import com.neo.prettygirl.BuyDialogActivity;
@@ -165,7 +166,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 				convertView = (View) inflater.inflate(R.layout.item_grid,
 						parent, false);
 				holder = new ViewHolder();
-				holder.row_image = (ImageView) convertView
+				holder.row_image = (ScaleImageView) convertView
 						.findViewById(R.id.row_image);
 				holder.row_text = (TextView) convertView
 						.findViewById(R.id.row_text);
@@ -206,7 +207,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	}
 
 	private class ViewHolder {
-		ImageView row_image;
+		ScaleImageView row_image;
 		TextView row_text;
 	}
 
@@ -264,7 +265,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 				// you can do something when image not in cache, for example set
 				// default image
 				if (view != null && view instanceof ImageView) {
-					((ImageView) view).setImageResource(R.drawable.ic_launcher);
+					((ImageView) view).setImageResource(R.drawable.empty_photo);
 					((ImageView) view).setScaleType(ScaleType.CENTER);
 				}
 			}

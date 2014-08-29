@@ -26,6 +26,7 @@ public class NetServiceManager extends BaseManager {
 	private static final String NET_GET_MAIN_IMAGE_LIST = NET_SERVER
 			+ "getmainimage.py";
 	private static final String NET_GET_ALL_IMAGE_LIST = NET_SERVER + "getallimage.py";
+	private static final String NET_GET_UPDATE_APK = NET_SERVER + "getupdate.py";
 
 	private NetServiceManager(Application app) {
 		super(app);
@@ -131,6 +132,47 @@ public class NetServiceManager extends BaseManager {
 							EventBus.getDefault()
 									.post(new BroadCastEvent(
 											BroadCastEvent.GET_ALL_IMAGE_LIST_DATA,
+											false));
+						}
+					}));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mQueue.start();
+	}
+	
+	public void getUpdateApk(int versionCode) {
+		RequestQueue mQueue = Volley
+				.newRequestQueue(PGApplication.getContext());
+		try {
+			JSONObject obj = ProtocolDataOutput.getUpdateApk(
+					versionCode);
+			mQueue.add(new JsonObjectRequest(Method.POST,
+					NET_GET_UPDATE_APK, obj, new Listener() {
+
+						@Override
+						public void onResponse(Object arg0) {
+							// TODO Auto-generated method stub
+							try {
+								boolean isSuccess = ProtocolDataInput
+										.parseUpdateApkToJson((JSONObject)arg0);
+								EventBus.getDefault()
+										.post(new BroadCastEvent(
+												BroadCastEvent.GET_UPDATE_APK,
+												isSuccess));
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}, new ErrorListener() {
+						@Override
+						public void onErrorResponse(VolleyError arg0) {
+							// TODO Auto-generated method stub
+							EventBus.getDefault()
+									.post(new BroadCastEvent(
+											BroadCastEvent.GET_UPDATE_APK,
 											false));
 						}
 					}));

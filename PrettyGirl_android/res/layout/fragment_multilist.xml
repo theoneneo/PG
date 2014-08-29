@@ -4,9 +4,11 @@
     android:layout_height="match_parent" >
 
     <me.maxwin.view.XListView
+        xmlns:pla="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        pla:plaColumnNumber="3" />
 
 </RelativeLayout>

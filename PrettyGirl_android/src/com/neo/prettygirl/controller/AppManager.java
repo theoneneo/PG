@@ -15,6 +15,8 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier {
 	private static AppManager mInstance;
 	public int coin;
 	public static int width, height;
+	public static int curVersion;
+	public static String updateLink = null;
 
 	private AppManager(Application app) {
 		super(app);

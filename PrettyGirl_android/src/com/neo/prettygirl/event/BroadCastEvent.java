@@ -5,6 +5,7 @@ public class BroadCastEvent {
 
 	public final static int GET_MAIN_IMAGE_LIST_DATA = BASE_EVENT + 1;
 	public final static int GET_ALL_IMAGE_LIST_DATA = BASE_EVENT + 2;
+	public final static int GET_UPDATE_APK = BASE_EVENT + 3;
 
 	private int type;
 	private Object obj;

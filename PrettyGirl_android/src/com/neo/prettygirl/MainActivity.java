@@ -1,5 +1,7 @@
 package com.neo.prettygirl;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -63,6 +65,10 @@ public class MainActivity extends BaseActivity {
 			if(mainListFragment != null)
 				mainListFragment.updateMainAdapter();
 			break;
+		case BroadCastEvent.GET_UPDATE_APK:
+			if(AppManager.updateLink != null)
+				popUpdateWindow();
+			break;
 		default:
 			break;
 		}
@@ -96,6 +102,23 @@ public class MainActivity extends BaseActivity {
 
 	private void initData() {
 		NetServiceManager.getInstance().getMainImageListData(0);// 第一页
+		updateApk();
+	}
+	
+	private void updateApk(){
+		PackageInfo pi;
+		try {  
+	        pi=getPackageManager().getPackageInfo(this.getPackageName(), 0);
+	        AppManager.curVersion = pi.versionCode;
+	        NetServiceManager.getInstance().getUpdateApk(pi.versionCode);
+	    } catch (NameNotFoundException e) {  
+	        // TODO Auto-generated catch block  
+	        e.printStackTrace();  
+	    } 
+	}
+	
+	private void popUpdateWindow(){
+		//升级提示框
 	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {

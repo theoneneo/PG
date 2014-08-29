@@ -29,4 +29,17 @@ public class ProtocolDataOutput {
 		}
 		return null;
 	}
+	
+	public static JSONObject getUpdateApk(int versionCode) throws JSONException {
+		try {
+			JSONObject output = new JSONObject();
+			output.put("version", versionCode);
+			return output;
+		} catch (JSONException ex) {
+			throw new RuntimeException(ex);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

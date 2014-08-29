@@ -3,17 +3,16 @@ package com.neo.prettygirl;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Window;
 import android.view.WindowManager;
-
-import cn.waps.AppConnect;
 
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
+import com.neo.prettygirl.controller.NetServiceManager;
 
 public class SplashActivity extends BaseActivity {
 	private Timer timer;

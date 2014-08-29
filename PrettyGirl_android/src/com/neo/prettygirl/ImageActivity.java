@@ -29,7 +29,7 @@ import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
 import com.neo.prettygirl.tools.ImageEraserView;
 
-public class ImageActivity extends BaseActivity implements OnClickListener{
+public class ImageActivity extends BaseActivity {
 	private int position;
 	private String parent_res_id;
 	private ImageView image;
@@ -66,7 +66,7 @@ public class ImageActivity extends BaseActivity implements OnClickListener{
 
 	private void initUI() {
 		mFloatImage = (ImageEraserView) this.findViewById(R.id.earseview);
-		mFloatImage.prepare(this, R.drawable.ic_launcher);
+		mFloatImage.prepare(this, R.drawable.bbg);
 		mFloatImage
 				.setOnDrawAreaRateCallback(new ImageEraserView.OnDrawAreaRateCallback() {
 					@Override
@@ -105,25 +105,25 @@ public class ImageActivity extends BaseActivity implements OnClickListener{
 
 		image = (ImageView) findViewById(R.id.image);
 		IMAGE_SD_CACHE.get(data.link, image);
-		
-		left_btn = (ImageButton)findViewById(R.id.left_btn);
-		left_btn.setOnClickListener(new OnClickListener(){
+
+		left_btn = (ImageButton) findViewById(R.id.left_btn);
+		left_btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				changeImageData(--position);
-			}	
+			}
 		});
-		
-		right_btn = (ImageButton)findViewById(R.id.right_btn);
-		right_btn.setOnClickListener(new OnClickListener(){
+
+		right_btn = (ImageButton) findViewById(R.id.right_btn);
+		right_btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				changeImageData(++position);
-			}	
+			}
 		});
-		
+
 		showLeftRightButton();
 	}
 
@@ -259,24 +259,22 @@ public class ImageActivity extends BaseActivity implements OnClickListener{
 		float width = 0;
 		float height = 0;
 		BitmapFactory.Options option = new BitmapFactory.Options();
-		option.inJustDecodeBounds = true;
 		Bitmap bitmap = BitmapFactory.decodeFile(imagePath, option);
 
+		float scale = 0;
 		if (new Float(option.outWidth) / new Float(option.outHeight) <= new Float(
 				AppManager.width) / new Float(AppManager.height)) {
-			width = (int) ((new Float(AppManager.height) / new Float(
-					option.outHeight)) * option.outWidth);
-			height = AppManager.height;
+			scale =  new Float(AppManager.height) / new Float(
+					option.outHeight);
 		} else {
-			width = AppManager.width;
-			height = (int) ((new Float(AppManager.width) / new Float(
-					option.outWidth)) * option.outHeight);
+			scale = new Float(AppManager.width) / new Float(
+					option.outWidth);
 		}
 
 		Matrix matrix = new Matrix();
-		matrix.postScale(width, height);
-		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, option.outWidth,
-				option.outHeight, matrix, true);
+		matrix.postScale(scale, scale); // 长和宽放大缩小的比例
+		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+				bitmap.getHeight(), matrix, true);
 
 		return resizeBmp;
 	}
@@ -286,22 +284,23 @@ public class ImageActivity extends BaseActivity implements OnClickListener{
 		inAlphaAnimation.setDuration(durationMillis);
 		return inAlphaAnimation;
 	}
-	
-	private void showLeftRightButton(){
-		if(position == 0){
+
+	private void showLeftRightButton() {
+		if (position == 0) {
 			left_btn.setVisibility(View.GONE);
-		}else{
+		} else {
 			left_btn.setVisibility(View.VISIBLE);
 		}
-		
-		if(position == ImageDataManager.getInstance().curGroupImage.imageData.size() - 1){
+
+		if (position == ImageDataManager.getInstance().curGroupImage.imageData
+				.size() - 1) {
 			right_btn.setVisibility(View.GONE);
-		}else{
+		} else {
 			right_btn.setVisibility(View.VISIBLE);
 		}
 	}
-	
-	private void changeImageData(int position){
+
+	private void changeImageData(int position) {
 		showLeftRightButton();
 		mFloatImage.prepare(this, R.drawable.ic_launcher);
 		GroupImageResDataStruct dd = ImageDataManager.getInstance().curGroupImage;
