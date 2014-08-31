@@ -58,6 +58,7 @@ public class BuyDialogActivity extends BaseActivity implements
 
 		LinearLayout layout = (LinearLayout) this
 				.findViewById(R.id.AdLinearLayout);
+		
 		AppConnect.getInstance(this).showBannerAd(this, layout);
 
 		Button wall_btn = (Button) findViewById(R.id.wall_btn);
@@ -65,8 +66,7 @@ public class BuyDialogActivity extends BaseActivity implements
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				AppConnect.getInstance(PGApplication.getContext()).showOffers(
-						BuyDialogActivity.this);
+				showOffers();
 			}
 		});
 
@@ -95,15 +95,19 @@ public class BuyDialogActivity extends BaseActivity implements
 			}
 		}
 	}
+	
+	private void showOffers(){
+		AppConnect.getInstance(this).showOffers(this);
+	}
 
 	private void buyImageData() {
 		AppConnect.getInstance(this).spendPoints(Integer.valueOf(curRes.coin),
 				this);
 		
-		DBTools.getInstance().updateBuyData(res_id);
+		ImageDataManager.getInstance().addMyGroupImage(curRes);
 		
 		Intent intent = new Intent(this, ImageDataActivity.class);
-		intent.putExtra("res_id", res_id);
+		intent.putExtra("res_id", curRes.res_id);
 		startActivity(intent);
 		finish();
 	}

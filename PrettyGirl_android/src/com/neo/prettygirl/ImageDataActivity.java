@@ -30,7 +30,7 @@ public class ImageDataActivity extends BaseActivity {
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		setContentView(R.layout.activity_data);
 		initUI();
-		
+
 		AppConnect.getInstance(this).showPopAd(this);
 	}
 
@@ -38,11 +38,11 @@ public class ImageDataActivity extends BaseActivity {
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		if(SlideWall.getInstance().slideWallDrawer != null
-				&& SlideWall.getInstance().slideWallDrawer.isOpened()){				
+		if (SlideWall.getInstance().slideWallDrawer != null
+				&& SlideWall.getInstance().slideWallDrawer.isOpened()) {
 			// 如果抽屉式应用墙展示中，则关闭抽屉
 			SlideWall.getInstance().closeSlidingDrawer();
 			return;
@@ -77,12 +77,13 @@ public class ImageDataActivity extends BaseActivity {
 
 		TextView titleText = (TextView) findViewById(R.id.title).findViewById(
 				R.id.title_text);
-		titleText.setText(curRes.text);
-		
-    	slidingDrawerView = SlideWall.getInstance().getView(this);
-    	if(slidingDrawerView != null){
-    		addContentView(slidingDrawerView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-    	}
+		titleText.setText(R.string.app_name);
+
+		slidingDrawerView = SlideWall.getInstance().getView(this);
+		if (slidingDrawerView != null) {
+			addContentView(slidingDrawerView, new LayoutParams(
+					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+		}
 	}
 
 	private void initData() {
@@ -96,6 +97,7 @@ public class ImageDataActivity extends BaseActivity {
 				break;
 			}
 		}
+		
 		ImageDataManager.getInstance().getDBResIdImageData(res_id);
 		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
 	}

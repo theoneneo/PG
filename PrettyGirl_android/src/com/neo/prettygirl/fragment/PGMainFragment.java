@@ -42,7 +42,6 @@ import com.neo.prettygirl.db.DBTools;
 public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	private XListView mAdapterView = null;
 	private MainImageAdapter mAdapter = null;
-	private int page = 0;
 	private static int IMAGE_MAX_WIDTH = 480;
 	private static int IMAGE_MAX_HEIGHT = 800;
 
@@ -130,8 +129,9 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 						.getColumnIndex("coin")));
 				if (coin != null) {
 					if (!coin.equals("0")) {
-						popBuyWindow(res_id, coin);
+						popBuyWindow(res_id);
 					} else {
+						ImageDataManager.getInstance().addMyGroupImage(data);
 						go2ImageDataActivity(res_id);
 					}
 				} else {
@@ -334,7 +334,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	@Override
 	public void onRefresh() {
 		// TODO Auto-generated method stub
-		NetServiceManager.getInstance().getMainImageListData(++page);
+		NetServiceManager.getInstance().getMainImageListData(ImageDataManager.getInstance().mainGroupImage.imageData.size());
 	}
 
 	@Override
@@ -349,7 +349,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 		startActivity(intent);
 	}
 
-	private void popBuyWindow(String res_id, String coin) {
+	private void popBuyWindow(String res_id) {
 		Intent intent = new Intent(getActivity(), BuyDialogActivity.class);
 		intent.putExtra("res_id", res_id);
 		startActivity(intent);

@@ -7,14 +7,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import cn.trinea.android.common.entity.FailedReason;
@@ -27,16 +26,13 @@ import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.data.GroupImageResDataStruct;
 import com.neo.prettygirl.data.ImageResDataStruct;
-import com.neo.prettygirl.tools.ImageEraserView;
 
-public class ImageActivity extends BaseActivity {
+public class ImageActivity extends BaseActivity implements OnPageChangeListener{
 	private int position;
 	private String parent_res_id;
-	private ImageView image;
-	private ImageEraserView mFloatImage;
+	private ViewPager viewPager;
+	private ImageView[] mImageViews; 
 	private ImageResDataStruct data;
-	private boolean mCanTouch = false;
-	private ImageButton right_btn, left_btn;
 
 	private static int IMAGE_MAX_WIDTH = 480;
 	private static int IMAGE_MAX_HEIGHT = 800;
@@ -44,9 +40,6 @@ public class ImageActivity extends BaseActivity {
 	/** cache folder path which be used when saving images **/
 	public String DEFAULT_CACHE_FOLDER;
 	public static final ImageSDCardCache IMAGE_SD_CACHE = new ImageSDCardCache();
-
-	private boolean mIsAnimRunning = false;
-	private final int mEarseRate = 70;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,66 +58,23 @@ public class ImageActivity extends BaseActivity {
 	}
 
 	private void initUI() {
-		mFloatImage = (ImageEraserView) this.findViewById(R.id.earseview);
-		mFloatImage.prepare(this, R.drawable.bbg);
-		mFloatImage
-				.setOnDrawAreaRateCallback(new ImageEraserView.OnDrawAreaRateCallback() {
-					@Override
-					public void setRate(float rate) {
-						if (rate >= mEarseRate && !mIsAnimRunning) {
-							Animation animation = AnimationUtils.loadAnimation(
-									ImageActivity.this, R.anim.alpha_out);
-							animation
-									.setAnimationListener(new Animation.AnimationListener() {
-
-										@Override
-										public void onAnimationStart(
-												Animation animation) {
-											mIsAnimRunning = true;
-										}
-
-										@Override
-										public void onAnimationRepeat(
-												Animation animation) {
-
-										}
-
-										@Override
-										public void onAnimationEnd(
-												Animation animation) {
-											mIsAnimRunning = false;
-											mFloatImage
-													.setVisibility(View.GONE);
-											mCanTouch = true;
-										}
-									});
-							mFloatImage.startAnimation(animation);
-						}
-					}
-				});
-
-		image = (ImageView) findViewById(R.id.image);
-		IMAGE_SD_CACHE.get(data.link, image);
-
-		left_btn = (ImageButton) findViewById(R.id.left_btn);
-		left_btn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				changeImageData(--position);
-			}
-		});
-
-		right_btn = (ImageButton) findViewById(R.id.right_btn);
-		right_btn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				changeImageData(++position);
-			}
-		});
-
-		showLeftRightButton();
+		//将图片装载到数组中  
+        mImageViews = new ImageView[ImageDataManager.getInstance().curGroupImage.imageData.size()];  
+        for(int i=0; i<mImageViews.length; i++){  
+            ImageView imageView = new ImageView(this);  
+            mImageViews[i] = imageView;  
+			IMAGE_SD_CACHE.get(
+					ImageDataManager.getInstance().curGroupImage.imageData
+							.get(i).link, imageView);
+        } 
+		
+		viewPager = (ViewPager) findViewById(R.id.viewPager);
+		// 设置Adapter
+		viewPager.setAdapter(new ImageAdapter());
+		// 设置监听，主要是设置点点的背景
+		viewPager.setOnPageChangeListener(this);
+		// 设置ViewPager的默认项, 设置为长度的100倍，这样子开始就能往左滑动
+		viewPager.setCurrentItem(position);
 	}
 
 	private void initData() {
@@ -143,6 +93,36 @@ public class ImageActivity extends BaseActivity {
 		IMAGE_SD_CACHE.initData(PGApplication.getContext(), TAG_CACHE);
 		IMAGE_SD_CACHE.setContext(PGApplication.getContext());
 		IMAGE_SD_CACHE.setCacheFolder(DEFAULT_CACHE_FOLDER);
+	}
+
+	public class ImageAdapter extends PagerAdapter {
+
+		@Override
+		public int getCount() {
+			return ImageDataManager.getInstance().curGroupImage.imageData.size();
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			return arg0 == arg1;
+		}
+
+		@Override
+		public void destroyItem(View container, int position, Object object) {
+			((ViewPager) container).removeView(mImageViews[position
+					% mImageViews.length]);
+
+		}
+
+		/**
+		 * 载入图片进去，用当前的position 除以 图片数组长度取余数是关键
+		 */
+		@Override
+		public Object instantiateItem(View container, int position) {
+			((ViewPager) container).addView(mImageViews[position
+					% mImageViews.length], 0);
+			return mImageViews[position % mImageViews.length];
+		}
 	}
 
 	static {
@@ -195,7 +175,7 @@ public class ImageActivity extends BaseActivity {
 				// you can do something when image not in cache, for example set
 				// default image
 				if (view != null && view instanceof ImageView) {
-					((ImageView) view).setImageResource(R.drawable.ic_launcher);
+					((ImageView) view).setImageResource(R.drawable.empty_photo);
 					((ImageView) view).setScaleType(ScaleType.CENTER);
 				}
 			}
@@ -264,11 +244,9 @@ public class ImageActivity extends BaseActivity {
 		float scale = 0;
 		if (new Float(option.outWidth) / new Float(option.outHeight) <= new Float(
 				AppManager.width) / new Float(AppManager.height)) {
-			scale =  new Float(AppManager.height) / new Float(
-					option.outHeight);
+			scale = new Float(AppManager.height) / new Float(option.outHeight);
 		} else {
-			scale = new Float(AppManager.width) / new Float(
-					option.outWidth);
+			scale = new Float(AppManager.width) / new Float(option.outWidth);
 		}
 
 		Matrix matrix = new Matrix();
@@ -285,26 +263,21 @@ public class ImageActivity extends BaseActivity {
 		return inAlphaAnimation;
 	}
 
-	private void showLeftRightButton() {
-		if (position == 0) {
-			left_btn.setVisibility(View.GONE);
-		} else {
-			left_btn.setVisibility(View.VISIBLE);
-		}
-
-		if (position == ImageDataManager.getInstance().curGroupImage.imageData
-				.size() - 1) {
-			right_btn.setVisibility(View.GONE);
-		} else {
-			right_btn.setVisibility(View.VISIBLE);
-		}
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	private void changeImageData(int position) {
-		showLeftRightButton();
-		mFloatImage.prepare(this, R.drawable.ic_launcher);
-		GroupImageResDataStruct dd = ImageDataManager.getInstance().curGroupImage;
-		data = dd.imageData.get(position);
-		IMAGE_SD_CACHE.get(data.link, image);
+	@Override
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPageSelected(int arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

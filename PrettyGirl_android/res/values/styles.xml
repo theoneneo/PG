@@ -3,10 +3,6 @@
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
-
-
-
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -117,6 +113,11 @@
         <item name="android:windowBackground">@color/gary_frame</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="Theme.Start" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/launcher</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>

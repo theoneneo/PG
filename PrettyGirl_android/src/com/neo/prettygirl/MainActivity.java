@@ -15,6 +15,7 @@ import android.widget.TextView;
 import cn.waps.AppConnect;
 
 import com.neo.prettygirl.controller.AppManager;
+import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
 import com.neo.prettygirl.event.BroadCastEvent;
 import com.neo.prettygirl.fragment.PGMainFragment;
@@ -26,7 +27,7 @@ import com.viewpagerindicator.TabPageIndicator;
 import de.greenrobot.event.EventBus;
 
 public class MainActivity extends BaseActivity {
-	private static final String[] CONTENT = new String[] { "百度", "我的" };
+	private static final String[] CONTENT = new String[] { "美女福利", "我的福利" };
 
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
@@ -82,7 +83,7 @@ public class MainActivity extends BaseActivity {
 		indicator.setViewPager(pager);
 		
 		ImageButton rightBtn = (ImageButton)findViewById(R.id.title).findViewById(R.id.right_btn);
-		rightBtn.setVisibility(View.VISIBLE);
+		rightBtn.setVisibility(View.INVISIBLE);
 		rightBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -101,7 +102,7 @@ public class MainActivity extends BaseActivity {
 	}
 
 	private void initData() {
-		NetServiceManager.getInstance().getMainImageListData(0);// 第一页
+		NetServiceManager.getInstance().getMainImageListData(ImageDataManager.getInstance().mainGroupImage.imageData.size());// 第一页
 		updateApk();
 	}
 	

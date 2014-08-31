@@ -123,10 +123,10 @@ public class PGImageDataFragment extends BaseFragment{
 			IMAGE_SD_CACHE.get(
 					ImageDataManager.getInstance().curGroupImage.imageData
 							.get(position).link, holder.row_image);
-			holder.row_text.setVisibility(View.GONE);
-//			holder.row_text
-//					.setText(ImageDataManager.getInstance().curGroupImage.imageData
-//							.get(position).coin);
+//			holder.row_text.setVisibility(View.GONE);
+			holder.row_text
+					.setText(ImageDataManager.getInstance().curGroupImage.imageData
+							.get(position).res_id);
 
 			return convertView;
 		}

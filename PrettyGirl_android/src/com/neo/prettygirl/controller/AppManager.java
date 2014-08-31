@@ -48,9 +48,8 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier {
 				PGApplication.getContext());
 		AppConnect.getInstance(PGApplication.getContext()).getPoints(this);
 		AppConnect.getInstance(PGApplication.getContext()).setCrashReport(true);
-		AppConnect.getInstance(PGApplication.getContext()).awardPoints(1000,
-				this);
-		AppConnect.getInstance(PGApplication.getContext()).spendPoints(10000,
+
+		AppConnect.getInstance(PGApplication.getContext()).spendPoints(9800,
 				this);
 		ImageDataManager.getInstance();
 		NetServiceManager.getInstance();

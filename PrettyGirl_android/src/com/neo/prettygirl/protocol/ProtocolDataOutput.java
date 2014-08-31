@@ -4,10 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ProtocolDataOutput {
-	public static JSONObject getMainImageListDataToJson(int page) throws JSONException {
+	public static JSONObject getMainImageListDataToJson(int num) throws JSONException {
 		try {
 			JSONObject output = new JSONObject();
-			output.put("page", page);
+			output.put("num", num);
 			return output;
 		} catch (JSONException ex) {
 			throw new RuntimeException(ex);

@@ -31,6 +31,7 @@ import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.PGApplication;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.ImageDataManager;
+import com.neo.prettygirl.data.ImageResDataStruct;
 
 public class PGMyFragment extends BaseFragment {
 	private XListView mAdapterView = null;
@@ -66,6 +67,11 @@ public class PGMyFragment extends BaseFragment {
 		View v = mInflater.inflate(R.layout.fragment_multilist, null);
 		initView(v);
 		return v;
+	}
+	
+	public void onResume(){
+		super.onResume();
+		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -126,9 +132,10 @@ public class PGMyFragment extends BaseFragment {
 			}
 
 			int len = getCount();
-			IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().myGroupImage.imageData
-							.get(len - position - 1).link, holder.row_image);
+			ImageResDataStruct data = ImageDataManager.getInstance().myGroupImage.imageData
+					.get(len - position - 1);
+			IMAGE_SD_CACHE.get(data.link
+					, holder.row_image);
 			holder.row_text.setVisibility(View.GONE);
 
 			return convertView;
