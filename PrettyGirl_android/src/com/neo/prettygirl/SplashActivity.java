@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import cn.waps.AppConnect;
+
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
 import com.neo.prettygirl.controller.NetServiceManager;
@@ -20,7 +22,6 @@ public class SplashActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		AppManager.getInstance();
 
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏

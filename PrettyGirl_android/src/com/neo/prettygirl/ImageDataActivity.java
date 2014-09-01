@@ -1,11 +1,25 @@
 package com.neo.prettygirl;
 
+import java.io.File;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ImageView.ScaleType;
+import cn.trinea.android.common.entity.FailedReason;
+import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
+import cn.trinea.android.common.service.impl.ImageSDCardCache;
+import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
+import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 import cn.waps.AppConnect;
 
 import com.neo.prettygirl.controller.ImageDataManager;
@@ -61,6 +75,7 @@ public class ImageDataActivity extends BaseActivity {
 	}
 
 	private void initUI() {
+
 		imageDataFragment = (PGImageDataFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.list);
 
@@ -97,7 +112,7 @@ public class ImageDataActivity extends BaseActivity {
 				break;
 			}
 		}
-		
+
 		ImageDataManager.getInstance().getDBResIdImageData(res_id);
 		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
 	}

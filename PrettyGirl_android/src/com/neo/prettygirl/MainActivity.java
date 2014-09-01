@@ -1,17 +1,32 @@
 package com.neo.prettygirl;
 
+import java.io.File;
+
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ImageView.ScaleType;
+import cn.trinea.android.common.entity.FailedReason;
+import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
+import cn.trinea.android.common.service.impl.ImageSDCardCache;
+import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
+import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 import cn.waps.AppConnect;
 
 import com.neo.prettygirl.controller.AppManager;
@@ -44,30 +59,31 @@ public class MainActivity extends BaseActivity {
 	}
 
 	protected void onDestroy() {
-		AppManager.getInstance().DestroyManager();
+		AppConnect.getInstance(this).close();
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		if(SlideWall.getInstance().slideWallDrawer != null
-				&& SlideWall.getInstance().slideWallDrawer.isOpened()){				
+		if (SlideWall.getInstance().slideWallDrawer != null
+				&& SlideWall.getInstance().slideWallDrawer.isOpened()) {
 			// 如果抽屉式应用墙展示中，则关闭抽屉
 			SlideWall.getInstance().closeSlidingDrawer();
 			return;
 		}
+		AppManager.getInstance().DestroyManager();
 		super.onBackPressed();
 	}
 
 	public void onEventMainThread(BroadCastEvent event) {
 		switch (event.getType()) {
 		case BroadCastEvent.GET_MAIN_IMAGE_LIST_DATA:
-			if(mainListFragment != null)
+			if (mainListFragment != null)
 				mainListFragment.updateMainAdapter();
 			break;
 		case BroadCastEvent.GET_UPDATE_APK:
-			if(AppManager.updateLink != null)
+			if (AppManager.updateLink != null)
 				popUpdateWindow();
 			break;
 		default:
@@ -75,51 +91,62 @@ public class MainActivity extends BaseActivity {
 		}
 	}
 
-	private void initUI() {
+	private void initUI() {		
 		adapter = new MainAdapter(getSupportFragmentManager());
 		ViewPager pager = (ViewPager) findViewById(R.id.pager);
 		pager.setAdapter(adapter);
 		TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
 		indicator.setViewPager(pager);
-		
-		ImageButton rightBtn = (ImageButton)findViewById(R.id.title).findViewById(R.id.right_btn);
+
+		ImageButton rightBtn = (ImageButton) findViewById(R.id.title)
+				.findViewById(R.id.right_btn);
 		rightBtn.setVisibility(View.INVISIBLE);
-		rightBtn.setOnClickListener(new OnClickListener(){
+		rightBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				
-			}	
+
+			}
 		});
-		
-		TextView titleText = (TextView)findViewById(R.id.title).findViewById(R.id.title_text);
+
+		TextView titleText = (TextView) findViewById(R.id.title).findViewById(
+				R.id.title_text);
 		titleText.setText(R.string.app_name);
-		
-    	slidingDrawerView = SlideWall.getInstance().getView(this);
-    	if(slidingDrawerView != null){
-    		addContentView(slidingDrawerView, new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-    	}
+
+		slidingDrawerView = SlideWall.getInstance().getView(this);
+		if (slidingDrawerView != null) {
+			addContentView(slidingDrawerView, new LayoutParams(
+					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+		}
 	}
 
 	private void initData() {
-		NetServiceManager.getInstance().getMainImageListData(ImageDataManager.getInstance().mainGroupImage.imageData.size());// 第一页
+		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
+				this);
+		// AppConnect.getInstance(this). initUninstallAd(this);
+		AppManager.getInstance().getPoint(this);
+		AppConnect.getInstance(this).initAdInfo();
+		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());
+
+		NetServiceManager.getInstance().getMainImageListData(
+				ImageDataManager.getInstance().mainGroupImage.imageData.size());// 第一页
 		updateApk();
 	}
-	
-	private void updateApk(){
+
+	private void updateApk() {
 		PackageInfo pi;
-		try {  
-	        pi=getPackageManager().getPackageInfo(this.getPackageName(), 0);
-	        AppManager.curVersion = pi.versionCode;
-	        NetServiceManager.getInstance().getUpdateApk(pi.versionCode);
-	    } catch (NameNotFoundException e) {  
-	        // TODO Auto-generated catch block  
-	        e.printStackTrace();  
-	    } 
+		try {
+			pi = getPackageManager().getPackageInfo(this.getPackageName(), 0);
+			AppManager.curVersion = pi.versionCode;
+			NetServiceManager.getInstance().getUpdateApk(pi.versionCode);
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
-	private void popUpdateWindow(){
-		//升级提示框
+
+	private void popUpdateWindow() {
+		// 升级提示框
 	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
@@ -158,5 +185,4 @@ public class MainActivity extends BaseActivity {
 			return CONTENT.length;
 		}
 	}
-
 }

@@ -16,6 +16,7 @@ public class PGApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		app = this;
+		AppManager.getInstance();
 	}
 
 	public void onTerminate() {

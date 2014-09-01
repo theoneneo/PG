@@ -54,7 +54,7 @@ public class ImageDataManager extends BaseManager {
 			if (mainGroupImage.imageData.get(i).res_id.equals(data.res_id))
 				return;
 		}
-		mainGroupImage.imageData.add(data);
+		mainGroupImage.imageData.add(0, data);
 		DBTools.getInstance().insertImageData(data.res_id, data.parent_res_id,
 				data.link, data.text, data.coin);
 	}
@@ -64,7 +64,7 @@ public class ImageDataManager extends BaseManager {
 			if (myGroupImage.imageData.get(i).res_id.equals(data.res_id))
 				return;
 		}
-		myGroupImage.imageData.add(data);
+		myGroupImage.imageData.add(0, data);
 		DBTools.getInstance().updateBuyData(data.res_id);
 	}
 
@@ -114,7 +114,7 @@ public class ImageDataManager extends BaseManager {
 							.getColumnIndex("text")));
 					data.coin = DBTools.getUnvalidFormRs(c.getString(c
 							.getColumnIndex("coin")));
-					mainGroupImage.imageData.add(data);
+					mainGroupImage.imageData.add(0, data);
 					c.moveToNext();
 				}
 				c.close();
@@ -139,7 +139,7 @@ public class ImageDataManager extends BaseManager {
 							.getColumnIndex("text")));
 					data.coin = DBTools.getUnvalidFormRs(c.getString(c
 							.getColumnIndex("coin")));
-					myGroupImage.imageData.add(data);
+					myGroupImage.imageData.add(0, data);
 					c.moveToNext();
 				}
 				c.close();

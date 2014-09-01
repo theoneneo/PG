@@ -1753,7 +1753,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int xlistview_arrow=0x7f02002d;
     }
     public static final class id {
-        public static final int AdLinearLayout=0x7f070037;
+        public static final int AdLinearLayout=0x7f070039;
         public static final int action_settings=0x7f07006a;
         public static final int afterDescendants=0x7f070028;
         public static final int all=0x7f070026;
@@ -1784,7 +1784,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int disabled=0x7f07002a;
         public static final int drawerContent=0x7f07005c;
         public static final int drawerHandle=0x7f07005d;
-        public static final int explain_text_1=0x7f070039;
+        public static final int explain_text_1=0x7f070038;
         public static final int explain_text_2=0x7f070036;
         public static final int firstStrong=0x7f07001a;
         public static final int gone=0x7f070003;
@@ -1849,7 +1849,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int viewPager=0x7f07003c;
         public static final int viewStart=0x7f070020;
         public static final int visible=0x7f070001;
-        public static final int wall_btn=0x7f070038;
+        public static final int wall_btn=0x7f070037;
         public static final int xlistview_footer_content=0x7f070061;
         public static final int xlistview_footer_hint_textview=0x7f070063;
         public static final int xlistview_footer_progressbar=0x7f070062;

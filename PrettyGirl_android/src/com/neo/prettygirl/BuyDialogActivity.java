@@ -58,7 +58,7 @@ public class BuyDialogActivity extends BaseActivity implements
 
 		LinearLayout layout = (LinearLayout) this
 				.findViewById(R.id.AdLinearLayout);
-		
+
 		AppConnect.getInstance(this).showBannerAd(this, layout);
 
 		Button wall_btn = (Button) findViewById(R.id.wall_btn);
@@ -95,17 +95,17 @@ public class BuyDialogActivity extends BaseActivity implements
 			}
 		}
 	}
-	
-	private void showOffers(){
+
+	private void showOffers() {
 		AppConnect.getInstance(this).showOffers(this);
 	}
 
 	private void buyImageData() {
 		AppConnect.getInstance(this).spendPoints(Integer.valueOf(curRes.coin),
 				this);
-		
+
 		ImageDataManager.getInstance().addMyGroupImage(curRes);
-		
+
 		Intent intent = new Intent(this, ImageDataActivity.class);
 		intent.putExtra("res_id", curRes.res_id);
 		startActivity(intent);
@@ -123,9 +123,15 @@ public class BuyDialogActivity extends BaseActivity implements
 	public void getUpdatePoints(String arg0, int arg1) {
 		// TODO Auto-generated method stub
 		AppManager.getInstance().coin = arg1;
-		coin_text.setText(getString(R.string.total_coin)
-				+ AppManager.getInstance().coin);
-		coin_text.invalidate();
+
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				coin_text.setText(getString(R.string.total_coin)
+						+ AppManager.getInstance().coin);
+				coin_text.invalidate();
+			}
+		});
 	}
 
 	@Override
