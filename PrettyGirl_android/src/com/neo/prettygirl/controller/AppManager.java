@@ -29,7 +29,7 @@ import com.neo.prettygirl.R;
  * @author LiuBing
  * @version 2014-3-7 下午2:36:04
  */
-public class AppManager extends BaseManager implements UpdatePointsNotifier {
+public class AppManager extends BaseManager{
 	private static AppManager mInstance;
 	public int coin;
 	public static int width, height;
@@ -82,22 +82,6 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier {
 		IMAGE_SD_CACHE.saveDataToDb(PGApplication.getContext(), TAG_CACHE);
 		NetServiceManager.getInstance().DestroyManager();
 		ImageDataManager.getInstance().DestroyManager();
-	}
-
-	public void getPoint(Context context) {
-		AppConnect.getInstance(context).getPoints(this);
-	}
-
-	@Override
-	public void getUpdatePoints(String arg0, int arg1) {
-		// TODO Auto-generated method stub
-		coin = arg1;
-	}
-
-	@Override
-	public void getUpdatePointsFailed(String arg0) {
-		// TODO Auto-generated method stub
-
 	}
 
 	static {

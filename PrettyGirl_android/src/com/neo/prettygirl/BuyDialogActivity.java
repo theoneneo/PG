@@ -131,9 +131,9 @@ public class BuyDialogActivity extends BaseActivity implements
 				coin_text.setText(getString(R.string.total_coin)
 						+ AppManager.getInstance().coin);
 				coin_text.invalidate();
-				Toast.makeText(BuyDialogActivity.this,
-						String.valueOf(AppManager.getInstance().coin),
-						Toast.LENGTH_LONG).show();
+//				Toast.makeText(BuyDialogActivity.this,
+//						String.valueOf(AppManager.getInstance().coin),
+//						Toast.LENGTH_LONG).show();
 			}
 		});
 	}

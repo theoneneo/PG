@@ -1,8 +1,10 @@
 package com.neo.prettygirl;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -21,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.waps.AppConnect;
+import cn.waps.UpdatePointsNotifier;
 
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
@@ -34,7 +37,7 @@ import com.viewpagerindicator.TabPageIndicator;
 
 import de.greenrobot.event.EventBus;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	private static final String[] CONTENT = new String[] { "美女福利", "我的福利" };
 
 	private MainAdapter adapter;
@@ -116,8 +119,8 @@ public class MainActivity extends BaseActivity {
 	private void initData() {
 		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
 				this);
-		// AppConnect.getInstance(this). initUninstallAd(this);
-		AppManager.getInstance().getPoint(this);
+		AppConnect.getInstance(this). initUninstallAd(this);
+		AppConnect.getInstance(this).getPoints(this);
 		AppConnect.getInstance(this).initAdInfo();
 		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());
 
@@ -154,22 +157,50 @@ public class MainActivity extends BaseActivity {
 
 	private void popUpdateWindow() {
 		// 升级提示框
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);  
+        builder.setCancelable(false);  
+        builder.setMessage("有新版本请升级");
+        builder.setPositiveButton("确认",  
+                new DialogInterface.OnClickListener() {  
+                    public void onClick(DialogInterface dialog, int whichButton) {  
+                    	downloadApk();  
+                    }  
+                });  
+        builder.setNegativeButton("取消",  
+                new DialogInterface.OnClickListener() {  
+                    public void onClick(DialogInterface dialog, int whichButton) { 
+                    }  
+                });  
+        builder.show(); 
+	}
+	
+	private void downloadApk(){
 		DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
 
-		Uri uri = Uri.parse("fileUrl");
+		Uri uri = Uri.parse(AppManager.updateLink);
 		Request request = new Request(uri);
 
 		// 设置允许使用的网络类型，这里是移动网络和wifi都可以
 		request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE
 				| DownloadManager.Request.NETWORK_WIFI);
 
-		// 禁止发出通知，既后台下载，如果要使用这一句必须声明一个权限：android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
-		// request.setShowRunningNotification(false);
-
-		// 不显示下载界面
 		request.setVisibleInDownloadsUi(true);
+		request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 		request.setDestinationInExternalPublicDir("Welfare", "PrettyGirl.apk");
-		long id = downloadManager.enqueue(request);
+		downloadManager.enqueue(request);
+	}
+
+	@Override
+	public void getUpdatePoints(String arg0, int arg1) {
+		// TODO Auto-generated method stub
+		AppManager.getInstance().coin = arg1;
+	}
+
+	@Override
+	public void getUpdatePointsFailed(String arg0) {
+		// TODO Auto-generated method stub
+
 	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {

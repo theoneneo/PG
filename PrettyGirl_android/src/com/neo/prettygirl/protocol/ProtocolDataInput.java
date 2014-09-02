@@ -71,7 +71,6 @@ public class ProtocolDataInput {
 			JSONArray arrays = obj.getJSONArray("data");
 			for (int i = 0; i < arrays.length(); i++) {
 				JSONObject item = (JSONObject) arrays.opt(i);
-				ImageResDataStruct data = new ImageResDataStruct();
 				int version = item.optInt("version");
 				if(version > AppManager.curVersion)
 					AppManager.updateLink = item.optString("link");			
