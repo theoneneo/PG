@@ -1,11 +1,14 @@
 package com.neo.prettygirl;
 
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -113,7 +116,7 @@ public class MainActivity extends BaseActivity {
 	private void initData() {
 		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
 				this);
-//		AppConnect.getInstance(this). initUninstallAd(this);
+		// AppConnect.getInstance(this). initUninstallAd(this);
 		AppManager.getInstance().getPoint(this);
 		AppConnect.getInstance(this).initAdInfo();
 		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());
@@ -151,6 +154,22 @@ public class MainActivity extends BaseActivity {
 
 	private void popUpdateWindow() {
 		// 升级提示框
+		DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+
+		Uri uri = Uri.parse("fileUrl");
+		Request request = new Request(uri);
+
+		// 设置允许使用的网络类型，这里是移动网络和wifi都可以
+		request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE
+				| DownloadManager.Request.NETWORK_WIFI);
+
+		// 禁止发出通知，既后台下载，如果要使用这一句必须声明一个权限：android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+		// request.setShowRunningNotification(false);
+
+		// 不显示下载界面
+		request.setVisibleInDownloadsUi(true);
+		request.setDestinationInExternalPublicDir("Welfare", "PrettyGirl.apk");
+		long id = downloadManager.enqueue(request);
 	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
