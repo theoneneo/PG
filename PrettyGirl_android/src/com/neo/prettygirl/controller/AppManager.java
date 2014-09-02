@@ -18,6 +18,7 @@ import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
+import cn.trinea.android.common.util.ObjectUtils;
 import cn.waps.AppConnect;
 import cn.waps.UpdatePointsNotifier;
 
@@ -118,20 +119,23 @@ public class AppManager extends BaseManager implements UpdatePointsNotifier {
 			@Override
 			public void onGetSuccess(String imageUrl, String imagePath,
 					View view, boolean isInCache) {
-				ImageView imageView = (ImageView) view;
 
-				// avoid oom caused by bitmap size exceeds VM budget
-				BitmapFactory.Options option = new BitmapFactory.Options();
-				option.inSampleSize = getImageScale(imagePath);
-				Bitmap bm = BitmapFactory.decodeFile(imagePath, option);
-				if (bm != null) {
-					imageView.setImageBitmap(bm);
-
-					// first time show with animation
-					if (!isInCache) {
-						imageView.startAnimation(getInAlphaAnimation(2000));
-					}
-					imageView.setScaleType(ScaleType.FIT_CENTER);
+				if (view != null && imagePath != null) {
+					ImageView imageView = (ImageView) view;
+					String imageUrlTag = (String) imageView.getTag();
+					if (ObjectUtils.isEquals(imageUrlTag, imageUrl)) {
+						BitmapFactory.Options option = new BitmapFactory.Options();
+						option.inSampleSize = getImageScale(imagePath);
+						Bitmap bm = BitmapFactory.decodeFile(imagePath, option);
+						if (bm != null) {
+							imageView.setImageBitmap(bm);
+							// first time show with animation
+							if (!isInCache) {
+								imageView.startAnimation(getInAlphaAnimation(2000));
+							}
+							imageView.setScaleType(ScaleType.FIT_CENTER);
+						}
+					}	
 				}
 			}
 

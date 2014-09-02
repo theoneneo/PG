@@ -2,8 +2,8 @@
     android:id="@+id/card_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/news_item_bg">
+    android:background="@drawable/news_item_bg"
+    android:orientation="vertical" >
 
     <com.dodowaterfall.widget.ScaleImageView
         android:id="@+id/row_image"
@@ -11,10 +11,25 @@
         android:layout_height="wrap_content"
         android:src="@null" />
 
-    <TextView
-        android:id="@+id/row_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/row_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="fasd" />
+
+        <ImageView
+            android:id="@+id/row_coin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/row_text"
+            android:src="@drawable/coin" />
+    </RelativeLayout>
 
 </LinearLayout>

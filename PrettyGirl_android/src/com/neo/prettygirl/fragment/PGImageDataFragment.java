@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dodowaterfall.widget.ScaleImageView;
@@ -18,8 +19,9 @@ import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
+import com.neo.prettygirl.data.ImageResDataStruct;
 
-public class PGImageDataFragment extends BaseFragment{
+public class PGImageDataFragment extends BaseFragment {
 	private XListView mAdapterView = null;
 	private ImageAdapter mAdapter = null;
 
@@ -62,10 +64,10 @@ public class PGImageDataFragment extends BaseFragment{
 		});
 	}
 
-	public void updateAdapter(){
+	public void updateAdapter() {
 		mAdapter.notifyDataSetChanged();
 	}
-	
+
 	private class ImageAdapter extends BaseAdapter {
 		private LayoutInflater inflater;
 		private Context mContext;
@@ -84,6 +86,8 @@ public class PGImageDataFragment extends BaseFragment{
 				holder = new ViewHolder();
 				holder.row_image = (ScaleImageView) convertView
 						.findViewById(R.id.row_image);
+				holder.row_coin = (ImageView) convertView
+						.findViewById(R.id.row_coin);
 				holder.row_text = (TextView) convertView
 						.findViewById(R.id.row_text);
 				convertView.setTag(holder);
@@ -91,14 +95,17 @@ public class PGImageDataFragment extends BaseFragment{
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			AppManager.IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().curGroupImage.imageData
-							.get(position).link, holder.row_image);
-			holder.row_text.setVisibility(View.GONE);
-//			holder.row_text
-//					.setText(ImageDataManager.getInstance().curGroupImage.imageData
-//							.get(position).res_id);
+			ImageResDataStruct data = ImageDataManager.getInstance().curGroupImage.imageData
+					.get(position);
 
+			holder.row_image.setTag(data.link);
+
+			if (!AppManager.IMAGE_SD_CACHE.get(data.link, holder.row_image)) {
+				holder.row_image.setImageResource(R.drawable.empty_photo);
+			}
+
+			holder.row_coin.setVisibility(View.GONE);
+			holder.row_text.setVisibility(View.GONE);
 			return convertView;
 		}
 
@@ -124,10 +131,11 @@ public class PGImageDataFragment extends BaseFragment{
 
 	private class ViewHolder {
 		ScaleImageView row_image;
+		ImageView row_coin;
 		TextView row_text;
 	}
-	
-	private void go2ImageActivity(int position){
+
+	private void go2ImageActivity(int position) {
 		Intent intent = new Intent(getActivity(), ImageActivity.class);
 		intent.putExtra("parent_res_id", ImageDataActivity.res_id);
 		intent.putExtra("position", position);

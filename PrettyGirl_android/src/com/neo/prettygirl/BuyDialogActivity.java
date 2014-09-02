@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.waps.AppConnect;
 import cn.waps.UpdatePointsNotifier;
 
@@ -130,6 +131,9 @@ public class BuyDialogActivity extends BaseActivity implements
 				coin_text.setText(getString(R.string.total_coin)
 						+ AppManager.getInstance().coin);
 				coin_text.invalidate();
+				Toast.makeText(BuyDialogActivity.this,
+						String.valueOf(AppManager.getInstance().coin),
+						Toast.LENGTH_LONG).show();
 			}
 		});
 	}

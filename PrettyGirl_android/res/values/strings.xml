@@ -19,5 +19,7 @@
     <string name="get_coin_method">获取金币的方法：</string>
     <string name="get_coin">积分墙获取金币</string>
     <string name="spend">花费金币：</string>
+    <string name="net_error">请检查网络是否连接</string>
+    <string name="down_refresh">请下拉刷新</string>
 
 </resources>

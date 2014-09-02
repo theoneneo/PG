@@ -1,32 +1,22 @@
 package com.neo.prettygirl;
 
-import java.io.File;
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ImageView.ScaleType;
-import cn.trinea.android.common.entity.FailedReason;
-import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
-import cn.trinea.android.common.service.impl.ImageSDCardCache;
-import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
-import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
+import android.widget.Toast;
 import cn.waps.AppConnect;
 
 import com.neo.prettygirl.controller.AppManager;
@@ -91,7 +81,7 @@ public class MainActivity extends BaseActivity {
 		}
 	}
 
-	private void initUI() {		
+	private void initUI() {
 		adapter = new MainAdapter(getSupportFragmentManager());
 		ViewPager pager = (ViewPager) findViewById(R.id.pager);
 		pager.setAdapter(adapter);
@@ -123,14 +113,28 @@ public class MainActivity extends BaseActivity {
 	private void initData() {
 		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
 				this);
-		// AppConnect.getInstance(this). initUninstallAd(this);
+//		AppConnect.getInstance(this). initUninstallAd(this);
 		AppManager.getInstance().getPoint(this);
 		AppConnect.getInstance(this).initAdInfo();
 		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());
 
-		NetServiceManager.getInstance().getMainImageListData(
-				ImageDataManager.getInstance().mainGroupImage.imageData.size());// 第一页
-		updateApk();
+		if (isNetworkConnected(this)) {
+			if (!isToastRefresh()) {
+				Toast.makeText(this, R.string.down_refresh, Toast.LENGTH_LONG)
+						.show();
+				SharedPreferences settings = getSharedPreferences("pgapp", 0);
+				SharedPreferences.Editor localEditor = settings.edit();
+				localEditor.putBoolean("toast_refresh", true);
+				localEditor.commit();
+			}
+
+			NetServiceManager.getInstance().getMainImageListData(
+					ImageDataManager.getInstance().mainGroupImage.imageData
+							.size());// 第一页
+			updateApk();
+		} else {
+			Toast.makeText(this, R.string.net_error, Toast.LENGTH_LONG).show();
+		}
 	}
 
 	private void updateApk() {
@@ -184,5 +188,23 @@ public class MainActivity extends BaseActivity {
 		public int getCount() {
 			return CONTENT.length;
 		}
+	}
+
+	private boolean isNetworkConnected(Context context) {
+		if (context != null) {
+			ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+					.getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo mNetworkInfo = mConnectivityManager
+					.getActiveNetworkInfo();
+			if (mNetworkInfo != null) {
+				return mNetworkInfo.isAvailable();
+			}
+		}
+		return false;
+	}
+
+	private boolean isToastRefresh() {
+		SharedPreferences settings = getSharedPreferences("pgapp", 0);
+		return settings.getBoolean("toast_refresh", false);
 	}
 }

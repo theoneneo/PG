@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -139,6 +140,8 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 				holder = new ViewHolder();
 				holder.row_image = (ScaleImageView) convertView
 						.findViewById(R.id.row_image);
+				holder.row_coin = (ImageView) convertView
+						.findViewById(R.id.row_coin);
 				holder.row_text = (TextView) convertView
 						.findViewById(R.id.row_text);
 				convertView.setTag(holder);
@@ -146,14 +149,18 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			AppManager.IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(position).link, holder.row_image);
 			
-//			holder.row_text.setVisibility(View.GONE);
-			holder.row_text
-					.setText(ImageDataManager.getInstance().mainGroupImage.imageData
-							.get(position).res_id);
+			ImageResDataStruct data = ImageDataManager.getInstance().mainGroupImage.imageData
+					.get(position);
+
+			holder.row_image.setTag(data.link);
+			
+			if(!AppManager.IMAGE_SD_CACHE.get(data.link, holder.row_image)){
+				holder.row_image.setImageResource(R.drawable.empty_photo);
+			}
+
+			holder.row_text.setVisibility(View.GONE);
+			holder.row_coin.setVisibility(View.GONE);
 
 			return convertView;
 		}
@@ -180,13 +187,15 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 
 	private class ViewHolder {
 		ScaleImageView row_image;
+		ImageView row_coin;
 		TextView row_text;
 	}
 
 	@Override
 	public void onRefresh() {
 		// TODO Auto-generated method stub
-		NetServiceManager.getInstance().getMainImageListData(ImageDataManager.getInstance().mainGroupImage.imageData.size());
+		NetServiceManager.getInstance().getMainImageListData(
+				ImageDataManager.getInstance().mainGroupImage.imageData.size());
 	}
 
 	@Override

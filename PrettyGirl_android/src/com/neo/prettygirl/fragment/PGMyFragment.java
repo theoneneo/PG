@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dodowaterfall.widget.ScaleImageView;
+import com.huewu.pla.lib.internal.PLA_AdapterView;
+import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
 import com.neo.prettygirl.ImageDataActivity;
 import com.neo.prettygirl.R;
 import com.neo.prettygirl.controller.AppManager;
@@ -41,7 +44,7 @@ public class PGMyFragment extends BaseFragment {
 
 	public void onResume() {
 		super.onResume();
-//		mAdapter.notifyDataSetChanged();
+		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -50,19 +53,19 @@ public class PGMyFragment extends BaseFragment {
 	}
 
 	private void initView(View v) {
-//		mAdapterView = (XListView) v.findViewById(R.id.list);
-//		mAdapterView.setPullRefreshEnable(false);
-//		mAdapterView.setPullLoadEnable(false);
-//		mAdapter = new MyImageAdapter(getActivity());
-//		mAdapterView.setAdapter(mAdapter);
-//		mAdapterView.setOnItemClickListener(new OnItemClickListener() {
-//			@Override
-//			public void onItemClick(PLA_AdapterView<?> parent, View view,
-//					int position, long id) {
-//				// TODO Auto-generated method stub
-//				buyImageData(position);
-//			}
-//		});
+		mAdapterView = (XListView) v.findViewById(R.id.list);
+		mAdapterView.setPullRefreshEnable(false);
+		mAdapterView.setPullLoadEnable(false);
+		mAdapter = new MyImageAdapter(getActivity());
+		mAdapterView.setAdapter(mAdapter);
+		mAdapterView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(PLA_AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				buyImageData(position);
+			}
+		});
 	}
 
 	private void buyImageData(int position) {
@@ -89,6 +92,8 @@ public class PGMyFragment extends BaseFragment {
 				holder = new ViewHolder();
 				holder.row_image = (ScaleImageView) convertView
 						.findViewById(R.id.row_image);
+				holder.row_coin = (ImageView) convertView
+						.findViewById(R.id.row_coin);
 				holder.row_text = (TextView) convertView
 						.findViewById(R.id.row_text);
 				convertView.setTag(holder);
@@ -98,7 +103,14 @@ public class PGMyFragment extends BaseFragment {
 
 			ImageResDataStruct data = ImageDataManager.getInstance().myGroupImage.imageData
 					.get(position);
-			AppManager.IMAGE_SD_CACHE.get(data.link, holder.row_image);
+			
+			holder.row_image.setTag(data.link);
+			
+			if(!AppManager.IMAGE_SD_CACHE.get(data.link, holder.row_image)){
+				holder.row_image.setImageResource(R.drawable.empty_photo);
+			}
+
+			holder.row_coin.setVisibility(View.GONE);
 			holder.row_text.setVisibility(View.GONE);
 
 			return convertView;
@@ -125,6 +137,7 @@ public class PGMyFragment extends BaseFragment {
 
 	private class ViewHolder {
 		ScaleImageView row_image;
+		ImageView row_coin;
 		TextView row_text;
 	}
 

@@ -10,11 +10,12 @@ import android.widget.ImageView;
 
 import com.neo.prettygirl.controller.AppManager;
 import com.neo.prettygirl.controller.ImageDataManager;
+import com.neo.prettygirl.data.ImageResDataStruct;
 
-public class ImageActivity extends BaseActivity implements OnPageChangeListener{
+public class ImageActivity extends BaseActivity implements OnPageChangeListener {
 	private int position;
 	private ViewPager viewPager;
-	private ImageView[] mImageViews; 
+	private ImageView[] mImageViews;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +31,25 @@ public class ImageActivity extends BaseActivity implements OnPageChangeListener{
 	public void onDestroy() {
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
 	}
 
 	private void initUI() {
-		//将图片装载到数组中  
-        mImageViews = new ImageView[ImageDataManager.getInstance().curGroupImage.imageData.size()];  
-        for(int i=0; i<mImageViews.length; i++){  
-            ImageView imageView = new ImageView(this);  
-            mImageViews[i] = imageView;  
-			AppManager.IMAGE_SD_CACHE.get(
-					ImageDataManager.getInstance().curGroupImage.imageData
-							.get(i).link, imageView);
-        } 
-		
+		// 将图片装载到数组中
+		mImageViews = new ImageView[ImageDataManager.getInstance().curGroupImage.imageData
+				.size()];
+		for (int i = 0; i < mImageViews.length; i++) {
+			ImageView imageView = new ImageView(this);
+			mImageViews[i] = imageView;
+			ImageResDataStruct data = ImageDataManager.getInstance().curGroupImage.imageData
+					.get(i);
+			imageView.setTag(data.link);
+			AppManager.IMAGE_SD_CACHE.get(data.link, imageView);
+		}
+
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
 		// 设置Adapter
 		viewPager.setAdapter(new ImageAdapter());
@@ -64,7 +67,8 @@ public class ImageActivity extends BaseActivity implements OnPageChangeListener{
 
 		@Override
 		public int getCount() {
-			return ImageDataManager.getInstance().curGroupImage.imageData.size();
+			return ImageDataManager.getInstance().curGroupImage.imageData
+					.size();
 		}
 
 		@Override
@@ -93,18 +97,18 @@ public class ImageActivity extends BaseActivity implements OnPageChangeListener{
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onPageSelected(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
