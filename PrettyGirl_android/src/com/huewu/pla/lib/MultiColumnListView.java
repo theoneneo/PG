@@ -25,7 +25,7 @@ import android.util.SparseIntArray;
 import android.view.View;
 
 import com.huewu.pla.lib.internal.PLA_ListView;
-import com.neo.prettygirl.R;
+import com.neo.pgapp.R;
 
 /**
  * @author huewu.ynag

@@ -34,7 +34,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 
-import com.neo.prettygirl.R;
+import com.neo.pgapp.R;
 
 /*
  * Implementation Notes:

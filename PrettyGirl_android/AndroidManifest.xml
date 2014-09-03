@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.neo.prettygirl"
+    package="com.neo.pgapp"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -16,13 +16,13 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
-        android:name=".PGApplication"
+        android:name="com.neo.pgapp.PGApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:screenOrientation="portrait" >
         <activity
-            android:name=".SplashActivity"
+            android:name="com.neo.pgapp.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Start" >
             <intent-filter>
@@ -32,18 +32,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.neo.pgapp.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/StyledIndicators" />
         <activity
-            android:name=".BuyDialogActivity"
+            android:name="com.neo.pgapp.BuyDialogActivity"
             android:screenOrientation="portrait"
             android:theme="@style/custom_dlg" />
         <activity
-            android:name=".ImageDataActivity"
+            android:name="com.neo.pgapp.ImageDataActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ImageActivity"
+            android:name="com.neo.pgapp.ImageActivity"
             android:screenOrientation="portrait" />
         <!-- 万普 -->
         <activity
@@ -59,9 +59,9 @@
             android:name="UMENG_CHANNEL"
             android:value="Channel ID" />
         <!-- umeng -->
-        <provider
-            android:name="com.neo.prettygirl.db.DBContentProvider"
-            android:authorities="com.neo.prettygirl.db.provider" />
+                <provider
+            android:name="com.neo.pgapp.db.DBContentProvider"
+            android:authorities="com.neo.pgapp.db.provider" />
     </application>
 
 </manifest>

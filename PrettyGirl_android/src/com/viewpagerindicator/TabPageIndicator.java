@@ -30,7 +30,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.neo.prettygirl.R;
+import com.neo.pgapp.R;
 
 /**
  * This widget implements the dynamic action bar tab behavior that can change

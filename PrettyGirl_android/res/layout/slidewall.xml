@@ -6,7 +6,7 @@
 	android:id="@+id/slidingdrawerLayout"
 	android:gravity="bottom">
   	
-  	<com.neo.prettygirl.waps.SlideWallDrawer
+  	<com.neo.pgapp.waps.SlideWallDrawer
         android:id="@+id/slidingDrawer"  
         android:layout_width="fill_parent"  
         android:layout_height="wrap_content"  
@@ -26,6 +26,6 @@
             android:background="@drawable/handle_up"
             />
             
-	</com.neo.prettygirl.waps.SlideWallDrawer>
+	</com.neo.pgapp.waps.SlideWallDrawer>
   
 </LinearLayout>

@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.huewu.pla.lib.MultiColumnListView;
 import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AbsListView.OnScrollListener;
-import com.neo.prettygirl.R;
+import com.neo.pgapp.R;
 
 public class XListView extends MultiColumnListView implements OnScrollListener {
 
