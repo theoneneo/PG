@@ -118,6 +118,7 @@ public class AppManager extends BaseManager{
 								imageView.startAnimation(getInAlphaAnimation(2000));
 							}
 							imageView.setScaleType(ScaleType.FIT_CENTER);
+							imageView.setAdjustViewBounds(true);
 						}
 					}	
 				}
