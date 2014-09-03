@@ -195,7 +195,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 	public void onRefresh() {
 		// TODO Auto-generated method stub
 		NetServiceManager.getInstance().getMainImageListData(
-				ImageDataManager.getInstance().mainGroupImage.imageData.size());
+				ImageDataManager.getInstance().mainGroupImage.imageData.size(), AppManager.APP_PID);
 	}
 
 	@Override

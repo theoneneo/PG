@@ -4,10 +4,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ProtocolDataOutput {
-	public static JSONObject getMainImageListDataToJson(int num) throws JSONException {
+	public static JSONObject getMainImageListDataToJson(int num, String APP_PID) throws JSONException {
 		try {
 			JSONObject output = new JSONObject();
 			output.put("num", num);
+			output.put("app_pid", APP_PID);
 			return output;
 		} catch (JSONException ex) {
 			throw new RuntimeException(ex);

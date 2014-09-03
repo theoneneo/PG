@@ -118,7 +118,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	}
 
 	private void initData() {
-		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", "APP_PID",
+		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", AppManager.APP_PID,
 				this);
 		AppConnect.getInstance(this). initUninstallAd(this);
 		AppConnect.getInstance(this).getPoints(this);
@@ -137,7 +137,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 
 			NetServiceManager.getInstance().getMainImageListData(
 					ImageDataManager.getInstance().mainGroupImage.imageData
-							.size());// 第一页
+							.size(), AppManager.APP_PID);// 第一页
 			updateApk();
 		} else {
 			Toast.makeText(this, R.string.net_error, Toast.LENGTH_LONG).show();
