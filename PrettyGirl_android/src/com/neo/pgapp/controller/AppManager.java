@@ -31,7 +31,7 @@ import com.neo.pgapp.R;
  */
 public class AppManager extends BaseManager{
 	private static AppManager mInstance;
-	public static String APP_PID = "91";
+	public static String APP_PID = "default";
 	public int coin;
 	public static int width, height;
 	public static int curVersion;
