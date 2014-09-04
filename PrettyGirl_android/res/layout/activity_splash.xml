@@ -11,6 +11,6 @@
         android:singleLine="true"
         android:text="@string/app_name"
         android:textColor="#ffffff"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
 </RelativeLayout>
