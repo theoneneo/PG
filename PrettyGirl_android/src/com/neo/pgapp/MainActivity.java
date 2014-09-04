@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 				mainListFragment.updateMainAdapter();
 			break;
 		case BroadCastEvent.GET_UPDATE_APK:
-			if (AppManager.updateLink != null)
+			if (AppManager.updateLink != null && (!"".equals(AppManager.updateLink)))
 				popUpdateWindow();
 			break;
 		default:
@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		try {
 			pi = getPackageManager().getPackageInfo(this.getPackageName(), 0);
 			AppManager.curVersion = pi.versionCode;
-			NetServiceManager.getInstance().getUpdateApk(pi.versionCode);
+			NetServiceManager.getInstance().getUpdateApk(pi.versionCode, AppManager.APP_PID);
 		} catch (NameNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

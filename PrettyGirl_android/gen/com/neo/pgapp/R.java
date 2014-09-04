@@ -1736,7 +1736,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int handle_up=0x7f02001c;
         public static final int ic_launcher=0x7f02001d;
         public static final int icon=0x7f02001e;
-        public static final int icon_mv=0x7f02001f;
+        public static final int icon_jc=0x7f02001f;
         public static final int item_bg=0x7f020020;
         public static final int launcher=0x7f020021;
         public static final int loading_bg=0x7f020022;

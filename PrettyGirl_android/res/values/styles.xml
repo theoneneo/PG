@@ -116,7 +116,7 @@
     </style>
 
     <style name="Theme.Start" parent="android:Theme">
-        <item name="android:windowBackground">@drawable/bg</item>
+        <item name="android:windowBackground">@drawable/launcher</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 

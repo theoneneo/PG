@@ -31,10 +31,11 @@ public class ProtocolDataOutput {
 		return null;
 	}
 	
-	public static JSONObject getUpdateApk(int versionCode) throws JSONException {
+	public static JSONObject getUpdateApk(int versionCode, String APP_PID) throws JSONException {
 		try {
 			JSONObject output = new JSONObject();
 			output.put("version", versionCode);
+			output.put("app_pid", APP_PID);
 			return output;
 		} catch (JSONException ex) {
 			throw new RuntimeException(ex);

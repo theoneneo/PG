@@ -142,12 +142,12 @@ public class NetServiceManager extends BaseManager {
 		mQueue.start();
 	}
 	
-	public void getUpdateApk(int versionCode) {
+	public void getUpdateApk(int versionCode, String APP_PID) {
 		RequestQueue mQueue = Volley
 				.newRequestQueue(PGApplication.getContext());
 		try {
 			JSONObject obj = ProtocolDataOutput.getUpdateApk(
-					versionCode);
+					versionCode, APP_PID);
 			mQueue.add(new JsonObjectRequest(Method.POST,
 					NET_GET_UPDATE_APK, obj, new Listener() {
 
