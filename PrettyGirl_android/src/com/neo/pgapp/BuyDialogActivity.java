@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.waps.AppConnect;
@@ -16,7 +15,7 @@ import com.neo.pgapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;
-import com.neo.pgapp.db.DBTools;
+import com.neo.pgapp.view.AdLinearLayoutView;
 
 public class BuyDialogActivity extends BaseActivity implements
 		UpdatePointsNotifier {
@@ -38,6 +37,16 @@ public class BuyDialogActivity extends BaseActivity implements
 	protected void onDestroy() {
 		super.onDestroy();
 	}
+	
+	@Override
+	protected void onStart(){
+		super.onStart();
+	}
+	
+	@Override
+	protected void onStop(){
+		super.onStop();
+	}
 
 	@Override
 	protected void onResume() {
@@ -52,23 +61,23 @@ public class BuyDialogActivity extends BaseActivity implements
 	protected void onPause() {
 		super.onPause();
 	}
+	
+	@Override
+	public void onWindowFocusChanged (boolean hasFocus){
+		super.onWindowFocusChanged(hasFocus);
+		IsBuyVailable();
+		coin_text.setText(getString(R.string.total_coin)
+				+ AppManager.getInstance().coin);
+		coin_text.invalidate();
+	}
 
 	private void initUI() {
 		coin_text = (TextView) findViewById(R.id.coin_text);
 		coin_text.setText(getString(R.string.total_coin)
 				+ AppManager.getInstance().coin);
 
-		LinearLayout layout = (LinearLayout) this
+		AdLinearLayoutView layout = (AdLinearLayoutView) this
 				.findViewById(R.id.AdLinearLayout);
-		layout.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				AppConnect.getInstance(BuyDialogActivity.this).awardPoints(50,
-						BuyDialogActivity.this);
-			}
-		});
-
 		AppConnect.getInstance(this).showBannerAd(this, layout);
 
 		Button wall_btn = (Button) findViewById(R.id.wall_btn);

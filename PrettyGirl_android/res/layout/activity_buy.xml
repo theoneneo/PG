@@ -51,7 +51,7 @@
         android:textColor="#000000"
         android:textSize="16sp" />
 
-    <LinearLayout
+    <com.neo.pgapp.view.AdLinearLayoutView
         android:id="@+id/AdLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

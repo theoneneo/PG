@@ -123,7 +123,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		AppConnect.getInstance(this). initUninstallAd(this);
 		AppConnect.getInstance(this).getPoints(this);
 		AppConnect.getInstance(this).initAdInfo();
-		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());
+		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());		
 
 		if (isNetworkConnected(this)) {
 			if (!isToastRefresh()) {
