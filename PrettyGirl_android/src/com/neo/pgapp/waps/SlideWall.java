@@ -143,7 +143,7 @@ public class SlideWall {
 			final int handle_down_img_id = context.getResources().getIdentifier("handle_down", "drawable", context.getPackageName());
 			final TextView drawHandle = (TextView) view.findViewById(drawerHandle_id);
 			
-			drawHandle.setText("获取金币");
+			drawHandle.setText("精彩推荐");
 			drawHandle.setTextSize(12);
 			drawHandle.setTextColor(Color.BLACK);
 			drawHandle.setGravity(Gravity.RIGHT);

@@ -2,6 +2,7 @@ package com.neo.pgapp;
 
 import java.io.File;
 
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -76,7 +77,6 @@ public class ImageDataActivity extends BaseActivity {
 	}
 
 	private void initUI() {
-
 		imageDataFragment = (PGImageDataFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.list);
 

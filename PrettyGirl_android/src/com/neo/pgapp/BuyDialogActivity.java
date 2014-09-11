@@ -60,6 +60,14 @@ public class BuyDialogActivity extends BaseActivity implements
 
 		LinearLayout layout = (LinearLayout) this
 				.findViewById(R.id.AdLinearLayout);
+		layout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				AppConnect.getInstance(BuyDialogActivity.this).awardPoints(50,
+						BuyDialogActivity.this);
+			}
+		});
 
 		AppConnect.getInstance(this).showBannerAd(this, layout);
 
@@ -132,9 +140,9 @@ public class BuyDialogActivity extends BaseActivity implements
 				coin_text.setText(getString(R.string.total_coin)
 						+ AppManager.getInstance().coin);
 				coin_text.invalidate();
-//				Toast.makeText(BuyDialogActivity.this,
-//						String.valueOf(AppManager.getInstance().coin),
-//						Toast.LENGTH_LONG).show();
+				Toast.makeText(BuyDialogActivity.this,
+						String.valueOf(AppManager.getInstance().coin),
+						Toast.LENGTH_LONG).show();
 			}
 		});
 	}
