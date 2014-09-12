@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    name="PrettyGirl_android"
+    default="deploy" >
+
+    <!--
+         The local.properties file is created and updated by the 'android' tool.
+         It contains the path to the SDK. It should *NOT* be checked into
+         Version Control Systems.
+
+
+    -->
+
+    <!-- Get AndroidManifest.xml property
+            And you use it like this:
+            ${amap.manifest.manifest.android:versionName}
+        @author yi.kang
+        @date 2014-04-25 18:11
+     -->
+    <xmlproperty file="AndroidManifest.xml" prefix="app.version.name" collapseAttributes="true"/>
+    <property name="version.name" value="${app.version.name.manifest.android:versionName}" />
+
+    <!--
+         The ant.properties file can be created by you. It is only edited by the
+         'android' tool to add properties to it.
+         This is the place to change some Ant specific build properties.
+         Here are some properties you may want to change/update:
+
+         source.dir
+             The name of the source directory. Default is 'src'.
+         out.dir
+             The name of the output directory. Default is 'bin'.
+
+         For other overridable properties, look at the beginning of the rules
+         files in the SDK, at tools/ant/build.xml
+
+         Properties related to the SDK location or the project target should
+         be updated using the 'android' tool with the 'update' action.
+
+         This file is an integral part of the build system for your
+         application and should be checked into Version Control Systems.
+
+
+
+    -->
+
+    <property file="ant.properties" />
+
+    <!--
+         if sdk.dir was not set from one of the property file, then
+         get it from the ANDROID_HOME env var.
+         This must be done before we load project.properties since
+         the proguard config can use sdk.dir
+
+
+    -->
+
+    <property environment="env" />
+
+    <condition
+        property="sdk.dir"
+        value="${env.ANDROID_HOME}" >
+
+        <isset property="env.ANDROID_HOME" />
+    </condition>
+
+    <property file="build.properties" />
+
+    <!-- 支持循环执行 -->
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" >
+
+        <classpath>
+
+            <!-- <pathelement location="lib/ant-contrib-1.0b3.jar" /> -->
+
+            <pathelement location="lib/ant-contrib-1.0b3.jar" />
+        </classpath>
+    </taskdef>
+
+    <echo>
+		Run ant-contrib OK
+    </echo>
+
+    <target name="deploy" >
+
+        <antcall target="clean" />
+
+        <foreach
+            delimiter=","
+            list="${market_channels}"
+            param="channel"
+            target="edit_and_build" >
+        </foreach>
+    </target>
+    
+    <target name="edit_and_build">  
+		<echo>Run '${channel}' apk</echo>
+		<!--  flags="g" 指定全局替换，替换所有符合规则的字段
+		byline="false" 确认被替换的时候是一次替换一行还是多行 
+		pattern 属性用来指明正则表达式 -->
+		<replaceregexp flags="g" byline="false">  
+		    <regexp pattern="android:value=&quot;(.*)&quot; android:name=&quot;APP_PID&quot;"/>  
+		    <!-- substitution expression 中是替换的值，替换的值都定义在相对应的配置文件中 -->
+		    <substitution expression="android:value=&quot;${channel}&quot; android:name=&quot;APP_PID&quot;" />
+		    <!-- fileset 属性中的 dir 用来指定被替换文件所在的目录
+			includes 用来指定要替换哪个文件。 -->  
+		    <fileset dir="" includes="AndroidManifest.xml" />  
+	    </replaceregexp>
+		<replaceregexp flags="g" byline="false">  
+		    <regexp pattern="android:value=&quot;(.*)&quot; android:name=&quot;UMENG_CHANNEL&quot;"/>  
+		    <!-- substitution expression 中是替换的值，替换的值都定义在相对应的配置文件中 -->
+		    <substitution expression="android:value=&quot;${channel}&quot; android:name=&quot;UMENG_CHANNEL&quot;" />
+		    <!-- fileset 属性中的 dir 用来指定被替换文件所在的目录
+			includes 用来指定要替换哪个文件。 -->  
+		    <fileset dir="" includes="AndroidManifest.xml" />  
+	    </replaceregexp>  
+	    <!-- <property name="out.release.file"  
+	                  location="./${channel}.apk" />  
+	    <antcall target="release" /> -->
+	    <!-- <property
+            name="out.final.file"
+            location="D:\ProjectDemo\${channel}.apk" /> -->
+		<property name="out.final.file" 
+		    location="E:\workspace\PG\release\PrettyGirl_android${channel}_${version.name}.apk" />
+        <!--<antcall target="clean" />-->
+        <antcall target="release" />
+	</target>
+
+    <!--
+         The project.properties file is created and updated by the 'android'
+         tool, as well as ADT.
+
+         This contains project specific properties such as project target, and library
+         dependencies. Lower level build properties are stored in ant.properties
+         (or in .classpath for Eclipse projects).
+
+         This file is an integral part of the build system for your
+         application and should be checked into Version Control Systems.
+
+
+    -->
+
+    <loadproperties srcFile="project.properties" />
+
+    <!-- quick check on sdk.dir -->
+
+    <fail
+        message="sdk.dir is missing. Make sure to generate local.properties using &apos;android update project&apos; or to inject it through the ANDROID_HOME environment variable."
+        unless="sdk.dir" />
+
+    <!--
+        Import per project custom build rules if present at the root of the project.
+        This is the place to put custom intermediary targets such as:
+            -pre-build
+            -pre-compile
+            -post-compile (This is typically used for code obfuscation.
+                           Compiled code location: ${out.classes.absolute.dir}
+                           If this is not done in place, override ${out.dex.input.absolute.dir})
+            -post-package
+            -post-build
+            -pre-clean
+
+
+
+    -->
+
+    <import
+        file="custom_rules.xml"
+        optional="true" />
+
+    <!--
+         Import the actual build file.
+
+         To customize existing targets, there are two options:
+         - Customize only one target:
+             - copy/paste the target into this file, *before* the
+               <import> task.
+             - customize it to your needs.
+         - Customize the whole content of build.xml
+             - copy/paste the content of the rules files (minus the top node)
+               into this file, replacing the <import> task.
+             - customize to your needs.
+
+         ***********************
+         ****** IMPORTANT ******
+         ***********************
+         In all cases you must update the value of version-tag below to read 'custom' instead of an integer,
+         in order to avoid having your file be overridden by tools such as "android update project"
+
+
+
+    -->
+    <!-- version-tag: 1 -->
+
+    <import file="${sdk.dir}/tools/ant/build.xml" />
+
+</project>

@@ -118,9 +118,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	}
 
 	private void initData() {
-		AppConnect.getInstance("20dba03620b3cb908557e6b6fdb87148", AppManager.APP_PID,
-				this);
-		AppConnect.getInstance(this). initUninstallAd(this);
+		AppConnect.getInstance(this).initUninstallAd(this);
 		AppConnect.getInstance(this).getPoints(this);
 		AppConnect.getInstance(this).initAdInfo();
 		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());		

@@ -4,18 +4,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import cn.waps.AppConnect;
-
-import com.neo.pgapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
-import com.neo.pgapp.controller.NetServiceManager;
 
 public class SplashActivity extends BaseActivity {
 	private Timer timer;
@@ -35,6 +32,17 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	private void initUI() {
+		ApplicationInfo appInfo = null;
+		try {
+			appInfo = this.getPackageManager()  
+	                .getApplicationInfo(getPackageName(),   
+	                        PackageManager.GET_META_DATA);
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		AppManager.APP_PID = appInfo.metaData.getString("APP_PID");
+
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		AppManager.width = dm.widthPixels;
