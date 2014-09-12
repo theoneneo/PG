@@ -43,7 +43,7 @@ public class SplashActivity extends BaseActivity {
 		}
 		AppManager.APP_PID = appInfo.metaData.getString("APP_PID");
 
-		DisplayMetrics dm = new DisplayMetrics();
+		DisplayMetrics dm = new DisplayMetrics(); 
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		AppManager.width = dm.widthPixels;
 		AppManager.height = dm.heightPixels;
