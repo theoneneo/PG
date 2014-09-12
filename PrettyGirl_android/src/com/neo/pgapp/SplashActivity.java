@@ -41,7 +41,9 @@ public class SplashActivity extends BaseActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		AppManager.APP_PID = appInfo.metaData.getString("APP_PID");
+		
+		if(appInfo != null)
+			AppManager.APP_PID = appInfo.metaData.getString("APP_PID");
 
 		DisplayMetrics dm = new DisplayMetrics(); 
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
