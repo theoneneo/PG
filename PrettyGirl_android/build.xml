@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-    name="PrettyGirl_android"
+    name="PG"
     default="deploy" >
 
     <!--
@@ -122,7 +122,7 @@
             name="out.final.file"
             location="D:\ProjectDemo\${channel}.apk" /> -->
 		<property name="out.final.file" 
-		    location="E:\workspace\PG\release\PrettyGirl_android${channel}_${version.name}.apk" />
+		    location="E:\workspace\PG\release\PG_${channel}_${version.name}.apk" />
         <!--<antcall target="clean" />-->
         <antcall target="release" />
 	</target>
