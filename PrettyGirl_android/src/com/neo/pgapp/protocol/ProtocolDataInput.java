@@ -73,7 +73,12 @@ public class ProtocolDataInput {
 				JSONObject item = (JSONObject) arrays.opt(i);
 				int version = item.optInt("version");
 				if(version > AppManager.curVersion)
-					AppManager.updateLink = item.optString("link");			
+					AppManager.updateLink = item.optString("link");
+				
+				if(item.optInt("isopen") == 1)
+					AppManager.isOpen = true;
+				else
+					AppManager.isOpen = false;
 				break;
 			}
 			return true;

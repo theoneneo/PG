@@ -41,6 +41,7 @@ import de.greenrobot.event.EventBus;
 public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	private static final String[] CONTENT = new String[] { "精彩福利", "我的福利" };
 
+	private boolean isUpdate = false;
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
 	private PGMyFragment myListFragment;
@@ -51,6 +52,9 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		setContentView(R.layout.activity_main);
+		
+		isUpdate = getIntent().getExtras().getBoolean("isupdate");
+		updateFunction();
 		initUI();
 		initData();
 	}
@@ -80,6 +84,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 				mainListFragment.updateMainAdapter();
 			break;
 		case BroadCastEvent.GET_UPDATE_APK:
+			updateFunction();
 			if (AppManager.updateLink != null && (!"".equals(AppManager.updateLink)))
 				popUpdateWindow();
 			break;
@@ -136,21 +141,11 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 			NetServiceManager.getInstance().getMainImageListData(
 					ImageDataManager.getInstance().mainGroupImage.imageData
 							.size(), AppManager.APP_PID);// 第一页
-			updateApk();
+			
+			if(isUpdate)
+				popUpdateWindow();
 		} else {
 			Toast.makeText(this, R.string.net_error, Toast.LENGTH_LONG).show();
-		}
-	}
-
-	private void updateApk() {
-		PackageInfo pi;
-		try {
-			pi = getPackageManager().getPackageInfo(this.getPackageName(), 0);
-			AppManager.curVersion = pi.versionCode;
-			NetServiceManager.getInstance().getUpdateApk(pi.versionCode, AppManager.APP_PID);
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
@@ -255,5 +250,13 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	private boolean isToastRefresh() {
 		SharedPreferences settings = getSharedPreferences("pgapp", 0);
 		return settings.getBoolean("toast_refresh", false);
+	}
+	
+	private void updateFunction(){
+		if(AppManager.isOpen){
+			
+		}else{
+			
+		}
 	}
 }

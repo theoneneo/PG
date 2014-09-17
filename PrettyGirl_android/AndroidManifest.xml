@@ -52,14 +52,14 @@
         <meta-data
             android:name="APP_ID"
             android:value="20dba03620b3cb908557e6b6fdb87148" />
-        <meta-data android:value="neng" android:name="APP_PID" />
+        <meta-data android:value="appChina" android:name="APP_PID" />
         <!-- 万普 -->
         <!-- umeng -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="53fc8d67fd98c52c56008f0a" >
         </meta-data>
-        <meta-data android:value="neng" android:name="UMENG_CHANNEL" />
+        <meta-data android:value="appChina" android:name="UMENG_CHANNEL" />
         <!-- umeng -->
         <provider
             android:name="com.neo.pgapp.db.DBContentProvider"

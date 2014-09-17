@@ -36,6 +36,7 @@ public class AppManager extends BaseManager{
 	public static int width, height;
 	public static int curVersion;
 	public static String updateLink = null;
+	public static boolean isOpen = true;
 
 	private static int IMAGE_MAX_WIDTH = 480;
 	private static int IMAGE_MAX_HEIGHT = 800;
