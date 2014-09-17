@@ -24,6 +24,7 @@ import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackL
 import cn.waps.AppConnect;
 
 import com.neo.pgapp.R;
+import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.controller.NetServiceManager;
 import com.neo.pgapp.data.ImageResDataStruct;
@@ -46,8 +47,6 @@ public class ImageDataActivity extends BaseActivity {
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		setContentView(R.layout.activity_data);
 		initUI();
-
-		AppConnect.getInstance(this).showPopAd(this);
 	}
 
 	protected void onDestroy() {
@@ -95,11 +94,7 @@ public class ImageDataActivity extends BaseActivity {
 				R.id.title_text);
 		titleText.setText(R.string.app_name);
 
-		slidingDrawerView = SlideWall.getInstance().getView(this);
-		if (slidingDrawerView != null) {
-			addContentView(slidingDrawerView, new LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		}
+		updateFunction();
 	}
 
 	private void initData() {
@@ -116,5 +111,19 @@ public class ImageDataActivity extends BaseActivity {
 
 		ImageDataManager.getInstance().getDBResIdImageData(res_id);
 		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
+	}
+	
+	private void updateFunction(){
+		if(AppManager.isOpen){
+			AppConnect.getInstance(this).showPopAd(this);
+
+			slidingDrawerView = SlideWall.getInstance().getView(this);
+			if (slidingDrawerView != null) {
+				addContentView(slidingDrawerView, new LayoutParams(
+						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+			}
+		}else{
+			
+		}
 	}
 }

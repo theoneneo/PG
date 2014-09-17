@@ -51,12 +51,11 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
-		setContentView(R.layout.activity_main);
-		
+		setContentView(R.layout.activity_main);		
 		isUpdate = getIntent().getExtras().getBoolean("isupdate");
-		updateFunction();
 		initUI();
 		initData();
+		updateFunction();
 	}
 
 	protected void onDestroy() {
@@ -109,12 +108,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		TextView titleText = (TextView) findViewById(R.id.title).findViewById(
 				R.id.title_text);
 		titleText.setText(R.string.app_name);
-
-		slidingDrawerView = SlideWall.getInstance().getView(this);
-		if (slidingDrawerView != null) {
-			addContentView(slidingDrawerView, new LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		}
 	}
 
 	private void initData() {
@@ -249,7 +242,11 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	
 	private void updateFunction(){
 		if(AppManager.isOpen){
-			
+			slidingDrawerView = SlideWall.getInstance().getView(this);
+			if (slidingDrawerView != null) {
+				addContentView(slidingDrawerView, new LayoutParams(
+						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+			}
 		}else{
 			
 		}

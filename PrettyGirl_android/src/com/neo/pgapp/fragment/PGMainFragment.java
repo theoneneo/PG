@@ -101,7 +101,10 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 						.getColumnIndex("coin")));
 				if (coin != null) {
 					if (!coin.equals("0")) {
-						popBuyWindow(res_id);
+						if(AppManager.isOpen)
+							popBuyWindow(res_id);
+						else
+							go2ImageDataActivity(res_id);
 					} else {
 						ImageDataManager.getInstance().addMyGroupImage(data);
 						go2ImageDataActivity(res_id);
