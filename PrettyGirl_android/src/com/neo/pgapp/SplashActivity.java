@@ -1,11 +1,7 @@
 package com.neo.pgapp;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -25,7 +21,6 @@ import com.neo.pgapp.event.BroadCastEvent;
 import de.greenrobot.event.EventBus;
 
 public class SplashActivity extends BaseActivity {
-	private Timer timer;
 	private boolean isUpdate = false;
 
 	@Override
@@ -48,6 +43,7 @@ public class SplashActivity extends BaseActivity {
 		case BroadCastEvent.GET_UPDATE_APK:
 			if (AppManager.updateLink != null && (!"".equals(AppManager.updateLink)))
 				isUpdate = true;
+			go2MainActivity();
 			break;
 		default:
 			break;
@@ -67,14 +63,14 @@ public class SplashActivity extends BaseActivity {
 		
 		if(appInfo != null)
 			AppManager.APP_PID = appInfo.metaData.getString("APP_PID");
-		update();
+		
 		DisplayMetrics dm = new DisplayMetrics(); 
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		AppManager.width = dm.widthPixels;
 		AppManager.height = dm.heightPixels;
 		ImageDataManager.getInstance();
-		timer = new Timer();
-		timer.schedule(new SplashTask(), 2 * 1000);
+		
+		update();
 	}
 
 	private void go2MainActivity() {
@@ -84,13 +80,6 @@ public class SplashActivity extends BaseActivity {
 		finish();
 	}
 
-	class SplashTask extends TimerTask {
-		public void run() {
-			timer.cancel(); // Terminate the timer thread
-			go2MainActivity();
-		}
-	}
-	
 	private void update(){
 		if (isNetworkConnected(this)) {
 			updateApk();

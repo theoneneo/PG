@@ -25,6 +25,8 @@ public class NetServiceManager extends BaseManager {
 	private static final String NET_SERVER = "http://infocomm.duapp.com/";
 	private static final String NET_GET_MAIN_IMAGE_LIST = NET_SERVER
 			+ "getmainimage.py";
+	private static final String NET_GET_TEST_IMAGE_LIST = NET_SERVER
+			+ "gettestimage.py";
 	private static final String NET_GET_ALL_IMAGE_LIST = NET_SERVER + "getallimage.py";
 	private static final String NET_GET_UPDATE_APK = NET_SERVER + "getupdate.py";
 
@@ -66,8 +68,13 @@ public class NetServiceManager extends BaseManager {
 		try {
 			JSONObject obj = ProtocolDataOutput
 					.getMainImageListDataToJson(num, APP_PID);
+			String url = null;
+			if(AppManager.isOpen)
+				url = NET_GET_MAIN_IMAGE_LIST;
+			else
+				url = NET_GET_TEST_IMAGE_LIST;
 			mQueue.add(new JsonObjectRequest(Method.POST,
-					NET_GET_MAIN_IMAGE_LIST, obj, new Listener() {
+					url, obj, new Listener() {
 
 						@Override
 						public void onResponse(Object arg0) {

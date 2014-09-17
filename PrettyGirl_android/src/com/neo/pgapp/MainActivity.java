@@ -83,11 +83,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 			if (mainListFragment != null)
 				mainListFragment.updateMainAdapter();
 			break;
-		case BroadCastEvent.GET_UPDATE_APK:
-			updateFunction();
-			if (AppManager.updateLink != null && (!"".equals(AppManager.updateLink)))
-				popUpdateWindow();
-			break;
 		default:
 			break;
 		}
