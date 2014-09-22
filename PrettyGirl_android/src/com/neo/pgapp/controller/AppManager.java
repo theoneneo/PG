@@ -19,11 +19,9 @@ import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 import cn.trinea.android.common.util.ObjectUtils;
-import cn.waps.AppConnect;
-import cn.waps.UpdatePointsNotifier;
 
 import com.neo.pgapp.PGApplication;
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 
 /**
  * @author LiuBing

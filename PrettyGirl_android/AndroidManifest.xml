@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.neo.pgapp"
+    package="com.neo.mtapp"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -44,23 +44,9 @@
         <activity
             android:name="com.neo.pgapp.ImageActivity"
             android:screenOrientation="portrait" />
-        <!-- 万普 -->
-        <activity
-            android:name="cn.waps.OffersWebView"
-            android:configChanges="keyboardHidden|orientation" />
 
-        <meta-data
-            android:name="APP_ID"
-            android:value="20dba03620b3cb908557e6b6fdb87148" />
-        <meta-data android:value="default" android:name="APP_PID" />
-        <!-- 万普 -->
-        <!-- umeng -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="53fc8d67fd98c52c56008f0a" >
-        </meta-data>
-        <meta-data android:value="default" android:name="UMENG_CHANNEL" />
-        <!-- umeng -->
+        <meta-data android:value="91pt" android:name="APP_PID" />
+
         <provider
             android:name="com.neo.pgapp.db.DBContentProvider"
             android:authorities="com.neo.pgapp.db.provider" />

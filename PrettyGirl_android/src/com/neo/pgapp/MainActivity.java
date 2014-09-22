@@ -22,23 +22,20 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.waps.AppConnect;
-import cn.waps.UpdatePointsNotifier;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.controller.NetServiceManager;
 import com.neo.pgapp.event.BroadCastEvent;
 import com.neo.pgapp.fragment.PGMainFragment;
 import com.neo.pgapp.fragment.PGMyFragment;
-import com.neo.pgapp.waps.SlideWall;
 import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
 
 import de.greenrobot.event.EventBus;
 
-public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
+public class MainActivity extends BaseActivity{
 	private static final String[] CONTENT = new String[] { "精彩福利", "我的福利" };
 
 	private boolean isUpdate = false;
@@ -59,19 +56,12 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	}
 
 	protected void onDestroy() {
-		AppConnect.getInstance(this).close();
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
 	}
 
 	@Override
 	public void onBackPressed() {
-		if (SlideWall.getInstance().slideWallDrawer != null
-				&& SlideWall.getInstance().slideWallDrawer.isOpened()) {
-			// 如果抽屉式应用墙展示中，则关闭抽屉
-			SlideWall.getInstance().closeSlidingDrawer();
-			return;
-		}
 		AppManager.getInstance().DestroyManager();
 		super.onBackPressed();
 	}
@@ -111,10 +101,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	}
 
 	private void initData() {
-		AppConnect.getInstance(this).initUninstallAd(this);
-		AppConnect.getInstance(this).getPoints(this);
-		AppConnect.getInstance(this).initAdInfo();
-		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());		
 
 		if (isNetworkConnected(this)) {
 			if (!isToastRefresh()) {
@@ -173,17 +159,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		downloadManager.enqueue(request);
 	}
 
-	@Override
-	public void getUpdatePoints(String arg0, int arg1) {
-		// TODO Auto-generated method stub
-		AppManager.getInstance().coin = arg1;
-	}
-
-	@Override
-	public void getUpdatePointsFailed(String arg0) {
-		// TODO Auto-generated method stub
-
-	}
 
 	class MainAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 		public MainAdapter(FragmentManager fm) {
@@ -242,11 +217,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	
 	private void updateFunction(){
 		if(AppManager.isOpen){
-			slidingDrawerView = SlideWall.getInstance().getView(this);
-			if (slidingDrawerView != null) {
-				addContentView(slidingDrawerView, new LayoutParams(
-						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-			}
 		}else{
 			
 		}

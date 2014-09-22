@@ -21,16 +21,14 @@ import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
 import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
-import cn.waps.AppConnect;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.controller.NetServiceManager;
 import com.neo.pgapp.data.ImageResDataStruct;
 import com.neo.pgapp.event.BroadCastEvent;
 import com.neo.pgapp.fragment.PGImageDataFragment;
-import com.neo.pgapp.waps.SlideWall;
 
 import de.greenrobot.event.EventBus;
 
@@ -52,17 +50,6 @@ public class ImageDataActivity extends BaseActivity {
 	protected void onDestroy() {
 		EventBus.getDefault().unregister(this);
 		super.onDestroy();
-	}
-
-	@Override
-	public void onBackPressed() {
-		if (SlideWall.getInstance().slideWallDrawer != null
-				&& SlideWall.getInstance().slideWallDrawer.isOpened()) {
-			// 如果抽屉式应用墙展示中，则关闭抽屉
-			SlideWall.getInstance().closeSlidingDrawer();
-			return;
-		}
-		super.onBackPressed();
 	}
 
 	public void onEventMainThread(BroadCastEvent event) {
@@ -114,16 +101,5 @@ public class ImageDataActivity extends BaseActivity {
 	}
 	
 	private void updateFunction(){
-		if(AppManager.isOpen){
-			AppConnect.getInstance(this).showPopAd(this);
-
-			slidingDrawerView = SlideWall.getInstance().getView(this);
-			if (slidingDrawerView != null) {
-				addContentView(slidingDrawerView, new LayoutParams(
-						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-			}
-		}else{
-			
-		}
 	}
 }

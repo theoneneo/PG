@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.neo.pgapp;
+package com.neo.mtapp;
 
 public final class R {
     public static final class anim {
@@ -1752,8 +1752,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int xlistview_arrow=0x7f02002c;
     }
     public static final class id {
-        public static final int AdLinearLayout=0x7f070039;
-        public static final int action_settings=0x7f07006b;
+        public static final int action_settings=0x7f070069;
         public static final int afterDescendants=0x7f070028;
         public static final int all=0x7f070026;
         public static final int always=0x7f07000e;
@@ -1764,43 +1763,42 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int beforeDescendants=0x7f070027;
         public static final int blocksDescendants=0x7f070029;
         public static final int bottom=0x7f070032;
-        public static final int buy_btn=0x7f07003a;
-        public static final int card_list=0x7f07004f;
+        public static final int buy_btn=0x7f070038;
+        public static final int card_list=0x7f07004d;
         public static final int center=0x7f07001f;
         public static final int coin_text=0x7f070035;
         public static final int defaultPosition=0x7f070011;
-        public static final int detail=0x7f07003f;
-        public static final int detail_content=0x7f070040;
-        public static final int detail_description=0x7f070046;
-        public static final int detail_downButton1=0x7f070045;
-        public static final int detail_downButton2=0x7f070049;
-        public static final int detail_filesize=0x7f070044;
-        public static final int detail_icon=0x7f070041;
-        public static final int detail_image1=0x7f070047;
-        public static final int detail_image2=0x7f070048;
-        public static final int detail_title=0x7f070042;
-        public static final int detail_version=0x7f070043;
+        public static final int detail=0x7f07003d;
+        public static final int detail_content=0x7f07003e;
+        public static final int detail_description=0x7f070044;
+        public static final int detail_downButton1=0x7f070043;
+        public static final int detail_downButton2=0x7f070047;
+        public static final int detail_filesize=0x7f070042;
+        public static final int detail_icon=0x7f07003f;
+        public static final int detail_image1=0x7f070045;
+        public static final int detail_image2=0x7f070046;
+        public static final int detail_title=0x7f070040;
+        public static final int detail_version=0x7f070041;
         public static final int disabled=0x7f07002a;
-        public static final int drawerContent=0x7f07005d;
-        public static final int drawerHandle=0x7f07005e;
-        public static final int explain_text_1=0x7f070038;
+        public static final int drawerContent=0x7f07005b;
+        public static final int drawerHandle=0x7f07005c;
         public static final int explain_text_2=0x7f070036;
         public static final int firstStrong=0x7f07001a;
         public static final int gone=0x7f070003;
         public static final int gravity=0x7f07001c;
-        public static final int grid=0x7f07004a;
+        public static final int grid=0x7f070048;
         public static final int hardware=0x7f070015;
         public static final int high=0x7f07000d;
         public static final int horizontal=0x7f070005;
         public static final int ifContentScrolls=0x7f07000f;
-        public static final int indicator=0x7f07003d;
+        public static final int indicator=0x7f07003b;
         public static final int inherit=0x7f070018;
         public static final int insideInset=0x7f070008;
         public static final int insideOverlay=0x7f070007;
         public static final int invisible=0x7f070002;
         public static final int left=0x7f070012;
-        public static final int left_btn=0x7f07005f;
-        public static final int like=0x7f070054;
+        public static final int left_btn=0x7f07005d;
+        public static final int like=0x7f070052;
         public static final int list=0x7f070034;
         public static final int locale=0x7f070019;
         public static final int low=0x7f07000c;
@@ -1808,57 +1806,57 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int multipleChoice=0x7f07002e;
         public static final int multipleChoiceModal=0x7f07002f;
         public static final int never=0x7f070010;
-        public static final int news_list=0x7f07004b;
-        public static final int news_pic=0x7f07004c;
-        public static final int news_time=0x7f07004e;
-        public static final int news_title=0x7f07004d;
+        public static final int news_list=0x7f070049;
+        public static final int news_pic=0x7f07004a;
+        public static final int news_time=0x7f07004c;
+        public static final int news_title=0x7f07004b;
         public static final int no=0x7f070023;
         public static final int none=0x7f070004;
         public static final int normal=0x7f07002b;
         public static final int outsideInset=0x7f07000a;
         public static final int outsideOverlay=0x7f070009;
-        public static final int pager=0x7f07003e;
-        public static final int ptr_id_header=0x7f070055;
-        public static final int ptr_id_image=0x7f070056;
-        public static final int ptr_id_last_updated=0x7f07005a;
-        public static final int ptr_id_spinner=0x7f070057;
-        public static final int ptr_id_text=0x7f070059;
-        public static final int ptr_id_textwrapper=0x7f070058;
+        public static final int pager=0x7f07003c;
+        public static final int ptr_id_header=0x7f070053;
+        public static final int ptr_id_image=0x7f070054;
+        public static final int ptr_id_last_updated=0x7f070058;
+        public static final int ptr_id_spinner=0x7f070055;
+        public static final int ptr_id_text=0x7f070057;
+        public static final int ptr_id_textwrapper=0x7f070056;
         public static final int right=0x7f070013;
-        public static final int right_btn=0x7f070061;
-        public static final int row_coin=0x7f070052;
-        public static final int row_image=0x7f070050;
-        public static final int row_text=0x7f070051;
+        public static final int right_btn=0x7f07005f;
+        public static final int row_coin=0x7f070050;
+        public static final int row_image=0x7f07004e;
+        public static final int row_text=0x7f07004f;
         public static final int rtl=0x7f070017;
         public static final int scrapped_view=0x7f070000;
         public static final int scrolling=0x7f070025;
         public static final int singleChoice=0x7f07002d;
-        public static final int slidingDrawer=0x7f07005c;
-        public static final int slidingdrawerLayout=0x7f07005b;
+        public static final int slidingDrawer=0x7f07005a;
+        public static final int slidingdrawerLayout=0x7f070059;
         public static final int software=0x7f070014;
         public static final int textEnd=0x7f07001e;
         public static final int textStart=0x7f07001d;
-        public static final int thumbnail=0x7f070053;
-        public static final int title=0x7f07003b;
-        public static final int title_text=0x7f070060;
+        public static final int thumbnail=0x7f070051;
+        public static final int title=0x7f070039;
+        public static final int title_text=0x7f07005e;
         public static final int top=0x7f070033;
         public static final int triangle=0x7f070030;
         public static final int underline=0x7f070031;
         public static final int vertical=0x7f070006;
         public static final int viewEnd=0x7f070021;
-        public static final int viewPager=0x7f07003c;
+        public static final int viewPager=0x7f07003a;
         public static final int viewStart=0x7f070020;
         public static final int visible=0x7f070001;
         public static final int wall_btn=0x7f070037;
-        public static final int xlistview_footer_content=0x7f070062;
-        public static final int xlistview_footer_hint_textview=0x7f070064;
-        public static final int xlistview_footer_progressbar=0x7f070063;
-        public static final int xlistview_header_arrow=0x7f070069;
-        public static final int xlistview_header_content=0x7f070065;
-        public static final int xlistview_header_hint_textview=0x7f070067;
-        public static final int xlistview_header_progressbar=0x7f07006a;
-        public static final int xlistview_header_text=0x7f070066;
-        public static final int xlistview_header_time=0x7f070068;
+        public static final int xlistview_footer_content=0x7f070060;
+        public static final int xlistview_footer_hint_textview=0x7f070062;
+        public static final int xlistview_footer_progressbar=0x7f070061;
+        public static final int xlistview_header_arrow=0x7f070067;
+        public static final int xlistview_header_content=0x7f070063;
+        public static final int xlistview_header_hint_textview=0x7f070065;
+        public static final int xlistview_header_progressbar=0x7f070068;
+        public static final int xlistview_header_text=0x7f070064;
+        public static final int xlistview_header_time=0x7f070066;
         public static final int yes=0x7f070022;
     }
     public static final class integer {
@@ -1974,28 +1972,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #AbsListView_cacheColorHint com.neo.pgapp:cacheColorHint}</code></td><td>
+           <tr><td><code>{@link #AbsListView_cacheColorHint com.neo.mtapp:cacheColorHint}</code></td><td>
              Indicates that this list will always be drawn on top of solid, single-color
              opaque background.</td></tr>
-           <tr><td><code>{@link #AbsListView_choiceMode com.neo.pgapp:choiceMode}</code></td><td>
+           <tr><td><code>{@link #AbsListView_choiceMode com.neo.mtapp:choiceMode}</code></td><td>
              Defines the choice behavior for the view.</td></tr>
-           <tr><td><code>{@link #AbsListView_drawSelectorOnTop com.neo.pgapp:drawSelectorOnTop}</code></td><td>
+           <tr><td><code>{@link #AbsListView_drawSelectorOnTop com.neo.mtapp:drawSelectorOnTop}</code></td><td>
              When set to true, the selector will be drawn over the selected item.</td></tr>
-           <tr><td><code>{@link #AbsListView_fastScrollAlwaysVisible com.neo.pgapp:fastScrollAlwaysVisible}</code></td><td>
+           <tr><td><code>{@link #AbsListView_fastScrollAlwaysVisible com.neo.mtapp:fastScrollAlwaysVisible}</code></td><td>
              When set to true, the list will always show the fast scroll interface.</td></tr>
-           <tr><td><code>{@link #AbsListView_fastScrollEnabled com.neo.pgapp:fastScrollEnabled}</code></td><td>
+           <tr><td><code>{@link #AbsListView_fastScrollEnabled com.neo.mtapp:fastScrollEnabled}</code></td><td>
              Enables the fast scroll thumb that can be dragged to quickly scroll through
              the list.</td></tr>
-           <tr><td><code>{@link #AbsListView_listSelector com.neo.pgapp:listSelector}</code></td><td> Drawable used to indicate the currently selected item in the list.</td></tr>
-           <tr><td><code>{@link #AbsListView_scrollingCache com.neo.pgapp:scrollingCache}</code></td><td>
+           <tr><td><code>{@link #AbsListView_listSelector com.neo.mtapp:listSelector}</code></td><td> Drawable used to indicate the currently selected item in the list.</td></tr>
+           <tr><td><code>{@link #AbsListView_scrollingCache com.neo.mtapp:scrollingCache}</code></td><td>
              When set to true, the list uses a drawing cache during scrolling.</td></tr>
-           <tr><td><code>{@link #AbsListView_smoothScrollbar com.neo.pgapp:smoothScrollbar}</code></td><td>
+           <tr><td><code>{@link #AbsListView_smoothScrollbar com.neo.mtapp:smoothScrollbar}</code></td><td>
              When set to true, the list will use a more refined calculation
              method based on the pixels height of the items visible on screen.</td></tr>
-           <tr><td><code>{@link #AbsListView_stackFromBottom com.neo.pgapp:stackFromBottom}</code></td><td> Used by ListView and GridView to stack their content from the bottom.</td></tr>
-           <tr><td><code>{@link #AbsListView_textFilterEnabled com.neo.pgapp:textFilterEnabled}</code></td><td>
+           <tr><td><code>{@link #AbsListView_stackFromBottom com.neo.mtapp:stackFromBottom}</code></td><td> Used by ListView and GridView to stack their content from the bottom.</td></tr>
+           <tr><td><code>{@link #AbsListView_textFilterEnabled com.neo.mtapp:textFilterEnabled}</code></td><td>
              When set to true, the list will filter results as the user types.</td></tr>
-           <tr><td><code>{@link #AbsListView_transcriptMode com.neo.pgapp:transcriptMode}</code></td><td>
+           <tr><td><code>{@link #AbsListView_transcriptMode com.neo.mtapp:transcriptMode}</code></td><td>
              Sets the transcript mode for the list.</td></tr>
            </table>
            @see #AbsListView_cacheColorHint
@@ -2032,7 +2030,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:cacheColorHint
+          @attr name com.neo.mtapp:cacheColorHint
         */
         public static final int AbsListView_cacheColorHint = 6;
         /**
@@ -2064,7 +2062,7 @@ containing a value of this type.
 <tr><td><code>multipleChoiceModal</code></td><td>3</td><td> The list allows multiple choices in a custom selection mode. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:choiceMode
+          @attr name com.neo.mtapp:choiceMode
         */
         public static final int AbsListView_choiceMode = 9;
         /**
@@ -2084,7 +2082,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:drawSelectorOnTop
+          @attr name com.neo.mtapp:drawSelectorOnTop
         */
         public static final int AbsListView_drawSelectorOnTop = 1;
         /**
@@ -2103,7 +2101,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fastScrollAlwaysVisible
+          @attr name com.neo.mtapp:fastScrollAlwaysVisible
         */
         public static final int AbsListView_fastScrollAlwaysVisible = 10;
         /**
@@ -2122,7 +2120,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fastScrollEnabled
+          @attr name com.neo.mtapp:fastScrollEnabled
         */
         public static final int AbsListView_fastScrollEnabled = 7;
         /**
@@ -2136,7 +2134,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:listSelector
+          @attr name com.neo.mtapp:listSelector
         */
         public static final int AbsListView_listSelector = 0;
         /**
@@ -2156,7 +2154,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollingCache
+          @attr name com.neo.mtapp:scrollingCache
         */
         public static final int AbsListView_scrollingCache = 3;
         /**
@@ -2181,7 +2179,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:smoothScrollbar
+          @attr name com.neo.mtapp:smoothScrollbar
         */
         public static final int AbsListView_smoothScrollbar = 8;
         /**
@@ -2197,7 +2195,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:stackFromBottom
+          @attr name com.neo.mtapp:stackFromBottom
         */
         public static final int AbsListView_stackFromBottom = 2;
         /**
@@ -2216,7 +2214,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:textFilterEnabled
+          @attr name com.neo.mtapp:textFilterEnabled
         */
         public static final int AbsListView_textFilterEnabled = 4;
         /**
@@ -2246,7 +2244,7 @@ containing a value of this type.
             </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:transcriptMode
+          @attr name com.neo.mtapp:transcriptMode
         */
         public static final int AbsListView_transcriptMode = 5;
         /** Attributes that can be used with a CirclePageIndicator.
@@ -2257,13 +2255,13 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
            <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_centered com.neo.pgapp:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_fillColor com.neo.pgapp:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_pageColor com.neo.pgapp:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_radius com.neo.pgapp:radius}</code></td><td> Radius of the circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_snap com.neo.pgapp:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.neo.pgapp:strokeColor}</code></td><td> Color of the open circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.neo.pgapp:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.neo.mtapp:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.neo.mtapp:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.neo.mtapp:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.neo.mtapp:radius}</code></td><td> Radius of the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.neo.mtapp:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.neo.mtapp:strokeColor}</code></td><td> Color of the open circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.neo.mtapp:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
            </table>
            @see #CirclePageIndicator_android_background
            @see #CirclePageIndicator_android_orientation
@@ -2311,7 +2309,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:centered
+          @attr name com.neo.mtapp:centered
         */
         public static final int CirclePageIndicator_centered = 2;
         /**
@@ -2328,7 +2326,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fillColor
+          @attr name com.neo.mtapp:fillColor
         */
         public static final int CirclePageIndicator_fillColor = 4;
         /**
@@ -2345,7 +2343,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:pageColor
+          @attr name com.neo.mtapp:pageColor
         */
         public static final int CirclePageIndicator_pageColor = 5;
         /**
@@ -2363,7 +2361,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:radius
+          @attr name com.neo.mtapp:radius
         */
         public static final int CirclePageIndicator_radius = 6;
         /**
@@ -2379,7 +2377,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:snap
+          @attr name com.neo.mtapp:snap
         */
         public static final int CirclePageIndicator_snap = 7;
         /**
@@ -2396,7 +2394,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:strokeColor
+          @attr name com.neo.mtapp:strokeColor
         */
         public static final int CirclePageIndicator_strokeColor = 8;
         /**
@@ -2414,7 +2412,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:strokeWidth
+          @attr name com.neo.mtapp:strokeWidth
         */
         public static final int CirclePageIndicator_strokeWidth = 3;
         /** Attributes that can be used with a LinePageIndicator.
@@ -2424,12 +2422,12 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #LinePageIndicator_centered com.neo.pgapp:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_gapWidth com.neo.pgapp:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_lineWidth com.neo.pgapp:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_selectedColor com.neo.pgapp:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.neo.pgapp:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.neo.pgapp:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.neo.mtapp:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.neo.mtapp:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.neo.mtapp:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.neo.mtapp:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.neo.mtapp:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.neo.mtapp:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
            </table>
            @see #LinePageIndicator_android_background
            @see #LinePageIndicator_centered
@@ -2465,7 +2463,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:centered
+          @attr name com.neo.mtapp:centered
         */
         public static final int LinePageIndicator_centered = 1;
         /**
@@ -2483,7 +2481,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:gapWidth
+          @attr name com.neo.mtapp:gapWidth
         */
         public static final int LinePageIndicator_gapWidth = 6;
         /**
@@ -2501,7 +2499,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:lineWidth
+          @attr name com.neo.mtapp:lineWidth
         */
         public static final int LinePageIndicator_lineWidth = 5;
         /**
@@ -2518,7 +2516,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:selectedColor
+          @attr name com.neo.mtapp:selectedColor
         */
         public static final int LinePageIndicator_selectedColor = 2;
         /**
@@ -2536,7 +2534,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:strokeWidth
+          @attr name com.neo.mtapp:strokeWidth
         */
         public static final int LinePageIndicator_strokeWidth = 3;
         /**
@@ -2553,7 +2551,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:unselectedColor
+          @attr name com.neo.mtapp:unselectedColor
         */
         public static final int LinePageIndicator_unselectedColor = 4;
         /** Attributes that can be used with a ListView.
@@ -2562,13 +2560,13 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ListView_dividerHeight com.neo.pgapp:dividerHeight}</code></td><td> Drawable or color to draw between list items.</td></tr>
-           <tr><td><code>{@link #ListView_footerDividersEnabled com.neo.pgapp:footerDividersEnabled}</code></td><td>
+           <tr><td><code>{@link #ListView_dividerHeight com.neo.mtapp:dividerHeight}</code></td><td> Drawable or color to draw between list items.</td></tr>
+           <tr><td><code>{@link #ListView_footerDividersEnabled com.neo.mtapp:footerDividersEnabled}</code></td><td>
              When set to false, the ListView will not draw the divider before each footer view.</td></tr>
-           <tr><td><code>{@link #ListView_headerDividersEnabled com.neo.pgapp:headerDividersEnabled}</code></td><td>
+           <tr><td><code>{@link #ListView_headerDividersEnabled com.neo.mtapp:headerDividersEnabled}</code></td><td>
              When set to false, the ListView will not draw the divider after each header view.</td></tr>
-           <tr><td><code>{@link #ListView_overScrollFooter com.neo.pgapp:overScrollFooter}</code></td><td> Drawable to draw below list content.</td></tr>
-           <tr><td><code>{@link #ListView_overScrollHeader com.neo.pgapp:overScrollHeader}</code></td><td> Drawable to draw above list content.</td></tr>
+           <tr><td><code>{@link #ListView_overScrollFooter com.neo.mtapp:overScrollFooter}</code></td><td> Drawable to draw below list content.</td></tr>
+           <tr><td><code>{@link #ListView_overScrollHeader com.neo.mtapp:overScrollHeader}</code></td><td> Drawable to draw above list content.</td></tr>
            </table>
            @see #ListView_dividerHeight
            @see #ListView_footerDividersEnabled
@@ -2600,7 +2598,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:dividerHeight
+          @attr name com.neo.mtapp:dividerHeight
         */
         public static final int ListView_dividerHeight = 0;
         /**
@@ -2619,7 +2617,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerDividersEnabled
+          @attr name com.neo.mtapp:footerDividersEnabled
         */
         public static final int ListView_footerDividersEnabled = 2;
         /**
@@ -2638,7 +2636,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:headerDividersEnabled
+          @attr name com.neo.mtapp:headerDividersEnabled
         */
         public static final int ListView_headerDividersEnabled = 1;
         /**
@@ -2652,7 +2650,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:overScrollFooter
+          @attr name com.neo.mtapp:overScrollFooter
         */
         public static final int ListView_overScrollFooter = 4;
         /**
@@ -2666,7 +2664,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:overScrollHeader
+          @attr name com.neo.mtapp:overScrollHeader
         */
         public static final int ListView_overScrollHeader = 3;
         /** Attributes that can be used with a PinterestLikeAdapterView.
@@ -2675,10 +2673,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnNumber com.neo.pgapp:plaColumnNumber}</code></td><td></td></tr>
-           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnPaddingLeft com.neo.pgapp:plaColumnPaddingLeft}</code></td><td></td></tr>
-           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnPaddingRight com.neo.pgapp:plaColumnPaddingRight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PinterestLikeAdapterView_plaLandscapeColumnNumber com.neo.pgapp:plaLandscapeColumnNumber}</code></td><td></td></tr>
+           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnNumber com.neo.mtapp:plaColumnNumber}</code></td><td></td></tr>
+           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnPaddingLeft com.neo.mtapp:plaColumnPaddingLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #PinterestLikeAdapterView_plaColumnPaddingRight com.neo.mtapp:plaColumnPaddingRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PinterestLikeAdapterView_plaLandscapeColumnNumber com.neo.mtapp:plaLandscapeColumnNumber}</code></td><td></td></tr>
            </table>
            @see #PinterestLikeAdapterView_plaColumnNumber
            @see #PinterestLikeAdapterView_plaColumnPaddingLeft
@@ -2689,7 +2687,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005
         };
         /**
-          <p>This symbol is the offset where the {@link com.neo.pgapp.R.attr#plaColumnNumber}
+          <p>This symbol is the offset where the {@link com.neo.mtapp.R.attr#plaColumnNumber}
           attribute's value can be found in the {@link #PinterestLikeAdapterView} array.
 
 
@@ -2699,11 +2697,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.neo.pgapp:plaColumnNumber
+          @attr name com.neo.mtapp:plaColumnNumber
         */
         public static final int PinterestLikeAdapterView_plaColumnNumber = 0;
         /**
-          <p>This symbol is the offset where the {@link com.neo.pgapp.R.attr#plaColumnPaddingLeft}
+          <p>This symbol is the offset where the {@link com.neo.mtapp.R.attr#plaColumnPaddingLeft}
           attribute's value can be found in the {@link #PinterestLikeAdapterView} array.
 
 
@@ -2715,11 +2713,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.neo.pgapp:plaColumnPaddingLeft
+          @attr name com.neo.mtapp:plaColumnPaddingLeft
         */
         public static final int PinterestLikeAdapterView_plaColumnPaddingLeft = 2;
         /**
-          <p>This symbol is the offset where the {@link com.neo.pgapp.R.attr#plaColumnPaddingRight}
+          <p>This symbol is the offset where the {@link com.neo.mtapp.R.attr#plaColumnPaddingRight}
           attribute's value can be found in the {@link #PinterestLikeAdapterView} array.
 
 
@@ -2731,11 +2729,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.neo.pgapp:plaColumnPaddingRight
+          @attr name com.neo.mtapp:plaColumnPaddingRight
         */
         public static final int PinterestLikeAdapterView_plaColumnPaddingRight = 3;
         /**
-          <p>This symbol is the offset where the {@link com.neo.pgapp.R.attr#plaLandscapeColumnNumber}
+          <p>This symbol is the offset where the {@link com.neo.mtapp.R.attr#plaLandscapeColumnNumber}
           attribute's value can be found in the {@link #PinterestLikeAdapterView} array.
 
 
@@ -2745,7 +2743,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.neo.pgapp:plaLandscapeColumnNumber
+          @attr name com.neo.mtapp:plaLandscapeColumnNumber
         */
         public static final int PinterestLikeAdapterView_plaLandscapeColumnNumber = 1;
         /** Attributes that can be used with a TitlePageIndicator.
@@ -2757,18 +2755,18 @@ containing a value of this type.
            <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
            <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
            <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.neo.pgapp:clipPadding}</code></td><td> Screen edge padding.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerColor com.neo.pgapp:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.neo.pgapp:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.neo.pgapp:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.neo.pgapp:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.neo.pgapp:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.neo.pgapp:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_linePosition com.neo.pgapp:linePosition}</code></td><td> Position of the line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.neo.pgapp:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.neo.pgapp:selectedColor}</code></td><td> Color of the selected title.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.neo.pgapp:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_topPadding com.neo.pgapp:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.neo.mtapp:clipPadding}</code></td><td> Screen edge padding.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.neo.mtapp:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.neo.mtapp:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.neo.mtapp:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.neo.mtapp:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.neo.mtapp:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.neo.mtapp:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_linePosition com.neo.mtapp:linePosition}</code></td><td> Position of the line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.neo.mtapp:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.neo.mtapp:selectedColor}</code></td><td> Color of the selected title.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.neo.mtapp:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.neo.mtapp:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
            </table>
            @see #TitlePageIndicator_android_background
            @see #TitlePageIndicator_android_textColor
@@ -2834,7 +2832,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:clipPadding
+          @attr name com.neo.mtapp:clipPadding
         */
         public static final int TitlePageIndicator_clipPadding = 4;
         /**
@@ -2851,7 +2849,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerColor
+          @attr name com.neo.mtapp:footerColor
         */
         public static final int TitlePageIndicator_footerColor = 5;
         /**
@@ -2869,7 +2867,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerIndicatorHeight
+          @attr name com.neo.mtapp:footerIndicatorHeight
         */
         public static final int TitlePageIndicator_footerIndicatorHeight = 8;
         /**
@@ -2889,7 +2887,7 @@ containing a value of this type.
 <tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerIndicatorStyle
+          @attr name com.neo.mtapp:footerIndicatorStyle
         */
         public static final int TitlePageIndicator_footerIndicatorStyle = 7;
         /**
@@ -2907,7 +2905,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerIndicatorUnderlinePadding
+          @attr name com.neo.mtapp:footerIndicatorUnderlinePadding
         */
         public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
         /**
@@ -2925,7 +2923,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerLineHeight
+          @attr name com.neo.mtapp:footerLineHeight
         */
         public static final int TitlePageIndicator_footerLineHeight = 6;
         /**
@@ -2943,7 +2941,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:footerPadding
+          @attr name com.neo.mtapp:footerPadding
         */
         public static final int TitlePageIndicator_footerPadding = 10;
         /**
@@ -2962,7 +2960,7 @@ containing a value of this type.
 <tr><td><code>top</code></td><td>1</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:linePosition
+          @attr name com.neo.mtapp:linePosition
         */
         public static final int TitlePageIndicator_linePosition = 11;
         /**
@@ -2978,7 +2976,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:selectedBold
+          @attr name com.neo.mtapp:selectedBold
         */
         public static final int TitlePageIndicator_selectedBold = 12;
         /**
@@ -2995,7 +2993,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:selectedColor
+          @attr name com.neo.mtapp:selectedColor
         */
         public static final int TitlePageIndicator_selectedColor = 3;
         /**
@@ -3013,7 +3011,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:titlePadding
+          @attr name com.neo.mtapp:titlePadding
         */
         public static final int TitlePageIndicator_titlePadding = 13;
         /**
@@ -3031,7 +3029,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:topPadding
+          @attr name com.neo.mtapp:topPadding
         */
         public static final int TitlePageIndicator_topPadding = 14;
         /** Attributes that can be used with a UnderlinePageIndicator.
@@ -3041,10 +3039,10 @@ containing a value of this type.
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.neo.pgapp:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.neo.pgapp:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fades com.neo.pgapp:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.neo.pgapp:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.neo.mtapp:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.neo.mtapp:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.neo.mtapp:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.neo.mtapp:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
            </table>
            @see #UnderlinePageIndicator_android_background
            @see #UnderlinePageIndicator_fadeDelay
@@ -3078,7 +3076,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fadeDelay
+          @attr name com.neo.mtapp:fadeDelay
         */
         public static final int UnderlinePageIndicator_fadeDelay = 3;
         /**
@@ -3094,7 +3092,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fadeLength
+          @attr name com.neo.mtapp:fadeLength
         */
         public static final int UnderlinePageIndicator_fadeLength = 4;
         /**
@@ -3110,7 +3108,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fades
+          @attr name com.neo.mtapp:fades
         */
         public static final int UnderlinePageIndicator_fades = 2;
         /**
@@ -3127,7 +3125,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:selectedColor
+          @attr name com.neo.mtapp:selectedColor
         */
         public static final int UnderlinePageIndicator_selectedColor = 1;
         /** Attributes that can be used with a View.
@@ -3136,149 +3134,149 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #View_accessibilityFocusable com.neo.pgapp:accessibilityFocusable}</code></td><td> @hide Controls whether this view can take accessibility focus.</td></tr>
-           <tr><td><code>{@link #View_alpha com.neo.pgapp:alpha}</code></td><td>
+           <tr><td><code>{@link #View_accessibilityFocusable com.neo.mtapp:accessibilityFocusable}</code></td><td> @hide Controls whether this view can take accessibility focus.</td></tr>
+           <tr><td><code>{@link #View_alpha com.neo.mtapp:alpha}</code></td><td>
              alpha property of the view, as a value between 0 (completely transparent) and 1
              (completely opaque).</td></tr>
-           <tr><td><code>{@link #View_clickable com.neo.pgapp:clickable}</code></td><td> Defines whether this view reacts to click events.</td></tr>
-           <tr><td><code>{@link #View_contentDescription com.neo.pgapp:contentDescription}</code></td><td>
+           <tr><td><code>{@link #View_clickable com.neo.mtapp:clickable}</code></td><td> Defines whether this view reacts to click events.</td></tr>
+           <tr><td><code>{@link #View_contentDescription com.neo.mtapp:contentDescription}</code></td><td>
              Defines text that briefly describes content of the view.</td></tr>
-           <tr><td><code>{@link #View_drawingCacheQuality com.neo.pgapp:drawingCacheQuality}</code></td><td>
+           <tr><td><code>{@link #View_drawingCacheQuality com.neo.mtapp:drawingCacheQuality}</code></td><td>
              Defines the quality of translucent drawing caches.</td></tr>
-           <tr><td><code>{@link #View_duplicateParentState com.neo.pgapp:duplicateParentState}</code></td><td>
+           <tr><td><code>{@link #View_duplicateParentState com.neo.mtapp:duplicateParentState}</code></td><td>
              When this attribute is set to true, the view gets its drawable state
              (focused, pressed, etc.</td></tr>
-           <tr><td><code>{@link #View_fadeScrollbars com.neo.pgapp:fadeScrollbars}</code></td><td> Defines whether to fade out scrollbars when they are not in use.</td></tr>
-           <tr><td><code>{@link #View_fadingEdge com.neo.pgapp:fadingEdge}</code></td><td>
+           <tr><td><code>{@link #View_fadeScrollbars com.neo.mtapp:fadeScrollbars}</code></td><td> Defines whether to fade out scrollbars when they are not in use.</td></tr>
+           <tr><td><code>{@link #View_fadingEdge com.neo.mtapp:fadingEdge}</code></td><td>
              This attribute is deprecated and will be ignored as of
              API level 14 ({@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH}).</td></tr>
-           <tr><td><code>{@link #View_fadingEdgeLength com.neo.pgapp:fadingEdgeLength}</code></td><td> Defines the length of the fading edges.</td></tr>
-           <tr><td><code>{@link #View_filterTouchesWhenObscured com.neo.pgapp:filterTouchesWhenObscured}</code></td><td>
+           <tr><td><code>{@link #View_fadingEdgeLength com.neo.mtapp:fadingEdgeLength}</code></td><td> Defines the length of the fading edges.</td></tr>
+           <tr><td><code>{@link #View_filterTouchesWhenObscured com.neo.mtapp:filterTouchesWhenObscured}</code></td><td>
              Specifies whether to filter touches when the view's window is obscured by
              another visible window.</td></tr>
-           <tr><td><code>{@link #View_fitsSystemWindows com.neo.pgapp:fitsSystemWindows}</code></td><td>
+           <tr><td><code>{@link #View_fitsSystemWindows com.neo.mtapp:fitsSystemWindows}</code></td><td>
              Boolean internal attribute to adjust view layout based on
              system windows such as the status bar.</td></tr>
-           <tr><td><code>{@link #View_focusable com.neo.pgapp:focusable}</code></td><td>
+           <tr><td><code>{@link #View_focusable com.neo.mtapp:focusable}</code></td><td>
              Boolean that controls whether a view can take focus.</td></tr>
-           <tr><td><code>{@link #View_focusableInTouchMode com.neo.pgapp:focusableInTouchMode}</code></td><td>
+           <tr><td><code>{@link #View_focusableInTouchMode com.neo.mtapp:focusableInTouchMode}</code></td><td>
              Boolean that controls whether a view can take focus while in touch mode.</td></tr>
-           <tr><td><code>{@link #View_hapticFeedbackEnabled com.neo.pgapp:hapticFeedbackEnabled}</code></td><td>
+           <tr><td><code>{@link #View_hapticFeedbackEnabled com.neo.mtapp:hapticFeedbackEnabled}</code></td><td>
              Boolean that controls whether a view should have haptic feedback
              enabled for events such as long presses.</td></tr>
-           <tr><td><code>{@link #View_id com.neo.pgapp:id}</code></td><td>
+           <tr><td><code>{@link #View_id com.neo.mtapp:id}</code></td><td>
              Supply an identifier name for this view, to later retrieve it
              with {@link android.view.View#findViewById View.findViewById()} or
              {@link android.app.Activity#findViewById Activity.findViewById()}.</td></tr>
-           <tr><td><code>{@link #View_importantForAccessibility com.neo.pgapp:importantForAccessibility}</code></td><td>
+           <tr><td><code>{@link #View_importantForAccessibility com.neo.mtapp:importantForAccessibility}</code></td><td>
              Controls how this View is important for accessibility which is if it fires
              accessibility events and if it is reported to accessibility services that
              query the screen.</td></tr>
-           <tr><td><code>{@link #View_isScrollContainer com.neo.pgapp:isScrollContainer}</code></td><td>
+           <tr><td><code>{@link #View_isScrollContainer com.neo.mtapp:isScrollContainer}</code></td><td>
              Set this if the view will serve as a scrolling container, meaing
              that it can be resized to shrink its overall window so that there
              will be space for an input method.</td></tr>
-           <tr><td><code>{@link #View_keepScreenOn com.neo.pgapp:keepScreenOn}</code></td><td>
+           <tr><td><code>{@link #View_keepScreenOn com.neo.mtapp:keepScreenOn}</code></td><td>
              Controls whether the view's window should keep the screen on
              while visible.</td></tr>
-           <tr><td><code>{@link #View_layerType com.neo.pgapp:layerType}</code></td><td>
+           <tr><td><code>{@link #View_layerType com.neo.mtapp:layerType}</code></td><td>
              Specifies the type of layer backing this view.</td></tr>
-           <tr><td><code>{@link #View_layoutDirection com.neo.pgapp:layoutDirection}</code></td><td>
+           <tr><td><code>{@link #View_layoutDirection com.neo.mtapp:layoutDirection}</code></td><td>
              Defines the direction of layout drawing.</td></tr>
-           <tr><td><code>{@link #View_longClickable com.neo.pgapp:longClickable}</code></td><td> Defines whether this view reacts to long click events.</td></tr>
-           <tr><td><code>{@link #View_minHeight com.neo.pgapp:minHeight}</code></td><td>
+           <tr><td><code>{@link #View_longClickable com.neo.mtapp:longClickable}</code></td><td> Defines whether this view reacts to long click events.</td></tr>
+           <tr><td><code>{@link #View_minHeight com.neo.mtapp:minHeight}</code></td><td>
              Defines the minimum height of the view.</td></tr>
-           <tr><td><code>{@link #View_minWidth com.neo.pgapp:minWidth}</code></td><td>
+           <tr><td><code>{@link #View_minWidth com.neo.mtapp:minWidth}</code></td><td>
              Defines the minimum width of the view.</td></tr>
-           <tr><td><code>{@link #View_nextFocusDown com.neo.pgapp:nextFocusDown}</code></td><td>
+           <tr><td><code>{@link #View_nextFocusDown com.neo.mtapp:nextFocusDown}</code></td><td>
              Defines the next view to give focus to when the next focus is
              {@link android.view.View#FOCUS_DOWN}
 
              If the reference refers to a view that does not exist or is part
              of a hierarchy that is invisible, a {@link java.lang.RuntimeException}
              will result when the reference is accessed.</td></tr>
-           <tr><td><code>{@link #View_nextFocusForward com.neo.pgapp:nextFocusForward}</code></td><td>
+           <tr><td><code>{@link #View_nextFocusForward com.neo.mtapp:nextFocusForward}</code></td><td>
              Defines the next view to give focus to when the next focus is
              {@link android.view.View#FOCUS_FORWARD}
 
              If the reference refers to a view that does not exist or is part
              of a hierarchy that is invisible, a {@link java.lang.RuntimeException}
              will result when the reference is accessed.</td></tr>
-           <tr><td><code>{@link #View_nextFocusLeft com.neo.pgapp:nextFocusLeft}</code></td><td>
+           <tr><td><code>{@link #View_nextFocusLeft com.neo.mtapp:nextFocusLeft}</code></td><td>
              Defines the next view to give focus to when the next focus is
              {@link android.view.View#FOCUS_LEFT}.</td></tr>
-           <tr><td><code>{@link #View_nextFocusRight com.neo.pgapp:nextFocusRight}</code></td><td>
+           <tr><td><code>{@link #View_nextFocusRight com.neo.mtapp:nextFocusRight}</code></td><td>
              Defines the next view to give focus to when the next focus is
              {@link android.view.View#FOCUS_RIGHT}
 
              If the reference refers to a view that does not exist or is part
              of a hierarchy that is invisible, a {@link java.lang.RuntimeException}
              will result when the reference is accessed.</td></tr>
-           <tr><td><code>{@link #View_nextFocusUp com.neo.pgapp:nextFocusUp}</code></td><td>
+           <tr><td><code>{@link #View_nextFocusUp com.neo.mtapp:nextFocusUp}</code></td><td>
              Defines the next view to give focus to when the next focus is
              {@link android.view.View#FOCUS_UP}
 
              If the reference refers to a view that does not exist or is part
              of a hierarchy that is invisible, a {@link java.lang.RuntimeException}
              will result when the reference is accessed.</td></tr>
-           <tr><td><code>{@link #View_onClick com.neo.pgapp:onClick}</code></td><td>
+           <tr><td><code>{@link #View_onClick com.neo.mtapp:onClick}</code></td><td>
              Name of the method in this View's context to invoke when the view is
              clicked.</td></tr>
-           <tr><td><code>{@link #View_overScrollMode com.neo.pgapp:overScrollMode}</code></td><td>
+           <tr><td><code>{@link #View_overScrollMode com.neo.mtapp:overScrollMode}</code></td><td>
              Defines over-scrolling behavior.</td></tr>
-           <tr><td><code>{@link #View_padding com.neo.pgapp:padding}</code></td><td>
+           <tr><td><code>{@link #View_padding com.neo.mtapp:padding}</code></td><td>
              A drawable to use as the background.</td></tr>
-           <tr><td><code>{@link #View_paddingBottom com.neo.pgapp:paddingBottom}</code></td><td> Sets the padding, in pixels, of the bottom edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingEnd com.neo.pgapp:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingLeft com.neo.pgapp:paddingLeft}</code></td><td> Sets the padding, in pixels, of the left edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingRight com.neo.pgapp:paddingRight}</code></td><td> Sets the padding, in pixels, of the right edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingStart com.neo.pgapp:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingTop com.neo.pgapp:paddingTop}</code></td><td> Sets the padding, in pixels, of the top edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_requiresFadingEdge com.neo.pgapp:requiresFadingEdge}</code></td><td> Defines which edges should be faded on scrolling.</td></tr>
-           <tr><td><code>{@link #View_rotation com.neo.pgapp:rotation}</code></td><td> rotation of the view, in degrees.</td></tr>
-           <tr><td><code>{@link #View_rotationX com.neo.pgapp:rotationX}</code></td><td> rotation of the view around the x axis, in degrees.</td></tr>
-           <tr><td><code>{@link #View_rotationY com.neo.pgapp:rotationY}</code></td><td> rotation of the view around the y axis, in degrees.</td></tr>
-           <tr><td><code>{@link #View_saveEnabled com.neo.pgapp:saveEnabled}</code></td><td>
+           <tr><td><code>{@link #View_paddingBottom com.neo.mtapp:paddingBottom}</code></td><td> Sets the padding, in pixels, of the bottom edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingEnd com.neo.mtapp:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingLeft com.neo.mtapp:paddingLeft}</code></td><td> Sets the padding, in pixels, of the left edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingRight com.neo.mtapp:paddingRight}</code></td><td> Sets the padding, in pixels, of the right edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingStart com.neo.mtapp:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingTop com.neo.mtapp:paddingTop}</code></td><td> Sets the padding, in pixels, of the top edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_requiresFadingEdge com.neo.mtapp:requiresFadingEdge}</code></td><td> Defines which edges should be faded on scrolling.</td></tr>
+           <tr><td><code>{@link #View_rotation com.neo.mtapp:rotation}</code></td><td> rotation of the view, in degrees.</td></tr>
+           <tr><td><code>{@link #View_rotationX com.neo.mtapp:rotationX}</code></td><td> rotation of the view around the x axis, in degrees.</td></tr>
+           <tr><td><code>{@link #View_rotationY com.neo.mtapp:rotationY}</code></td><td> rotation of the view around the y axis, in degrees.</td></tr>
+           <tr><td><code>{@link #View_saveEnabled com.neo.mtapp:saveEnabled}</code></td><td>
              If unset, no state will be saved for this view when it is being
              frozen.</td></tr>
-           <tr><td><code>{@link #View_scaleX com.neo.pgapp:scaleX}</code></td><td> scale of the view in the x direction.</td></tr>
-           <tr><td><code>{@link #View_scaleY com.neo.pgapp:scaleY}</code></td><td> scale of the view in the y direction.</td></tr>
-           <tr><td><code>{@link #View_scrollX com.neo.pgapp:scrollX}</code></td><td> The initial horizontal scroll offset, in pixels.</td></tr>
-           <tr><td><code>{@link #View_scrollY com.neo.pgapp:scrollY}</code></td><td> The initial vertical scroll offset, in pixels.</td></tr>
-           <tr><td><code>{@link #View_scrollbarAlwaysDrawHorizontalTrack com.neo.pgapp:scrollbarAlwaysDrawHorizontalTrack}</code></td><td> Defines whether the horizontal scrollbar track should always be drawn.</td></tr>
-           <tr><td><code>{@link #View_scrollbarAlwaysDrawVerticalTrack com.neo.pgapp:scrollbarAlwaysDrawVerticalTrack}</code></td><td> Defines whether the vertical scrollbar track should always be drawn.</td></tr>
-           <tr><td><code>{@link #View_scrollbarDefaultDelayBeforeFade com.neo.pgapp:scrollbarDefaultDelayBeforeFade}</code></td><td> Defines the delay in milliseconds that a scrollbar waits before fade out.</td></tr>
-           <tr><td><code>{@link #View_scrollbarFadeDuration com.neo.pgapp:scrollbarFadeDuration}</code></td><td> Defines the delay in milliseconds that a scrollbar takes to fade out.</td></tr>
-           <tr><td><code>{@link #View_scrollbarSize com.neo.pgapp:scrollbarSize}</code></td><td> Sets the width of vertical scrollbars and height of horizontal scrollbars.</td></tr>
-           <tr><td><code>{@link #View_scrollbarStyle com.neo.pgapp:scrollbarStyle}</code></td><td>
+           <tr><td><code>{@link #View_scaleX com.neo.mtapp:scaleX}</code></td><td> scale of the view in the x direction.</td></tr>
+           <tr><td><code>{@link #View_scaleY com.neo.mtapp:scaleY}</code></td><td> scale of the view in the y direction.</td></tr>
+           <tr><td><code>{@link #View_scrollX com.neo.mtapp:scrollX}</code></td><td> The initial horizontal scroll offset, in pixels.</td></tr>
+           <tr><td><code>{@link #View_scrollY com.neo.mtapp:scrollY}</code></td><td> The initial vertical scroll offset, in pixels.</td></tr>
+           <tr><td><code>{@link #View_scrollbarAlwaysDrawHorizontalTrack com.neo.mtapp:scrollbarAlwaysDrawHorizontalTrack}</code></td><td> Defines whether the horizontal scrollbar track should always be drawn.</td></tr>
+           <tr><td><code>{@link #View_scrollbarAlwaysDrawVerticalTrack com.neo.mtapp:scrollbarAlwaysDrawVerticalTrack}</code></td><td> Defines whether the vertical scrollbar track should always be drawn.</td></tr>
+           <tr><td><code>{@link #View_scrollbarDefaultDelayBeforeFade com.neo.mtapp:scrollbarDefaultDelayBeforeFade}</code></td><td> Defines the delay in milliseconds that a scrollbar waits before fade out.</td></tr>
+           <tr><td><code>{@link #View_scrollbarFadeDuration com.neo.mtapp:scrollbarFadeDuration}</code></td><td> Defines the delay in milliseconds that a scrollbar takes to fade out.</td></tr>
+           <tr><td><code>{@link #View_scrollbarSize com.neo.mtapp:scrollbarSize}</code></td><td> Sets the width of vertical scrollbars and height of horizontal scrollbars.</td></tr>
+           <tr><td><code>{@link #View_scrollbarStyle com.neo.mtapp:scrollbarStyle}</code></td><td>
              Controls the scrollbar style and position.</td></tr>
-           <tr><td><code>{@link #View_scrollbarThumbHorizontal com.neo.pgapp:scrollbarThumbHorizontal}</code></td><td> Defines the horizontal scrollbar thumb drawable.</td></tr>
-           <tr><td><code>{@link #View_scrollbarThumbVertical com.neo.pgapp:scrollbarThumbVertical}</code></td><td> Defines the vertical scrollbar thumb drawable.</td></tr>
-           <tr><td><code>{@link #View_scrollbarTrackHorizontal com.neo.pgapp:scrollbarTrackHorizontal}</code></td><td> Defines the horizontal scrollbar track drawable.</td></tr>
-           <tr><td><code>{@link #View_scrollbarTrackVertical com.neo.pgapp:scrollbarTrackVertical}</code></td><td> Defines the vertical scrollbar track drawable.</td></tr>
-           <tr><td><code>{@link #View_scrollbars com.neo.pgapp:scrollbars}</code></td><td> Defines which scrollbars should be displayed on scrolling or not.</td></tr>
-           <tr><td><code>{@link #View_soundEffectsEnabled com.neo.pgapp:soundEffectsEnabled}</code></td><td>
+           <tr><td><code>{@link #View_scrollbarThumbHorizontal com.neo.mtapp:scrollbarThumbHorizontal}</code></td><td> Defines the horizontal scrollbar thumb drawable.</td></tr>
+           <tr><td><code>{@link #View_scrollbarThumbVertical com.neo.mtapp:scrollbarThumbVertical}</code></td><td> Defines the vertical scrollbar thumb drawable.</td></tr>
+           <tr><td><code>{@link #View_scrollbarTrackHorizontal com.neo.mtapp:scrollbarTrackHorizontal}</code></td><td> Defines the horizontal scrollbar track drawable.</td></tr>
+           <tr><td><code>{@link #View_scrollbarTrackVertical com.neo.mtapp:scrollbarTrackVertical}</code></td><td> Defines the vertical scrollbar track drawable.</td></tr>
+           <tr><td><code>{@link #View_scrollbars com.neo.mtapp:scrollbars}</code></td><td> Defines which scrollbars should be displayed on scrolling or not.</td></tr>
+           <tr><td><code>{@link #View_soundEffectsEnabled com.neo.mtapp:soundEffectsEnabled}</code></td><td>
              Boolean that controls whether a view should have sound effects
              enabled for events such as clicking and touching.</td></tr>
-           <tr><td><code>{@link #View_tag com.neo.pgapp:tag}</code></td><td>
+           <tr><td><code>{@link #View_tag com.neo.mtapp:tag}</code></td><td>
              Supply a tag for this view containing a String, to be retrieved
              later with {@link android.view.View#getTag View.getTag()} or
              searched for with {@link android.view.View#findViewWithTag
              View.findViewWithTag()}.</td></tr>
-           <tr><td><code>{@link #View_textAlignment com.neo.pgapp:textAlignment}</code></td><td>
+           <tr><td><code>{@link #View_textAlignment com.neo.mtapp:textAlignment}</code></td><td>
              Alignment of the text.</td></tr>
-           <tr><td><code>{@link #View_textDirection com.neo.pgapp:textDirection}</code></td><td>
+           <tr><td><code>{@link #View_textDirection com.neo.mtapp:textDirection}</code></td><td>
              Direction of the text.</td></tr>
-           <tr><td><code>{@link #View_transformPivotX com.neo.pgapp:transformPivotX}</code></td><td>
+           <tr><td><code>{@link #View_transformPivotX com.neo.mtapp:transformPivotX}</code></td><td>
              x location of the pivot point around which the view will rotate and scale.</td></tr>
-           <tr><td><code>{@link #View_transformPivotY com.neo.pgapp:transformPivotY}</code></td><td>
+           <tr><td><code>{@link #View_transformPivotY com.neo.mtapp:transformPivotY}</code></td><td>
              y location of the pivot point around which the view will rotate and scale.</td></tr>
-           <tr><td><code>{@link #View_translationX com.neo.pgapp:translationX}</code></td><td>
+           <tr><td><code>{@link #View_translationX com.neo.mtapp:translationX}</code></td><td>
              translation in x of the view.</td></tr>
-           <tr><td><code>{@link #View_translationY com.neo.pgapp:translationY}</code></td><td>
+           <tr><td><code>{@link #View_translationY com.neo.mtapp:translationY}</code></td><td>
              translation in y of the view.</td></tr>
-           <tr><td><code>{@link #View_verticalScrollbarPosition com.neo.pgapp:verticalScrollbarPosition}</code></td><td> Determines which side the vertical scroll bar should be placed on.</td></tr>
-           <tr><td><code>{@link #View_visibility com.neo.pgapp:visibility}</code></td><td> Controls the initial visibility of the view.</td></tr>
+           <tr><td><code>{@link #View_verticalScrollbarPosition com.neo.mtapp:verticalScrollbarPosition}</code></td><td> Determines which side the vertical scroll bar should be placed on.</td></tr>
+           <tr><td><code>{@link #View_visibility com.neo.mtapp:visibility}</code></td><td> Controls the initial visibility of the view.</td></tr>
            </table>
            @see #View_accessibilityFocusable
            @see #View_alpha
@@ -3420,7 +3418,7 @@ containing a value of this type.
             </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:accessibilityFocusable
+          @attr name com.neo.mtapp:accessibilityFocusable
         */
         public static final int View_accessibilityFocusable = 66;
         /**
@@ -3439,7 +3437,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:alpha
+          @attr name com.neo.mtapp:alpha
         */
         public static final int View_alpha = 50;
         /**
@@ -3455,7 +3453,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:clickable
+          @attr name com.neo.mtapp:clickable
         */
         public static final int View_clickable = 36;
         /**
@@ -3475,7 +3473,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:contentDescription
+          @attr name com.neo.mtapp:contentDescription
         */
         public static final int View_contentDescription = 47;
         /**
@@ -3507,7 +3505,7 @@ containing a value of this type.
             </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:drawingCacheQuality
+          @attr name com.neo.mtapp:drawingCacheQuality
         */
         public static final int View_drawingCacheQuality = 40;
         /**
@@ -3526,7 +3524,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:duplicateParentState
+          @attr name com.neo.mtapp:duplicateParentState
         */
         public static final int View_duplicateParentState = 42;
         /**
@@ -3542,7 +3540,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fadeScrollbars
+          @attr name com.neo.mtapp:fadeScrollbars
         */
         public static final int View_fadeScrollbars = 18;
         /**
@@ -3569,7 +3567,7 @@ containing a value of this type.
 <tr><td><code>vertical</code></td><td>0x00002000</td><td> Fades vertical edges only. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fadingEdge
+          @attr name com.neo.mtapp:fadingEdge
         */
         public static final int View_fadingEdge = 28;
         /**
@@ -3587,7 +3585,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fadingEdgeLength
+          @attr name com.neo.mtapp:fadingEdgeLength
         */
         public static final int View_fadingEdgeLength = 30;
         /**
@@ -3608,7 +3606,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:filterTouchesWhenObscured
+          @attr name com.neo.mtapp:filterTouchesWhenObscured
         */
         public static final int View_filterTouchesWhenObscured = 39;
         /**
@@ -3629,7 +3627,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:fitsSystemWindows
+          @attr name com.neo.mtapp:fitsSystemWindows
         */
         public static final int View_fitsSystemWindows = 14;
         /**
@@ -3652,7 +3650,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:focusable
+          @attr name com.neo.mtapp:focusable
         */
         public static final int View_focusable = 11;
         /**
@@ -3672,7 +3670,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:focusableInTouchMode
+          @attr name com.neo.mtapp:focusableInTouchMode
         */
         public static final int View_focusableInTouchMode = 12;
         /**
@@ -3691,7 +3689,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:hapticFeedbackEnabled
+          @attr name com.neo.mtapp:hapticFeedbackEnabled
         */
         public static final int View_hapticFeedbackEnabled = 46;
         /**
@@ -3713,7 +3711,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:id
+          @attr name com.neo.mtapp:id
         */
         public static final int View_id = 0;
         /**
@@ -3747,7 +3745,7 @@ containing a value of this type.
 <tr><td><code>no</code></td><td>2</td><td> The view is not important for accessibility. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:importantForAccessibility
+          @attr name com.neo.mtapp:importantForAccessibility
         */
         public static final int View_importantForAccessibility = 65;
         /**
@@ -3769,7 +3767,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:isScrollContainer
+          @attr name com.neo.mtapp:isScrollContainer
         */
         public static final int View_isScrollContainer = 17;
         /**
@@ -3788,7 +3786,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:keepScreenOn
+          @attr name com.neo.mtapp:keepScreenOn
         */
         public static final int View_keepScreenOn = 41;
         /**
@@ -3820,7 +3818,7 @@ containing a value of this type.
             </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:layerType
+          @attr name com.neo.mtapp:layerType
         */
         public static final int View_layerType = 61;
         /**
@@ -3847,7 +3845,7 @@ containing a value of this type.
 <tr><td><code>locale</code></td><td>3</td><td> Locale </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:layoutDirection
+          @attr name com.neo.mtapp:layoutDirection
         */
         public static final int View_layoutDirection = 62;
         /**
@@ -3863,7 +3861,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:longClickable
+          @attr name com.neo.mtapp:longClickable
         */
         public static final int View_longClickable = 37;
         /**
@@ -3885,7 +3883,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:minHeight
+          @attr name com.neo.mtapp:minHeight
         */
         public static final int View_minHeight = 43;
         /**
@@ -3907,7 +3905,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:minWidth
+          @attr name com.neo.mtapp:minWidth
         */
         public static final int View_minWidth = 44;
         /**
@@ -3926,7 +3924,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:nextFocusDown
+          @attr name com.neo.mtapp:nextFocusDown
         */
         public static final int View_nextFocusDown = 34;
         /**
@@ -3945,7 +3943,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:nextFocusForward
+          @attr name com.neo.mtapp:nextFocusForward
         */
         public static final int View_nextFocusForward = 35;
         /**
@@ -3964,7 +3962,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:nextFocusLeft
+          @attr name com.neo.mtapp:nextFocusLeft
         */
         public static final int View_nextFocusLeft = 31;
         /**
@@ -3983,7 +3981,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:nextFocusRight
+          @attr name com.neo.mtapp:nextFocusRight
         */
         public static final int View_nextFocusRight = 32;
         /**
@@ -4002,7 +4000,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:nextFocusUp
+          @attr name com.neo.mtapp:nextFocusUp
         */
         public static final int View_nextFocusUp = 33;
         /**
@@ -4025,7 +4023,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:onClick
+          @attr name com.neo.mtapp:onClick
         */
         public static final int View_onClick = 48;
         /**
@@ -4055,7 +4053,7 @@ containing a value of this type.
 <tr><td><code>never</code></td><td>2</td><td> Never show over-scroll effects. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:overScrollMode
+          @attr name com.neo.mtapp:overScrollMode
         */
         public static final int View_overScrollMode = 49;
         /**
@@ -4087,7 +4085,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:padding
+          @attr name com.neo.mtapp:padding
         */
         public static final int View_padding = 4;
         /**
@@ -4105,7 +4103,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingBottom
+          @attr name com.neo.mtapp:paddingBottom
         */
         public static final int View_paddingBottom = 8;
         /**
@@ -4123,7 +4121,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingEnd
+          @attr name com.neo.mtapp:paddingEnd
         */
         public static final int View_paddingEnd = 10;
         /**
@@ -4141,7 +4139,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingLeft
+          @attr name com.neo.mtapp:paddingLeft
         */
         public static final int View_paddingLeft = 5;
         /**
@@ -4159,7 +4157,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingRight
+          @attr name com.neo.mtapp:paddingRight
         */
         public static final int View_paddingRight = 7;
         /**
@@ -4177,7 +4175,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingStart
+          @attr name com.neo.mtapp:paddingStart
         */
         public static final int View_paddingStart = 9;
         /**
@@ -4195,7 +4193,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:paddingTop
+          @attr name com.neo.mtapp:paddingTop
         */
         public static final int View_paddingTop = 6;
         /**
@@ -4215,7 +4213,7 @@ containing a value of this type.
 <tr><td><code>vertical</code></td><td>0x00002000</td><td> Fades vertical edges only. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:requiresFadingEdge
+          @attr name com.neo.mtapp:requiresFadingEdge
         */
         public static final int View_requiresFadingEdge = 29;
         /**
@@ -4231,7 +4229,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:rotation
+          @attr name com.neo.mtapp:rotation
         */
         public static final int View_rotation = 55;
         /**
@@ -4247,7 +4245,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:rotationX
+          @attr name com.neo.mtapp:rotationX
         */
         public static final int View_rotationX = 56;
         /**
@@ -4263,7 +4261,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:rotationY
+          @attr name com.neo.mtapp:rotationY
         */
         public static final int View_rotationY = 57;
         /**
@@ -4286,7 +4284,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:saveEnabled
+          @attr name com.neo.mtapp:saveEnabled
         */
         public static final int View_saveEnabled = 38;
         /**
@@ -4302,7 +4300,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scaleX
+          @attr name com.neo.mtapp:scaleX
         */
         public static final int View_scaleX = 58;
         /**
@@ -4318,7 +4316,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scaleY
+          @attr name com.neo.mtapp:scaleY
         */
         public static final int View_scaleY = 59;
         /**
@@ -4336,7 +4334,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollX
+          @attr name com.neo.mtapp:scrollX
         */
         public static final int View_scrollX = 2;
         /**
@@ -4354,7 +4352,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollY
+          @attr name com.neo.mtapp:scrollY
         */
         public static final int View_scrollY = 3;
         /**
@@ -4370,7 +4368,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarAlwaysDrawHorizontalTrack
+          @attr name com.neo.mtapp:scrollbarAlwaysDrawHorizontalTrack
         */
         public static final int View_scrollbarAlwaysDrawHorizontalTrack = 26;
         /**
@@ -4386,7 +4384,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarAlwaysDrawVerticalTrack
+          @attr name com.neo.mtapp:scrollbarAlwaysDrawVerticalTrack
         */
         public static final int View_scrollbarAlwaysDrawVerticalTrack = 27;
         /**
@@ -4402,7 +4400,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarDefaultDelayBeforeFade
+          @attr name com.neo.mtapp:scrollbarDefaultDelayBeforeFade
         */
         public static final int View_scrollbarDefaultDelayBeforeFade = 20;
         /**
@@ -4418,7 +4416,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarFadeDuration
+          @attr name com.neo.mtapp:scrollbarFadeDuration
         */
         public static final int View_scrollbarFadeDuration = 19;
         /**
@@ -4436,7 +4434,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarSize
+          @attr name com.neo.mtapp:scrollbarSize
         */
         public static final int View_scrollbarSize = 21;
         /**
@@ -4466,7 +4464,7 @@ containing a value of this type.
 <tr><td><code>outsideInset</code></td><td>0x03000000</td><td> Edge of the view and inset </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarStyle
+          @attr name com.neo.mtapp:scrollbarStyle
         */
         public static final int View_scrollbarStyle = 16;
         /**
@@ -4478,7 +4476,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarThumbHorizontal
+          @attr name com.neo.mtapp:scrollbarThumbHorizontal
         */
         public static final int View_scrollbarThumbHorizontal = 22;
         /**
@@ -4490,7 +4488,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarThumbVertical
+          @attr name com.neo.mtapp:scrollbarThumbVertical
         */
         public static final int View_scrollbarThumbVertical = 23;
         /**
@@ -4502,7 +4500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarTrackHorizontal
+          @attr name com.neo.mtapp:scrollbarTrackHorizontal
         */
         public static final int View_scrollbarTrackHorizontal = 24;
         /**
@@ -4514,7 +4512,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbarTrackVertical
+          @attr name com.neo.mtapp:scrollbarTrackVertical
         */
         public static final int View_scrollbarTrackVertical = 25;
         /**
@@ -4534,7 +4532,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>vertical</code></td><td>0x00000200</td><td> Displays vertical scrollbar only. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:scrollbars
+          @attr name com.neo.mtapp:scrollbars
         */
         public static final int View_scrollbars = 15;
         /**
@@ -4553,7 +4551,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:soundEffectsEnabled
+          @attr name com.neo.mtapp:soundEffectsEnabled
         */
         public static final int View_soundEffectsEnabled = 45;
         /**
@@ -4576,7 +4574,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:tag
+          @attr name com.neo.mtapp:tag
         */
         public static final int View_tag = 1;
         /**
@@ -4619,7 +4617,7 @@ containing a value of this type.
             </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:textAlignment
+          @attr name com.neo.mtapp:textAlignment
         */
         public static final int View_textAlignment = 64;
         /**
@@ -4659,7 +4657,7 @@ containing a value of this type.
 <tr><td><code>locale</code></td><td>5</td><td> The paragraph direction is coming from the system Locale. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:textDirection
+          @attr name com.neo.mtapp:textDirection
         */
         public static final int View_textDirection = 63;
         /**
@@ -4680,7 +4678,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:transformPivotX
+          @attr name com.neo.mtapp:transformPivotX
         */
         public static final int View_transformPivotX = 53;
         /**
@@ -4701,7 +4699,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:transformPivotY
+          @attr name com.neo.mtapp:transformPivotY
         */
         public static final int View_transformPivotY = 54;
         /**
@@ -4722,7 +4720,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:translationX
+          @attr name com.neo.mtapp:translationX
         */
         public static final int View_translationX = 51;
         /**
@@ -4743,7 +4741,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:translationY
+          @attr name com.neo.mtapp:translationY
         */
         public static final int View_translationY = 52;
         /**
@@ -4763,7 +4761,7 @@ containing a value of this type.
 <tr><td><code>right</code></td><td>2</td><td> Place the scroll bar on the right. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:verticalScrollbarPosition
+          @attr name com.neo.mtapp:verticalScrollbarPosition
         */
         public static final int View_verticalScrollbarPosition = 60;
         /**
@@ -4783,7 +4781,7 @@ containing a value of this type.
 <tr><td><code>gone</code></td><td>2</td><td> Completely hidden, as if the view had not been added. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:visibility
+          @attr name com.neo.mtapp:visibility
         */
         public static final int View_visibility = 13;
         /** 
@@ -4796,31 +4794,31 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ViewGroup_addStatesFromChildren com.neo.pgapp:addStatesFromChildren}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_addStatesFromChildren com.neo.mtapp:addStatesFromChildren}</code></td><td>
              Sets whether this ViewGroup's drawable states also include
              its children's drawable states.</td></tr>
-           <tr><td><code>{@link #ViewGroup_alwaysDrawnWithCache com.neo.pgapp:alwaysDrawnWithCache}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_alwaysDrawnWithCache com.neo.mtapp:alwaysDrawnWithCache}</code></td><td>
              Defines whether the ViewGroup should always draw its children using their
              drawing cache or not.</td></tr>
-           <tr><td><code>{@link #ViewGroup_animateLayoutChanges com.neo.pgapp:animateLayoutChanges}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_animateLayoutChanges com.neo.mtapp:animateLayoutChanges}</code></td><td>
              Defines whether changes in layout (caused by adding and removing items) should
              cause a LayoutTransition to run.</td></tr>
-           <tr><td><code>{@link #ViewGroup_animationCache com.neo.pgapp:animationCache}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_animationCache com.neo.mtapp:animationCache}</code></td><td>
              Defines whether layout animations should create a drawing cache for their
              children.</td></tr>
-           <tr><td><code>{@link #ViewGroup_clipChildren com.neo.pgapp:clipChildren}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_clipChildren com.neo.mtapp:clipChildren}</code></td><td>
              Defines whether a child is limited to draw inside of its bounds or not.</td></tr>
-           <tr><td><code>{@link #ViewGroup_clipToPadding com.neo.pgapp:clipToPadding}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_clipToPadding com.neo.mtapp:clipToPadding}</code></td><td>
              Defines whether the ViewGroup will clip its drawing surface so as to exclude
              the padding area.</td></tr>
-           <tr><td><code>{@link #ViewGroup_descendantFocusability com.neo.pgapp:descendantFocusability}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_descendantFocusability com.neo.mtapp:descendantFocusability}</code></td><td>
              Defines the relationship between the ViewGroup and its descendants
              when looking for a View to take focus.</td></tr>
-           <tr><td><code>{@link #ViewGroup_layoutAnimation com.neo.pgapp:layoutAnimation}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_layoutAnimation com.neo.mtapp:layoutAnimation}</code></td><td>
              Defines the layout animation to use the first time the ViewGroup is laid out.</td></tr>
-           <tr><td><code>{@link #ViewGroup_persistentDrawingCache com.neo.pgapp:persistentDrawingCache}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_persistentDrawingCache com.neo.mtapp:persistentDrawingCache}</code></td><td>
              Defines the persistence of the drawing cache.</td></tr>
-           <tr><td><code>{@link #ViewGroup_splitMotionEvents com.neo.pgapp:splitMotionEvents}</code></td><td>
+           <tr><td><code>{@link #ViewGroup_splitMotionEvents com.neo.mtapp:splitMotionEvents}</code></td><td>
              Sets whether this ViewGroup should split MotionEvents
              to separate child views during touch event dispatch.</td></tr>
            </table>
@@ -4858,7 +4856,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:addStatesFromChildren
+          @attr name com.neo.mtapp:addStatesFromChildren
         */
         public static final int ViewGroup_addStatesFromChildren = 7;
         /**
@@ -4877,7 +4875,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:alwaysDrawnWithCache
+          @attr name com.neo.mtapp:alwaysDrawnWithCache
         */
         public static final int ViewGroup_alwaysDrawnWithCache = 6;
         /**
@@ -4898,7 +4896,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:animateLayoutChanges
+          @attr name com.neo.mtapp:animateLayoutChanges
         */
         public static final int ViewGroup_animateLayoutChanges = 0;
         /**
@@ -4919,7 +4917,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:animationCache
+          @attr name com.neo.mtapp:animationCache
         */
         public static final int ViewGroup_animationCache = 4;
         /**
@@ -4941,7 +4939,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:clipChildren
+          @attr name com.neo.mtapp:clipChildren
         */
         public static final int ViewGroup_clipChildren = 1;
         /**
@@ -4960,7 +4958,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:clipToPadding
+          @attr name com.neo.mtapp:clipToPadding
         */
         public static final int ViewGroup_clipToPadding = 2;
         /**
@@ -4983,7 +4981,7 @@ containing a value of this type.
 <tr><td><code>blocksDescendants</code></td><td>2</td><td> The ViewGroup will block its descendants from receiving focus. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:descendantFocusability
+          @attr name com.neo.mtapp:descendantFocusability
         */
         public static final int ViewGroup_descendantFocusability = 8;
         /**
@@ -4998,7 +4996,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:layoutAnimation
+          @attr name com.neo.mtapp:layoutAnimation
         */
         public static final int ViewGroup_layoutAnimation = 3;
         /**
@@ -5026,7 +5024,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>all</code></td><td>0x3</td><td> The drawing cache is always persisted. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:persistentDrawingCache
+          @attr name com.neo.mtapp:persistentDrawingCache
         */
         public static final int ViewGroup_persistentDrawingCache = 5;
         /**
@@ -5053,7 +5051,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:splitMotionEvents
+          @attr name com.neo.mtapp:splitMotionEvents
         */
         public static final int ViewGroup_splitMotionEvents = 9;
         /** Attributes that can be used with a ViewPagerIndicator.
@@ -5062,12 +5060,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.neo.pgapp:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.neo.pgapp:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.neo.pgapp:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.neo.pgapp:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.neo.pgapp:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.neo.pgapp:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.neo.mtapp:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.neo.mtapp:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.neo.mtapp:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.neo.mtapp:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.neo.mtapp:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.neo.mtapp:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
            </table>
            @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
            @see #ViewPagerIndicator_vpiIconPageIndicatorStyle
@@ -5089,7 +5087,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiCirclePageIndicatorStyle
+          @attr name com.neo.mtapp:vpiCirclePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
         /**
@@ -5101,7 +5099,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiIconPageIndicatorStyle
+          @attr name com.neo.mtapp:vpiIconPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
         /**
@@ -5113,7 +5111,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiLinePageIndicatorStyle
+          @attr name com.neo.mtapp:vpiLinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
         /**
@@ -5125,7 +5123,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiTabPageIndicatorStyle
+          @attr name com.neo.mtapp:vpiTabPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
         /**
@@ -5137,7 +5135,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiTitlePageIndicatorStyle
+          @attr name com.neo.mtapp:vpiTitlePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
         /**
@@ -5149,7 +5147,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.neo.pgapp:vpiUnderlinePageIndicatorStyle
+          @attr name com.neo.mtapp:vpiUnderlinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
     };

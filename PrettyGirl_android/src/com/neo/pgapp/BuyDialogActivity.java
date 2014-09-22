@@ -8,17 +8,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.waps.AppConnect;
-import cn.waps.UpdatePointsNotifier;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;
-import com.neo.pgapp.view.AdLinearLayoutView;
 
-public class BuyDialogActivity extends BaseActivity implements
-		UpdatePointsNotifier {
+public class BuyDialogActivity extends BaseActivity{
 	private String res_id;
 	private ImageResDataStruct curRes;
 	private TextView coin_text;
@@ -76,9 +72,6 @@ public class BuyDialogActivity extends BaseActivity implements
 		coin_text.setText(getString(R.string.total_coin)
 				+ AppManager.getInstance().coin);
 
-		AdLinearLayoutView layout = (AdLinearLayoutView) this
-				.findViewById(R.id.AdLinearLayout);
-		AppConnect.getInstance(this).showBannerAd(this, layout);
 
 		Button wall_btn = (Button) findViewById(R.id.wall_btn);
 		wall_btn.setOnClickListener(new OnClickListener() {
@@ -116,12 +109,10 @@ public class BuyDialogActivity extends BaseActivity implements
 	}
 
 	private void showOffers() {
-		AppConnect.getInstance(this).showOffers(this);
+
 	}
 
 	private void buyImageData() {
-		AppConnect.getInstance(this).spendPoints(Integer.valueOf(curRes.coin),
-				this);
 
 		ImageDataManager.getInstance().addMyGroupImage(curRes);
 
@@ -136,29 +127,5 @@ public class BuyDialogActivity extends BaseActivity implements
 			buy_btn.setEnabled(false);
 		else
 			buy_btn.setEnabled(true);
-	}
-
-	@Override
-	public void getUpdatePoints(String arg0, int arg1) {
-		// TODO Auto-generated method stub
-		AppManager.getInstance().coin = arg1;
-
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				coin_text.setText(getString(R.string.total_coin)
-						+ AppManager.getInstance().coin);
-				coin_text.invalidate();
-				Toast.makeText(BuyDialogActivity.this,
-						String.valueOf(AppManager.getInstance().coin),
-						Toast.LENGTH_LONG).show();
-			}
-		});
-	}
-
-	@Override
-	public void getUpdatePointsFailed(String arg0) {
-		// TODO Auto-generated method stub
-
 	}
 }
