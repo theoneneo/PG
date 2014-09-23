@@ -149,11 +149,6 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
                     	downloadApk();  
                     }  
                 });  
-        builder.setNegativeButton("取消",  
-                new DialogInterface.OnClickListener() {  
-                    public void onClick(DialogInterface dialog, int whichButton) { 
-                    }  
-                });  
         builder.show(); 
 	}
 	
