@@ -28,7 +28,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 
 /**
  * This widget implements the dynamic action bar tab behavior that can change

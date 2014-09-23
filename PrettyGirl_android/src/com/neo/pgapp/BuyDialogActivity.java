@@ -11,7 +11,7 @@ import android.widget.Toast;
 import cn.waps.AppConnect;
 import cn.waps.UpdatePointsNotifier;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;

@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 
 public class XListViewFooter extends LinearLayout {
 	public final static int STATE_NORMAL = 0;

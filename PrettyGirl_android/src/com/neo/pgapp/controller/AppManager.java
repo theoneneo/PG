@@ -23,7 +23,7 @@ import cn.waps.AppConnect;
 import cn.waps.UpdatePointsNotifier;
 
 import com.neo.pgapp.PGApplication;
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 
 /**
  * @author LiuBing

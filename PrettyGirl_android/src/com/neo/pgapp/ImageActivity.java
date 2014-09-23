@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;

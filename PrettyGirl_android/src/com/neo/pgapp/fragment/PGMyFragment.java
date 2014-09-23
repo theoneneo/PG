@@ -15,7 +15,7 @@ import com.dodowaterfall.widget.ScaleImageView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import com.huewu.pla.lib.internal.PLA_AdapterView.OnItemClickListener;
 import com.neo.pgapp.ImageDataActivity;
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;

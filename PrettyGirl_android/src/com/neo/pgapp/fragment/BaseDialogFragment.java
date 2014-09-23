@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-import com.neo.pgapp.R;
+import com.neo.mtapp.R;
 
 public abstract class BaseDialogFragment extends DialogFragment {
 
