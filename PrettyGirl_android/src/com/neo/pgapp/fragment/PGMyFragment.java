@@ -63,7 +63,7 @@ public class PGMyFragment extends BaseFragment {
 			public void onItemClick(PLA_AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				buyImageData(position);
+//				buyImageData(position);
 			}
 		});
 	}

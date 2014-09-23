@@ -65,7 +65,7 @@ public class PGMainFragment extends BaseFragment implements IXListViewListener {
 			public void onItemClick(PLA_AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				buyImageData(position);
+//				buyImageData(position);
 			}
 		});
 	}
