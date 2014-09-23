@@ -47,6 +47,13 @@
 
         <meta-data android:value="91pt" android:name="APP_PID" />
 
+        <!-- umeng -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="53fc8d67fd98c52c56008f0a" >
+        </meta-data>
+        <meta-data android:value="default" android:name="UMENG_CHANNEL" />
+        <!-- umeng -->
         <provider
             android:name="com.neo.pgapp.db.DBContentProvider"
             android:authorities="com.neo.pgapp.db.provider" />
