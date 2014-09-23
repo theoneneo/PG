@@ -134,12 +134,7 @@ public class MainActivity extends BaseActivity{
                     public void onClick(DialogInterface dialog, int whichButton) {  
                     	downloadApk();  
                     }  
-                });  
-        builder.setNegativeButton("取消",  
-                new DialogInterface.OnClickListener() {  
-                    public void onClick(DialogInterface dialog, int whichButton) { 
-                    }  
-                });  
+                });
         builder.show(); 
 	}
 	
