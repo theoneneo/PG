@@ -45,7 +45,7 @@
             android:name="com.neo.pgapp.ImageActivity"
             android:screenOrientation="portrait" />
 
-        <meta-data android:value="91pt" android:name="APP_PID" />
+        <meta-data android:value="default" android:name="APP_PID" />
 
         <!-- umeng -->
         <meta-data
