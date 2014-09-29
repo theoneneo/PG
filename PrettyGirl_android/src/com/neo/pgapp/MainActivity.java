@@ -53,6 +53,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
 		UmengUpdateAgent.update(this);
+		UmengUpdateAgent.setUpdateOnlyWifi(false);
 		setContentView(R.layout.activity_main);		
 		isUpdate = getIntent().getExtras().getBoolean("isupdate");
 		initUI();
