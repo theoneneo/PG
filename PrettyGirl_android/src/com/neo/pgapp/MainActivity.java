@@ -33,6 +33,7 @@ import com.neo.pgapp.event.BroadCastEvent;
 import com.neo.pgapp.fragment.PGMainFragment;
 import com.neo.pgapp.fragment.PGMyFragment;
 import com.neo.pgapp.waps.SlideWall;
+import com.umeng.update.UmengUpdateAgent;
 import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		EventBus.getDefault().register(this, BroadCastEvent.class);
+		UmengUpdateAgent.update(this);
 		setContentView(R.layout.activity_main);		
 		isUpdate = getIntent().getExtras().getBoolean("isupdate");
 		initUI();

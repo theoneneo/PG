@@ -60,6 +60,15 @@
             android:value="53fc8d67fd98c52c56008f0a" >
         </meta-data>
         <meta-data android:value="neng" android:name="UMENG_CHANNEL" />
+        
+        <service
+    		android:name="com.umeng.update.net.DownloadingService"
+    		android:process=":DownloadingService" >
+		</service>
+		<activity 
+    		android:name="com.umeng.update.UpdateDialogActivity"
+    		android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		</activity>
         <!-- umeng -->
         <provider
             android:name="com.neo.pgapp.db.DBContentProvider"
