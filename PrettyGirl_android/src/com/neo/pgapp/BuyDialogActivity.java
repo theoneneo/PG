@@ -7,7 +7,6 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;

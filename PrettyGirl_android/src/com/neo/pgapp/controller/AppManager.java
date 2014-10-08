@@ -3,7 +3,6 @@ package com.neo.pgapp.controller;
 import java.io.File;
 
 import android.app.Application;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -16,12 +15,12 @@ import android.widget.ImageView.ScaleType;
 import cn.trinea.android.common.entity.FailedReason;
 import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
 import cn.trinea.android.common.service.impl.ImageSDCardCache;
-import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
+import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
 import cn.trinea.android.common.util.ObjectUtils;
 
-import com.neo.pgapp.PGApplication;
 import com.neo.mtapp.R;
+import com.neo.pgapp.PGApplication;
 
 /**
  * @author LiuBing

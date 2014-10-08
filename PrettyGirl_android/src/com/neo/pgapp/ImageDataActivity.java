@@ -1,29 +1,12 @@
 package com.neo.pgapp;
 
-import java.io.File;
-
-import android.app.Dialog;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ImageView.ScaleType;
-import cn.trinea.android.common.entity.FailedReason;
-import cn.trinea.android.common.service.impl.FileNameRuleImageUrl;
-import cn.trinea.android.common.service.impl.ImageSDCardCache;
-import cn.trinea.android.common.service.impl.RemoveTypeLastUsedTimeFirst;
-import cn.trinea.android.common.service.impl.ImageSDCardCache.OnImageSDCallbackListener;
 
 import com.neo.mtapp.R;
-import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.controller.NetServiceManager;
 import com.neo.pgapp.data.ImageResDataStruct;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.neo.mtapp"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk android:minSdkVersion="8" />
 
@@ -45,15 +45,23 @@
             android:name="com.neo.pgapp.ImageActivity"
             android:screenOrientation="portrait" />
 
-        <meta-data android:value="neng" android:name="APP_PID" />
+        <meta-data android:value="hiapk" android:name="APP_PID" />
 
         <!-- umeng -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="53fc8d67fd98c52c56008f0a" >
         </meta-data>
-        <meta-data android:value="neng" android:name="UMENG_CHANNEL" />
+        <meta-data android:value="hiapk" android:name="UMENG_CHANNEL" />
         <!-- umeng -->
+        <service
+    		android:name="com.umeng.update.net.DownloadingService"
+    		android:process=":DownloadingService" >
+		</service>
+		<activity 
+    		android:name="com.umeng.update.UpdateDialogActivity"
+    		android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		</activity>
         <provider
             android:name="com.neo.pgapp.db.DBContentProvider"
             android:authorities="com.neo.pgapp.db.provider" />
