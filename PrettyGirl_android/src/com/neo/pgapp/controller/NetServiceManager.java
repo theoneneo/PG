@@ -69,10 +69,7 @@ public class NetServiceManager extends BaseManager {
 			JSONObject obj = ProtocolDataOutput
 					.getMainImageListDataToJson(num, APP_PID);
 			String url = null;
-			if(AppManager.isOpen)
-				url = NET_GET_MAIN_IMAGE_LIST;
-			else
-				url = NET_GET_TEST_IMAGE_LIST;
+			url = NET_GET_MAIN_IMAGE_LIST;
 			mQueue.add(new JsonObjectRequest(Method.POST,
 					url, obj, new Listener() {
 
@@ -139,47 +136,6 @@ public class NetServiceManager extends BaseManager {
 							EventBus.getDefault()
 									.post(new BroadCastEvent(
 											BroadCastEvent.GET_ALL_IMAGE_LIST_DATA,
-											false));
-						}
-					}));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		mQueue.start();
-	}
-	
-	public void getUpdateApk(int versionCode, String APP_PID) {
-		RequestQueue mQueue = Volley
-				.newRequestQueue(PGApplication.getContext());
-		try {
-			JSONObject obj = ProtocolDataOutput.getUpdateApk(
-					versionCode, APP_PID);
-			mQueue.add(new JsonObjectRequest(Method.POST,
-					NET_GET_UPDATE_APK, obj, new Listener() {
-
-						@Override
-						public void onResponse(Object arg0) {
-							// TODO Auto-generated method stub
-							try {
-								boolean isSuccess = ProtocolDataInput
-										.parseUpdateApkToJson((JSONObject)arg0);
-								EventBus.getDefault()
-										.post(new BroadCastEvent(
-												BroadCastEvent.GET_UPDATE_APK,
-												isSuccess));
-							} catch (JSONException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
-					}, new ErrorListener() {
-						@Override
-						public void onErrorResponse(VolleyError arg0) {
-							// TODO Auto-generated method stub
-							EventBus.getDefault()
-									.post(new BroadCastEvent(
-											BroadCastEvent.GET_UPDATE_APK,
 											false));
 						}
 					}));

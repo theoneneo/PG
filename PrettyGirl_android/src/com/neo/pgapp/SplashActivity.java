@@ -1,5 +1,8 @@
 package com.neo.pgapp;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -22,12 +25,11 @@ import com.neo.pgapp.event.BroadCastEvent;
 import de.greenrobot.event.EventBus;
 
 public class SplashActivity extends BaseActivity {
-	private boolean isUpdate = false;
+	private Timer timer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		EventBus.getDefault().register(this, BroadCastEvent.class);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
 		setContentView(R.layout.activity_splash);
@@ -35,20 +37,7 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	protected void onDestroy() {
-		EventBus.getDefault().unregister(this);
 		super.onDestroy();
-	}
-	
-	public void onEventMainThread(BroadCastEvent event) {
-		switch (event.getType()) {
-		case BroadCastEvent.GET_UPDATE_APK:
-			if (AppManager.updateLink != null && (!"".equals(AppManager.updateLink)))
-				isUpdate = true;
-			go2MainActivity();
-			break;
-		default:
-			break;
-		}
 	}
 
 	private void initUI() {
@@ -71,46 +60,20 @@ public class SplashActivity extends BaseActivity {
 		AppManager.height = dm.heightPixels;
 		ImageDataManager.getInstance();
 		
-		update();
+		timer = new Timer();
+		timer.schedule(new SplashTask(), 2 * 1000);
 	}
 
 	private void go2MainActivity() {
 		Intent intent = new Intent(this, MainActivity.class);
-		intent.putExtra("isupdate", isUpdate);
 		startActivity(intent);
 		finish();
 	}
 
-	private void update(){
-		if (isNetworkConnected(this)) {
-			updateApk();
-		} else {
-			Toast.makeText(this, R.string.net_error, Toast.LENGTH_LONG).show();
+	class SplashTask extends TimerTask {
+		public void run() {
+			timer.cancel(); // Terminate the timer thread
+			go2MainActivity();
 		}
-	}
-	
-	private void updateApk() {
-		PackageInfo pi;
-		try {
-			pi = getPackageManager().getPackageInfo(this.getPackageName(), 0);
-			AppManager.curVersion = pi.versionCode;
-			NetServiceManager.getInstance().getUpdateApk(pi.versionCode, AppManager.APP_PID);
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	private boolean isNetworkConnected(Context context) {
-		if (context != null) {
-			ConnectivityManager mConnectivityManager = (ConnectivityManager) context
-					.getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo mNetworkInfo = mConnectivityManager
-					.getActiveNetworkInfo();
-			if (mNetworkInfo != null) {
-				return mNetworkInfo.isAvailable();
-			}
-		}
-		return false;
 	}
 }

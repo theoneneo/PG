@@ -61,33 +61,4 @@ public class ProtocolDataInput {
 		}
 		return false;
 	}
-	
-	public static boolean parseUpdateApkToJson(JSONObject obj)
-			throws JSONException {
-		if (obj == null) {
-			return false;
-		}
-		try {
-			JSONArray arrays = obj.getJSONArray("data");
-			for (int i = 0; i < arrays.length(); i++) {
-				JSONObject item = (JSONObject) arrays.opt(i);
-				int version = item.optInt("version");
-				if(version > AppManager.curVersion)
-					AppManager.updateLink = item.optString("link");
-				
-				if(item.optInt("isopen") == 1)
-					AppManager.isOpen = true;
-				else
-					AppManager.isOpen = false;
-				break;
-			}
-			return true;
-		} catch (JSONException ex) {
-			// 异常处理代码
-		} catch (Exception e) {
-
-		}
-		return false;
-	}
-
 }

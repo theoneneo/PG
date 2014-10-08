@@ -15,7 +15,6 @@ import com.neo.mtapp.R;
 import com.neo.pgapp.controller.AppManager;
 import com.neo.pgapp.controller.ImageDataManager;
 import com.neo.pgapp.data.ImageResDataStruct;
-import com.neo.pgapp.view.AdLinearLayoutView;
 
 public class BuyDialogActivity extends BaseActivity implements
 		UpdatePointsNotifier {
@@ -75,10 +74,6 @@ public class BuyDialogActivity extends BaseActivity implements
 		coin_text = (TextView) findViewById(R.id.coin_text);
 		coin_text.setText(getString(R.string.total_coin)
 				+ AppManager.getInstance().coin);
-
-		AdLinearLayoutView layout = (AdLinearLayoutView) this
-				.findViewById(R.id.AdLinearLayout);
-		AppConnect.getInstance(this).showBannerAd(this, layout);
 
 		Button wall_btn = (Button) findViewById(R.id.wall_btn);
 		wall_btn.setOnClickListener(new OnClickListener() {

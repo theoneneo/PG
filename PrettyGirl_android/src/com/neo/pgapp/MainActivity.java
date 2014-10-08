@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.waps.AppConnect;
@@ -42,7 +43,6 @@ import de.greenrobot.event.EventBus;
 public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	private static final String[] CONTENT = new String[] { "精彩福利", "我的福利" };
 
-	private boolean isUpdate = false;
 	private MainAdapter adapter;
 	private PGMainFragment mainListFragment;
 	private PGMyFragment myListFragment;
@@ -55,10 +55,8 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		UmengUpdateAgent.update(this);
 		UmengUpdateAgent.setUpdateOnlyWifi(false);
 		setContentView(R.layout.activity_main);		
-		isUpdate = getIntent().getExtras().getBoolean("isupdate");
 		initUI();
 		initData();
-		updateFunction();
 	}
 
 	protected void onDestroy() {
@@ -111,6 +109,9 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		TextView titleText = (TextView) findViewById(R.id.title).findViewById(
 				R.id.title_text);
 		titleText.setText(R.string.app_name);
+		
+		LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout);
+		AppConnect.getInstance(this).showBannerAd(this, adlayout);
 	}
 
 	private void initData() {
@@ -120,55 +121,21 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 		AppConnect.getInstance(this).initPopAd(PGApplication.getContext());		
 
 		if (isNetworkConnected(this)) {
-			if (!isToastRefresh()) {
-				Toast.makeText(this, R.string.down_refresh, Toast.LENGTH_LONG)
-						.show();
-				SharedPreferences settings = getSharedPreferences("pgapp", 0);
-				SharedPreferences.Editor localEditor = settings.edit();
-				localEditor.putBoolean("toast_refresh", true);
-				localEditor.commit();
-			}
 
-			NetServiceManager.getInstance().getMainImageListData(
-					ImageDataManager.getInstance().mainGroupImage.imageData
-							.size(), AppManager.APP_PID);// 第一页
-			
-			if(isUpdate)
-				popUpdateWindow();
 		} else {
 			Toast.makeText(this, R.string.net_error, Toast.LENGTH_LONG).show();
 		}
-	}
-
-	private void popUpdateWindow() {
-		// 升级提示框
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);  
-        builder.setCancelable(false);  
-        builder.setMessage("有新版本请升级");
-        builder.setPositiveButton("确认",  
-                new DialogInterface.OnClickListener() {  
-                    public void onClick(DialogInterface dialog, int whichButton) {  
-                    	downloadApk();  
-                    }  
-                });  
-        builder.show(); 
-	}
-	
-	private void downloadApk(){
-		DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-
-		Uri uri = Uri.parse(AppManager.updateLink);
-		Request request = new Request(uri);
-
-		// 设置允许使用的网络类型，这里是移动网络和wifi都可以
-		request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE
-				| DownloadManager.Request.NETWORK_WIFI);
-
-		request.setVisibleInDownloadsUi(true);
-		request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-		request.setDestinationInExternalPublicDir("Welfare", "PrettyGirl.apk");
-		downloadManager.enqueue(request);
+		if (!isToastRefresh()) {
+			Toast.makeText(this, R.string.down_refresh, Toast.LENGTH_LONG)
+					.show();
+			SharedPreferences settings = getSharedPreferences("pgapp", 0);
+			SharedPreferences.Editor localEditor = settings.edit();
+			localEditor.putBoolean("toast_refresh", true);
+			localEditor.commit();
+		}	
+		NetServiceManager.getInstance().getMainImageListData(
+				ImageDataManager.getInstance().mainGroupImage.imageData
+						.size(), AppManager.APP_PID);// 第一页
 	}
 
 	@Override
@@ -236,17 +203,5 @@ public class MainActivity extends BaseActivity implements UpdatePointsNotifier {
 	private boolean isToastRefresh() {
 		SharedPreferences settings = getSharedPreferences("pgapp", 0);
 		return settings.getBoolean("toast_refresh", false);
-	}
-	
-	private void updateFunction(){
-		if(AppManager.isOpen){
-			slidingDrawerView = SlideWall.getInstance().getView(this);
-			if (slidingDrawerView != null) {
-				addContentView(slidingDrawerView, new LayoutParams(
-						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-			}
-		}else{
-			
-		}
 	}
 }

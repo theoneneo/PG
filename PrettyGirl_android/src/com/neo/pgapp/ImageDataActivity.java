@@ -14,6 +14,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 import cn.trinea.android.common.entity.FailedReason;
@@ -93,8 +94,9 @@ public class ImageDataActivity extends BaseActivity {
 		TextView titleText = (TextView) findViewById(R.id.title).findViewById(
 				R.id.title_text);
 		titleText.setText(R.string.app_name);
-
-		updateFunction();
+		AppConnect.getInstance(this).showPopAd(this);
+		LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout);
+		AppConnect.getInstance(this).showBannerAd(this, adlayout);
 	}
 
 	private void initData() {
@@ -111,19 +113,5 @@ public class ImageDataActivity extends BaseActivity {
 
 		ImageDataManager.getInstance().getDBResIdImageData(res_id);
 		NetServiceManager.getInstance().getResImageListData(res_id);// 第一页
-	}
-	
-	private void updateFunction(){
-		if(AppManager.isOpen){
-			AppConnect.getInstance(this).showPopAd(this);
-
-			slidingDrawerView = SlideWall.getInstance().getView(this);
-			if (slidingDrawerView != null) {
-				addContentView(slidingDrawerView, new LayoutParams(
-						LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-			}
-		}else{
-			
-		}
 	}
 }
